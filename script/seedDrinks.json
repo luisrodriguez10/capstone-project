@@ -1,0 +1,72 @@
+[
+    {
+        "alcoholic": true,
+        "ingredientOne": "Gin",
+        "ingredientTwo": "",
+        "ingredientThree": "",
+        "ingredientFour": "",
+        "ingredientFive": "",
+        "ingredientSix": "",
+        "ingredientSeven": "",
+        "imageUrl": "",
+        "directions": "",
+        "userId": "",
+        "drinkId": ""
+    },
+    {
+        "alcoholic": true,
+        "ingredientOne": "Tequila",
+        "ingredientTwo": "",
+        "ingredientThree": "",
+        "ingredientFour": "",
+        "ingredientFive": "",
+        "ingredientSix": "",
+        "ingredientSeven": "",
+        "imageUrl": "",
+        "directions": "",
+        "userId": "",
+        "drinkId": ""
+    },
+    {
+        "alcoholic": true,
+        "ingredientOne": "Vodka",
+        "ingredientTwo": "",
+        "ingredientThree": "",
+        "ingredientFour": "",
+        "ingredientFive": "",
+        "ingredientSix": "",
+        "ingredientSeven": "",
+        "imageUrl": "",
+        "directions": "",
+        "userId": "",
+        "drinkId": ""
+    },
+    {
+        "alcoholic": true,
+        "ingredientOne": "Apple brandy",
+        "ingredientTwo": "",
+        "ingredientThree": "",
+        "ingredientFour": "",
+        "ingredientFive": "",
+        "ingredientSix": "",
+        "ingredientSeven": "",
+        "imageUrl": "",
+        "directions": "",
+        "userId": "",
+        "drinkId": ""
+    },
+    {
+        "alcoholic": true,
+        "ingredientOne": "Irish whiskey",
+        "ingredientTwo": "",
+        "ingredientThree": "",
+        "ingredientFour": "",
+        "ingredientFive": "",
+        "ingredientSix": "",
+        "ingredientSeven": "",
+        "imageUrl": "",
+        "directions": "",
+        "userId": "",
+        "drinkId": ""
+    }
+]

@@ -1,0 +1,254 @@
+[
+    {
+        "brand": "Hendricks",
+        "name": "Gin",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "Bombay",
+        "name": "Gin",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "Beefeater",
+        "name": "Gin",
+        "stock": false,
+        "userId": 3
+    },
+    {
+        "brand": "Patron",
+        "name": "Tequila",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "Don Julio",
+        "name": "Tequila",
+        "stock": true,
+        "userId": 5
+    },
+    {
+        "brand": "",
+        "name": "Watermelon",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Watermelon",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "",
+        "name": "Watermelon",
+        "stock": true,
+        "userId": 3
+    },
+    {
+        "brand": "",
+        "name": "Watermelon",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Watermelon",
+        "stock": true,
+        "userId": 5
+    },
+    {
+        "brand": "",
+        "name": "Sherry",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Sherry",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "",
+        "name": "Sherry",
+        "stock": true,
+        "userId": 3
+    },
+    {
+        "brand": "",
+        "name": "Milk",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Milk",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Ginger",
+        "stock": true,
+        "userId": 5
+    },
+    {
+        "brand": "",
+        "name": "Ginger",
+        "stock": true,
+        "userId": 3
+    },
+    {
+        "brand": "",
+        "name": "Ginger",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "",
+        "name": "Mango",
+        "stock": false,
+        "userId": 3
+    },
+    {
+        "brand": "",
+        "name": "Mango",
+        "stock": false,
+        "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Mango",
+        "stock": false,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Mango",
+        "stock": false,
+        "userId": 5
+    },
+    {
+        "brand": "",
+        "name": "Lime",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Berries",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Berries",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Berries",
+        "stock": true,
+        "userId": 5
+    },
+    {
+        "brand": "",
+        "name": "Grapes",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "",
+        "name": "Grapes",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Grapes",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Heavy cream",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Heavy cream",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "",
+        "name": "Heavy cream",
+        "stock": true,
+        "userId": 5
+    },
+    {
+        "brand": "Myers's",
+        "name": "Dark rum",
+        "stock": true,
+        "userId": 3
+    },
+    {
+        "brand": "The Glenlivet",
+        "name": "Scotch",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "Jameson",
+        "name": "Irish whiskey",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "Bush Mills",
+        "name": "Irish whiskey",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "E & J",
+        "name": "Apple brandy",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "Smirnoff",
+        "name": "Vodka",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "Absolut",
+        "name": "Vodka",
+        "stock": true,
+        "userId": 5
+    },
+    {
+        "brand": "",
+        "name": "Apple juice",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Apple juice",
+        "stock": true,
+        "userId": 3
+    },
+    {
+        "brand": "",
+        "name": "Apple juice",
+        "stock": true,
+        "userId": 5
+    }
+]
