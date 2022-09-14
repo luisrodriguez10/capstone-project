@@ -2,29 +2,52 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import './Navbar.css';
+
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>FS-App-Template</h1>
+    <h1 className='firstrow'>The Cocktelero</h1>
+    <hr />
+
     <nav>
       {isLoggedIn ? (
-        <div>
+        <div className='secondrowlogin'>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
+          <div className='drink'> <Link to="/home">Home</Link></div>
+          <div className='drink'><Link to="/Mydrink">My Drink</Link></div>
+          <div className='drink'><Link to="/MyPantry">My Pantry</Link></div>
+          <div className='drink'><Link to="/Recipes">Recipes</Link></div>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
         </div>
       ) : (
-        <div>
+
+        <div className='secondrow'>
+
           {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <div className='drink'><Link to="/Mydrink">My Drink</Link></div>
+          <div className='drink'><Link to="/MyPantry">My Pantry</Link></div>
+          <div className='drink'><Link to="/Recipes">Recipes</Link></div>
+          <div className='drink'><Link to="/login">Login</Link></div>
+          <div className='drink'><Link to="/signup">Sign Up</Link></div>
+          
         </div>
       )}
     </nav>
     <hr />
+
+    <div className='footer'>
+    <hr className='footerhr' />
+
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+
+    </div>
   </div>
+  
 )
 
 /**
