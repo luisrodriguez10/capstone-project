@@ -6,15 +6,33 @@
         "userId": 1
     },
     {
+        "brand": "Grand Marnier",
+        "name": "Cognac",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Lemon Juice",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Grenadine",
+        "stock": true,
+        "userId": 1
+    },
+    {
         "brand": "Bombay",
         "name": "Gin",
         "stock": true,
         "userId": 2
     },
     {
-        "brand": "Beefeater",
-        "name": "Gin",
-        "stock": false,
+        "brand": "Chivas Regal 18",
+        "name": "Blended whiskey",
+        "stock": true,
         "userId": 3
     },
     {
@@ -43,7 +61,7 @@
     },
     {
         "brand": "",
-        "name": "Watermelon",
+        "name": "Dry Vermouth",
         "stock": true,
         "userId": 3
     },
@@ -151,7 +169,7 @@
     },
     {
         "brand": "",
-        "name": "Berries",
+        "name": "Lime juice",
         "stock": true,
         "userId": 5
     },
@@ -175,7 +193,13 @@
     },
     {
         "brand": "",
-        "name": "Heavy cream",
+        "name": "Lime juice",
+        "stock": true,
+        "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Triple sec",
         "stock": true,
         "userId": 4
     },
@@ -187,7 +211,7 @@
     },
     {
         "brand": "",
-        "name": "Heavy cream",
+        "name": "Soda water",
         "stock": true,
         "userId": 5
     },
@@ -202,6 +226,30 @@
         "name": "Scotch",
         "stock": true,
         "userId": 4
+    },
+    {
+        "brand": "",
+        "name": "Orange bitters",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "The Glenlivet",
+        "name": "Scotch",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "",
+        "name": "Sweet Vermouth",
+        "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "",
+        "name": "Dry Vermouth",
+        "stock": true,
+        "userId": 2
     },
     {
         "brand": "Jameson",
@@ -241,7 +289,7 @@
     },
     {
         "brand": "",
-        "name": "Apple juice",
+        "name": "Pineapple juice",
         "stock": true,
         "userId": 3
     },

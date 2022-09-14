@@ -1,0 +1,32 @@
+[
+    {
+        "drinkId": "17222",
+        "rating": 4,
+        "comment": "Easy to make",
+        "userId": 1
+    },
+    {
+        "drinkId": "11007",
+        "rating": 3,
+        "comment": "Instructions are not accurate",
+        "userId": 4
+    },
+    {
+        "drinkId": "12756",
+        "rating": 5,
+        "comment": "Easy to make and tastes good!!!",
+        "userId": 5
+    },
+    {
+        "drinkId": "17840",
+        "rating": 5,
+        "comment": "Best Affinity Ive ever made!!!",
+        "userId": 2
+    },
+    {
+        "drinkId": "11020",
+        "rating": 5,
+        "comment": "Best Algonquin Ive ever made!!!",
+        "userId": 3
+    }
+]

@@ -1,6 +1,11 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, PantryItem, MyDrink, Review, Ingredient} } = require('../server/db');
+const seedUsers = require('./seedUsers.json');
+const seedPantryItems = require('./seedPantryItems.json');
+const seedMyDrinks = require('./seedMyDrinks.json');
+const seedReviews = require('./seedReviews.json');
+const seedIngredients = require('./seedIngredients.json');
 
 /**
  * seed - this function clears the database, updates tables to
@@ -10,20 +15,27 @@ async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
-  // Creating Users
-  const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
-  ])
+  await Promise.all(seedUsers.map(user => User.create(user)));
+  await Promise.all(seedIngredients.map(ingredient => Ingredient.create(ingredient)));
+  await Promise.all(seedPantryItems.map(pantryItem => PantryItem.create(pantryItem)));
+  await Promise.all(seedMyDrinks.map(myDrink => MyDrink.create(myDrink)));
+  await Promise.all(seedReviews.map(review => Review.create(review)));
 
-  console.log(`seeded ${users.length} users`)
-  console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
+
+  // Creating Users
+  // const users = await Promise.all([
+  //   User.create({ username: 'cody', password: '123' }),
+  //   User.create({ username: 'murphy', password: '123' }),
+  // ])
+
+  // console.log(`seeded ${users.length} users`)
+  // console.log(`seeded successfully`)
+  // return {
+  //   users: {
+  //     cody: users[0],
+  //     murphy: users[1]
+  //   }
+  // }
 }
 
 /*
