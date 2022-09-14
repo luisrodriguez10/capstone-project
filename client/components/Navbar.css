@@ -1,0 +1,48 @@
+.firstrow {
+    text-align: center;
+}
+
+.secondrow {
+    display: flex;
+    justify-content: center; 
+}
+.secondrowlogin{
+    display: flex;
+    justify-content: center; 
+}
+
+.drink:hover{
+    text-shadow: -.25px -.25px 0 black, 
+    .25px .25px black;
+}
+
+hr {
+    width: 60%;margin-left: auto;margin-right: auto;
+    background-color: black
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 9px;
+    width: 100%;
+    text-align: center;
+}
+
+.fa {
+    color: black;
+    width: 50px;
+    position: relative;
+    bottom: 1px 
+}
+
+.fa-facebook {
+    font-size: 18px;
+}
+
+.fa-instagram {
+    font-size:18px;
+}
+.fa-twitter {
+    font-size: 18px;
+}
