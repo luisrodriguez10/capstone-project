@@ -1,0 +1,42 @@
+[
+    {
+        "username": "john1008",
+        "password": "abc123",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john_doe@gmail.com",
+        "image": ""
+    },
+    {
+        "username": "carl190",
+        "password": "123abc",
+        "firstName": "Carl",
+        "lastName": "King",
+        "email": "carl_k12@gmail.com",
+        "image": ""
+    },
+    {
+        "username": "markb20",
+        "password": "123abc",
+        "firstName": "Mark",
+        "lastName": "Bent",
+        "email": "mark_10b@gmail.com",
+        "image": ""
+    },
+    {
+        "username": "nathan20",
+        "password": "789abc",
+        "firstName": "Nathan",
+        "lastName": "Harvey",
+        "email": "nathanhar@gmail.com",
+        "image": ""
+    },
+    {
+        "username": "Kathy34c",
+        "password": "qwe123",
+        "firstName": "Kathy",
+        "lastName": "Lake",
+        "email": "lake_katty@gmail.com",
+        "image": ""
+    }
+]
