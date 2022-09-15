@@ -1,10 +1,11 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class Recipes extends Component {
     render() {
         return(
             <div>
-                hello
+                <button>click</button>
             </div>
         )
     }

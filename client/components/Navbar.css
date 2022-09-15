@@ -18,7 +18,9 @@
 
 hr {
     width: 60%;margin-left: auto;margin-right: auto;
-    background-color: black
+    border: 0;
+    height: 1px;
+    background: #333;
 }
 
 .footer {
@@ -27,6 +29,7 @@ hr {
     bottom: 9px;
     width: 100%;
     text-align: center;
+    margin-top: -180px;
 }
 
 .fa {
@@ -45,4 +48,69 @@ hr {
 }
 .fa-twitter {
     font-size: 18px;
+}
+
+.topdrinksforfall{
+    border: 1px solid;
+    width: 26rem;
+    text-align: center;
+    padding: 20px;
+    border-radius: 3rem;
+
+}
+
+.falldrinks{
+ border-radius: 10px;
+}
+
+.falldrinks1{
+    text-align: center;
+}
+
+.topdrinksforapples{
+    border: 1px solid;
+    width: 30rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.row1{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info {
+    font-size: 12px; 
+}
+
+.mainimage {
+    opacity: 0.8;
+    border-radius: 15rem;
+    
+}
+ 
+.firsthalf {
+    display: flex;
+    justify-content:  center
+}
+
+.definition{
+    /* border: 1px solid; */
+    position: relative;
+    left: 25px;
+    top: 50px;
+    width: 40rem
+}
+.drinktitle{
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
+
+hr.definitionhr{
+    width: 95%;margin-left: auto;margin-right: 50%;
+    border: 0;
+    height: 1px;
+    background: #333;
 }

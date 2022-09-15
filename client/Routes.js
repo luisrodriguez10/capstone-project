@@ -7,6 +7,7 @@ import Mydrinks from './components/Mydrinks';
 import Mypantry from './components/Mypantry';
 import Recipes from './components/Recipes';
 import MyDrink from './components/MyDrink';
+import Landingpage from './components/Landingpage';
 
 import {me} from './store'
 
