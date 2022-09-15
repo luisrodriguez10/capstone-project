@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Mydrink from './components/Mydrink';
 import Mypantry from './components/Mypantry';
 import Recipes from './components/Recipes';
+import Landingpage from './components/Landingpage';
 
 import {me} from './store'
 
@@ -24,17 +25,20 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route path="/home" component={Home} />
+            <Route path="/home" exact component={Home} />
             <Redirect to="/home" />
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact component={ Login } />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/Mydrink" component={Mydrink} />
-            <Route path="/Mypantry" component={Mypantry} />
-            <Route path="/Recipes" component={Recipes} />
+            {/* <Route path='/' exact component={ Login } /> */}
+            <Route path='/home'  component={ Landingpage }/>
+            <Route path='/' exact component={ Landingpage }/>
+
+            <Route path="/login" exact component={Login} />
+            <Route path="/signup" exact component={Signup} />
+            <Route path="/Mydrink"exact component={Mydrink} />
+            <Route path="/Mypantry" exact component={Mypantry} />
+            <Route path="/Recipes" exact component={Recipes} />
 
           </Switch>
         )}
