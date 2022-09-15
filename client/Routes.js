@@ -3,9 +3,10 @@ import {connect} from 'react-redux'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
-import Mydrink from './components/Mydrink';
+import Mydrinks from './components/Mydrinks';
 import Mypantry from './components/Mypantry';
 import Recipes from './components/Recipes';
+import MyDrink from './components/MyDrink';
 
 import {me} from './store'
 
@@ -24,18 +25,17 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route path="/home" component={Home} />
-            <Redirect to="/home" />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/myDrinks" component={Mydrinks} />
+            <Route path="/myDrink" component={MyDrink} />
+            <Route path="/Mypantry" component={Mypantry} />
+            <Route path="/Recipes" component={Recipes} />
           </Switch>
         ) : (
           <Switch>
             <Route path='/' exact component={ Login } />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <Route path="/Mydrink" component={Mydrink} />
-            <Route path="/Mypantry" component={Mypantry} />
-            <Route path="/Recipes" component={Recipes} />
-
           </Switch>
         )}
       </div>

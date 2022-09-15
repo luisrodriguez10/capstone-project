@@ -1,8 +1,6 @@
 body {
   font-family: 'DM Serif Display', serif;  
-  background-color: #F8F0E3
-  ;
-
+  background-color: #F8F0E3;
 }
 
 a {
@@ -21,4 +19,22 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+div#my-drinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+div.drink-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100%/4 - 1rem);
+  padding: 1rem;
+  margin: 1rem;
+  border: solid 2px #81796d;
+  border-radius: 20px;
 }
