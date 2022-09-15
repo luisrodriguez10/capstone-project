@@ -24,11 +24,7 @@ router.get('', async (req, res, next) => {
 /* get ingredient by ingredient id */
 router.get('/:id', async (req, res, next) => {
   try {
-    res.send(await Ingredient.findAll({
-      where: {
-        id: req.params.id
-      }
-    }))
+    res.send(await Ingredient.findByPk(req.params.id))
   } catch (err) {
     next(err)
   }

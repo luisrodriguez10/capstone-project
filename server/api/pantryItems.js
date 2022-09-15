@@ -15,11 +15,7 @@ router.post('/', async (req, res, next) => {
 /* get pantry item by item id */
 router.get('/:id', async (req, res, next) => {
   try {
-    res.send(await PantryItem.findAll({
-      where: {
-        id: req.params.id
-      }
-    }))
+    res.send(await PantryItem.findByPk(req.params.id))
   } catch (err) {
     next(err)
   }
