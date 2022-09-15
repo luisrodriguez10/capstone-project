@@ -21,22 +21,22 @@ async function seed() {
   await Promise.all(seedMyDrinks.map(myDrink => MyDrink.create(myDrink)));
   await Promise.all(seedReviews.map(review => Review.create(review)));
 
-
-  // Creating Users
-  // const users = await Promise.all([
-  //   User.create({ username: 'cody', password: '123' }),
-  //   User.create({ username: 'murphy', password: '123' }),
-  // ])
-
-  // console.log(`seeded ${users.length} users`)
-  // console.log(`seeded successfully`)
-  // return {
-  //   users: {
-  //     cody: users[0],
-  //     murphy: users[1]
-  //   }
-  // }
 }
+  //Creating Users
+//   const users = await Promise.all([
+//     User.create({ username: 'cody', password: '123', firstName: 'cody', lastName: 'ydoc', email: 'cody@cody.com' }),
+//     User.create({ username: 'murphy', password: '123', firstName: 'murphy', lastName: 'yhprum', email: 'murphy@murphy.com' }),
+//   ])
+
+//   console.log(`seeded ${users.length} users`)
+//   console.log(`seeded successfully`)
+//   return {
+//     users: {
+//       cody: users[0],
+//       murphy: users[1]
+//     }
+//   }
+// }
 
 /*
  We've separated the `seed` function from the `runSeed` function.
