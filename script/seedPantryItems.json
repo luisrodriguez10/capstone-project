@@ -1,5 +1,23 @@
 [
     {
+        "brand": "",
+        "name": "Mint",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Sugar",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "Bacardi",
+        "name": "Light rum",
+        "stock": true,
+        "userId": 1
+    },
+    {
         "brand": "Hendricks",
         "name": "Gin",
         "stock": true,
@@ -8,6 +26,18 @@
     {
         "brand": "Grand Marnier",
         "name": "Cognac",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Amaretto",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "Baileys",
+        "name": "Irish cream",
         "stock": true,
         "userId": 1
     },
@@ -214,6 +244,12 @@
         "name": "Soda water",
         "stock": true,
         "userId": 5
+    },
+    {
+        "brand": "",
+        "name": "Soda water",
+        "stock": true,
+        "userId": 1
     },
     {
         "brand": "Myers's",

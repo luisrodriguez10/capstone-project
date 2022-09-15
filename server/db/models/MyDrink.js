@@ -105,7 +105,7 @@ const MyDrink = db.define('myDrink', {
     type: Sequelize.STRING
   },
   imageURL: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   directions: {
     type: Sequelize.TEXT
