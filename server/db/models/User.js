@@ -63,6 +63,15 @@ User.prototype.generateToken = function() {
   return jwt.sign({id: this.id}, process.env.JWT)
 }
 
+// User.prototype.getMyDrinks = async function () {
+//   const myDrinks = await db.models.myDrinks.findAll({
+//     where: {
+//       userId: this.id
+//     }
+//   })
+//   return myDrinks
+// }
+
 /**
  * classMethods
  */
