@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import { deleteMyDrink } from "../store";
 import {
     PencilFill,
-    Trash3Fill,
-    EmojiFrown,
-    EmojiSunglasses,
-    ArrowRightSquareFill
+    Trash3Fill
   } from "react-bootstrap-icons";
 
 class MyDrink extends Component {

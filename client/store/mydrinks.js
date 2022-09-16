@@ -27,10 +27,12 @@ export const deleteMyDrink = (drink) => {
     }
 }
 
-export const updateMyDrink = (drink) =>{
+export const updateMyDrink = (drink, history) =>{
     return async (dispatch) => {
-        const response  = await axios.put(`/api/myDrinks/${drink.id}`);
+        const response  = await axios.put(`/api/myDrinks/${drink.id}`, drink);
+        console.log(response.data)
         dispatch({ type: 'UPDATE_MY_DRINK', myDrink: response.data })
+        history.push('/myDrinks')
     }
 }
 
