@@ -35,6 +35,5 @@ div.drink-info{
   width: calc(100%/4 - 1rem);
   padding: 1rem;
   margin: 1rem;
-  border: solid 2px #81796d;
   border-radius: 20px;
 }

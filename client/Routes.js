@@ -8,6 +8,7 @@ import Mypantry from './components/Mypantry';
 import Recipes from './components/Recipes';
 import MyDrink from './components/MyDrink';
 import Landingpage from './components/Landingpage';
+import EditMyDrink from './components/EditMyDrink';
 
 import {me} from './store'
 
@@ -29,6 +30,7 @@ class Routes extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/myDrinks" component={Mydrinks} />
             <Route path="/myDrink" component={MyDrink} />
+            <Route path="/editMyDrink" component={EditMyDrink} />
             <Route path="/Mypantry" component={Mypantry} />
             <Route path="/Recipes" component={Recipes} />
           </Switch>

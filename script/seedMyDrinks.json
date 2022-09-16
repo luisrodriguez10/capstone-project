@@ -1,6 +1,6 @@
 [
     {
-        "drinkId": "17222",
+        "drinkName": "A1",
         "alcoholic": true,
         "ingredient1": "Gin",
         "ingredient2": "Grand Marnier",
@@ -37,7 +37,7 @@
         "userId": 1
     },
     {
-        "drinkId": "13501",
+        "drinkName": "ABC",
         "alcoholic": true,
         "ingredient1": "Amaretto",
         "ingredient2": "Baileys irish cream",
@@ -74,7 +74,7 @@
         "userId": 1
     },
     {
-        "drinkId": "11000",
+        "drinkName": "Mojito",
         "alcoholic": true,
         "ingredient1": "Light rum",
         "ingredient2": "Lime",
@@ -111,7 +111,7 @@
         "userId": 1
     },
     {
-        "drinkId": "11007",
+        "drinkName": "Margarita",
         "alcoholic": true,
         "ingredient1": "Tequila",
         "ingredient2": "Triple sec",
@@ -148,7 +148,7 @@
         "userId": 4
     },
     {
-        "drinkId": "12756",
+        "drinkName": "Autodafé",
         "alcoholic": true,
         "ingredient1": "Vodka",
         "ingredient2": "Lime juice",
@@ -185,7 +185,7 @@
         "userId": 5
     },
     {
-        "drinkId": "17840",
+        "drinkName": "Affinity",
         "alcoholic": true,
         "ingredient1": "Scotch",
         "ingredient2": "Sweet Vermouth",
@@ -222,7 +222,7 @@
         "userId": 2
     },
     {
-        "drinkId": "11020",
+        "drinkName": "Algonquin",
         "alcoholic": true,
         "ingredient1": "Blended whiskey",
         "ingredient2": "Dry Vermouth",
