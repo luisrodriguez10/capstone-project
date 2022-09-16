@@ -37,14 +37,14 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     </nav>
     <hr />
 
-    <div className='footer'>
+    {/* <div className='footer'>
     <hr className='footerhr' />
 
     <a href="#"><i class="fa fa-facebook"></i></a>
     <a href="#"><i class="fa fa-twitter"></i></a>
     <a href="#"><i class="fa fa-instagram"></i></a>
 
-    </div>
+    </div> */}
   </div>
   
 )

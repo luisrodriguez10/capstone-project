@@ -53,7 +53,7 @@ class Mydrinks extends Component {
                 </div>
                 
                 <div style={{ height: "70px", marginTop: "1rem" }}>
-                  <Link to={{ pathname: "/myDrink", state: drink }}><h2>{drink.drinkName}</h2></Link>
+                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}><h2>{drink.drinkName}</h2></Link>
                 </div>
                 <div style={{ height: "70px", marginTop: "1rem" }}>
                   {drink.alcoholic ? (
@@ -70,7 +70,7 @@ class Mydrinks extends Component {
                     justifyContent: "space-evenly",
                   }}
                 >
-                  <Link to={{ pathname: "/myDrink", state: drink }}>
+                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}>
                     <ArrowRightSquareFill size={25} />
                   </Link>
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
