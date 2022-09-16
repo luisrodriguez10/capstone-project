@@ -2,11 +2,11 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 const MyDrink = db.define('myDrink', {
-  drinkId: {
-    type: Sequelize.INTEGER,
+  drinkName: {
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      isInt: true
+      notEmpty: true
     }
   },
   alcoholic: {
