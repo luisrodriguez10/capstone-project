@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const SearchBar = ({ myDrinks }) => {
+const SearchBarMyDrinks = ({ myDrinks }) => {
   console.log(myDrinks);
   const [query, setQuery] = useState("");
 
@@ -56,4 +56,4 @@ const SearchBar = ({ myDrinks }) => {
   );
 };
 
-export default connect()(SearchBar);
+export default connect()(SearchBarMyDrinks);

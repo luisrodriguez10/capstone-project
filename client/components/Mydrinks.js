@@ -9,7 +9,7 @@ import {
   EmojiSunglasses,
   ArrowRightSquareFill
 } from "react-bootstrap-icons";
-import SearchBar from "./SearchBar";
+import SearchBarMyDrinks from "./SearchBarMyDrinks";
 
 class Mydrinks extends Component {
 
@@ -31,7 +31,7 @@ class Mydrinks extends Component {
       >
         <h2>My Drinks</h2>
         <div className="my-4">
-          <SearchBar myDrinks={myDrinks}/>
+          <SearchBarMyDrinks myDrinks={myDrinks}/>
         </div>
         <div id="my-drinks">
           {myDrinks.map((drink) => {
