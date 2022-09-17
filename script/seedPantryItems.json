@@ -12,6 +12,12 @@
         "userId": 1
     },
     {
+        "brand": "",
+        "name": "Orange juice",
+        "stock": true,
+        "userId": 1
+    },
+    {
         "brand": "Bacardi",
         "name": "Light rum",
         "stock": true,
@@ -115,7 +121,7 @@
     },
     {
         "brand": "",
-        "name": "Sherry",
+        "name": "Soda water",
         "stock": true,
         "userId": 2
     },
@@ -235,7 +241,7 @@
     },
     {
         "brand": "",
-        "name": "Heavy cream",
+        "name": "Lime juice",
         "stock": true,
         "userId": 2
     },
@@ -315,11 +321,29 @@
         "brand": "Absolut",
         "name": "Vodka",
         "stock": true,
+        "userId": 2
+    },
+    {
+        "brand": "Absolut",
+        "name": "Vodka",
+        "stock": true,
         "userId": 5
+    },
+    {
+        "brand": "Absolut",
+        "name": "Vodka",
+        "stock": true,
+        "userId": 1
     },
     {
         "brand": "",
         "name": "Apple juice",
+        "stock": true,
+        "userId": 1
+    },
+    {
+        "brand": "",
+        "name": "Creme de Banane",
         "stock": true,
         "userId": 1
     },
