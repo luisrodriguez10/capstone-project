@@ -39,6 +39,7 @@ class EditMyDrink extends Component {
       measure14: "",
       measure15: "",
       imageURL: "",
+      avatar: "",
       directions: "",
       error: "",
     };
@@ -47,6 +48,14 @@ class EditMyDrink extends Component {
   }
 
   componentDidMount() {
+    this.el.addEventListener("change", (ev) => {
+      const file = ev.target.files[0];
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        this.setState({ avatar: reader.result });
+      });
+      reader.readAsDataURL(file);
+    });
     this.props.fetchMyDrinks(this.props.auth);
     if (this.props.drink.id) {
       this.setState({
@@ -170,6 +179,7 @@ class EditMyDrink extends Component {
       measure14: this.state.measure14,
       measure15: this.state.measure15,
       directions: this.state.directions,
+      imageURL: this.state.avatar,
     };
     this.props.updateMyDrink(drink);
   }
@@ -211,6 +221,7 @@ class EditMyDrink extends Component {
       measure14,
       measure15,
       imageURL,
+      avatar,
       directions,
       error,
     } = this.state;
@@ -225,33 +236,43 @@ class EditMyDrink extends Component {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  justifyContent: 'center'
                 }}
               >
-                <img
-                  src={drink.imageURL}
-                  style={{
-                    width: "8rem",
-                    height: "8rem",
-                    backgroundSize: "cover",
-                    backgroundPosition: "top center",
-                    borderRadius: "50%",
-                  }}
-                ></img>
+                {!avatar ? (
+                  <img
+                    src={drink.imageURL}
+                    style={{
+                      width: "8rem",
+                      height: "8rem",
+                      backgroundSize: "cover",
+                      backgroundPosition: "top center",
+                      borderRadius: "50%",
+                    }}
+                  ></img>
+                ) : (
+                  <img
+                    src={avatar}
+                    style={{
+                      width: "8rem",
+                      height: "8rem",
+                      backgroundSize: "cover",
+                      backgroundPosition: "top center",
+                      borderRadius: "50%",
+                    }}
+                  ></img>
+                )}
+                <div className="mt-4">
+                  <label className="form-label small">Upload Avatar</label>
+                  <input
+                    type="file"
+                    className="form-control"
+                    ref={(el) => (this.el = el)}
+                    id="inputGroupFile02"
+                  ></input>
+                </div>
                 <div className="mt-4">
                   <h2>{drink.drinkName}</h2>
-                  {/* <label
-                  htmlFor="drinkName"
-                  className="form-label small"
-                >
-                  Drink
-                </label>
-                <input
-                  value={drinkName}
-                  name="drinkName"
-                  type="text"
-                  className="form-control"
-                  disabled
-                ></input> */}
                 </div>
                 {drink.ingredient1 ? (
                   <div className="mt-4">
@@ -716,9 +737,9 @@ const mapDispatchToProps = (dispatch, { history }) => {
   return {
     fetchMyDrinks: (user) => dispatch(fetchMyDrinks(user)),
     updateMyDrink: (drink) => {
-      console.log(drink)
-      dispatch(updateMyDrink(drink, history))
-    }
+      console.log(drink);
+      dispatch(updateMyDrink(drink, history));
+    },
   };
 };
 
