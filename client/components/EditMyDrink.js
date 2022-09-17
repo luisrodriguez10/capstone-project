@@ -146,6 +146,7 @@ class EditMyDrink extends Component {
 
   async save(ev) {
     ev.preventDefault();
+    console.log(this.state.avatar)
     let drink = {
       id: this.props.drink.id,
       ingredient1: this.state.ingredient1,
@@ -179,7 +180,7 @@ class EditMyDrink extends Component {
       measure14: this.state.measure14,
       measure15: this.state.measure15,
       directions: this.state.directions,
-      imageURL: this.state.avatar,
+      imageURL: this.state.avatar ? this.state.avatar : this.props.drink.imageURL,
     };
     this.props.updateMyDrink(drink);
   }

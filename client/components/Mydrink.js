@@ -9,7 +9,8 @@ import {
 
 class MyDrink extends Component {
   render() {
-    const drink = this.props.location.state;
+    const { myDrink } = this.props;
+    console.log(myDrink)
     const { deleteMyDrink } = this.props;
 
     return (
@@ -34,8 +35,8 @@ class MyDrink extends Component {
               padding: "1rem"
             }}
             src={
-              drink.imageURL
-                ? drink.imageURL
+              myDrink.imageURL
+                ? myDrink.imageURL
                 : "https://www.plslwd.org/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
           ></img>
@@ -50,7 +51,7 @@ class MyDrink extends Component {
           }}
         >
           <div>
-            <h1>{drink.drinkName}</h1>
+            <h1>{myDrink.drinkName}</h1>
           </div>
           <div
             style={{
@@ -62,64 +63,64 @@ class MyDrink extends Component {
           >
             <h2 style={{ textAlign: "center" }}>Ingredients</h2>
             <p>
-              {drink.ingredient1 ? drink.ingredient1 : null}{" "}
-              {drink.measure1 ? ` | ${drink.measure1}` : null}
+              {myDrink.ingredient1 ? myDrink.ingredient1 : null}{" "}
+              {myDrink.measure1 ? ` | ${myDrink.measure1}` : null}
             </p>
             <p>
-              {drink.ingredient2 ? drink.ingredient2 : null}{" "}
-              {drink.measure2 ? ` | ${drink.measure2}` : null}
+              {myDrink.ingredient2 ? myDrink.ingredient2 : null}{" "}
+              {myDrink.measure2 ? ` | ${myDrink.measure2}` : null}
             </p>
             <p>
-              {drink.ingredient3 ? drink.ingredient3 : null}{" "}
-              {drink.measure3 ? ` | ${drink.measure3}` : null}
+              {myDrink.ingredient3 ? myDrink.ingredient3 : null}{" "}
+              {myDrink.measure3 ? ` | ${myDrink.measure3}` : null}
             </p>
             <p>
-              {drink.ingredient4 ? drink.ingredient4 : null}{" "}
-              {drink.measure4 ? ` | ${drink.measure4}` : null}
+              {myDrink.ingredient4 ? myDrink.ingredient4 : null}{" "}
+              {myDrink.measure4 ? ` | ${myDrink.measure4}` : null}
             </p>
             <p>
-              {drink.ingredient5 ? drink.ingredient5 : null}{" "}
-              {drink.measure5 ? ` | ${drink.measure5}` : null}
+              {myDrink.ingredient5 ? myDrink.ingredient5 : null}{" "}
+              {myDrink.measure5 ? ` | ${myDrink.measure5}` : null}
             </p>
             <p>
-              {drink.ingredient6 ? drink.ingredient6 : null}{" "}
-              {drink.measure6 ? ` | ${drink.measure6}` : null}
+              {myDrink.ingredient6 ? myDrink.ingredient6 : null}{" "}
+              {myDrink.measure6 ? ` | ${myDrink.measure6}` : null}
             </p>
             <p>
-              {drink.ingredient7 ? drink.ingredient7 : null}{" "}
-              {drink.measure7 ? ` | ${drink.measure7}` : null}
+              {myDrink.ingredient7 ? myDrink.ingredient7 : null}{" "}
+              {myDrink.measure7 ? ` | ${myDrink.measure7}` : null}
             </p>
             <p>
-              {drink.ingredient8 ? drink.ingredient8 : null}{" "}
-              {drink.measure8 ? ` | ${drink.measure8}` : null}
+              {myDrink.ingredient8 ? myDrink.ingredient8 : null}{" "}
+              {myDrink.measure8 ? ` | ${myDrink.measure8}` : null}
             </p>
             <p>
-              {drink.ingredient9 ? drink.ingredient9 : null}{" "}
-              {drink.measure9 ? ` | ${drink.measure9}` : null}
+              {myDrink.ingredient9 ? myDrink.ingredient9 : null}{" "}
+              {myDrink.measure9 ? ` | ${myDrink.measure9}` : null}
             </p>
             <p>
-              {drink.ingredient10 ? drink.ingredient10 : null}{" "}
-              {drink.measure10 ? ` | ${drink.measure10}` : null}
+              {myDrink.ingredient10 ? myDrink.ingredient10 : null}{" "}
+              {myDrink.measure10 ? ` | ${myDrink.measure10}` : null}
             </p>
             <p>
-              {drink.ingredient11 ? drink.ingredient11 : null}{" "}
-              {drink.measure11 ? ` | ${drink.measure11}` : null}
+              {myDrink.ingredient11 ? myDrink.ingredient11 : null}{" "}
+              {myDrink.measure11 ? ` | ${myDrink.measure11}` : null}
             </p>
             <p>
-              {drink.ingredient12 ? drink.ingredient12 : null}{" "}
-              {drink.measure12 ? ` | ${drink.measure12}` : null}
+              {myDrink.ingredient12 ? myDrink.ingredient12 : null}{" "}
+              {myDrink.measure12 ? ` | ${myDrink.measure12}` : null}
             </p>
             <p>
-              {drink.ingredient13 ? drink.ingredient13 : null}{" "}
-              {drink.measure13 ? ` | ${drink.measure13}` : null}
+              {myDrink.ingredient13 ? myDrink.ingredient13 : null}{" "}
+              {myDrink.measure13 ? ` | ${myDrink.measure13}` : null}
             </p>
             <p>
-              {drink.ingredient14 ? drink.ingredient14 : null}{" "}
-              {drink.measure14 ? ` | ${drink.measure14}` : null}
+              {myDrink.ingredient14 ? myDrink.ingredient14 : null}{" "}
+              {myDrink.measure14 ? ` | ${myDrink.measure14}` : null}
             </p>
             <p>
-              {drink.ingredient15 ? drink.ingredient15 : null}{" "}
-              {drink.measure15 ? ` | ${drink.measure15}` : null}
+              {myDrink.ingredient15 ? myDrink.ingredient15 : null}{" "}
+              {myDrink.measure15 ? ` | ${myDrink.measure15}` : null}
             </p>
           </div>
           <div
@@ -131,7 +132,7 @@ class MyDrink extends Component {
             }}
           >
             <h2>Instructions</h2>
-            <p>{drink.directions}</p>
+            <p>{myDrink.directions}</p>
           </div>
           <div
             style={{
@@ -141,7 +142,7 @@ class MyDrink extends Component {
               justifyContent: "space-evenly",
             }}
           >
-            <Link to={{ pathname: "/editMyDrink", state: drink }}>
+            <Link to={{ pathname: "/editMyDrink", state: myDrink }}>
               <PencilFill size={25} />
             </Link>
             <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
@@ -154,10 +155,22 @@ class MyDrink extends Component {
   }
 }
 
+const mapStateToProps = (state, { match }) =>{
+  console.log(match)
+  const id = match.params.id * 1;
+  console.log(id)
+  console.log(state)
+  let myDrink = state.myDrinks.find((myDrink) => myDrink.id === id) || {};
+
+  return {
+    myDrink
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
       deleteMyDrink: (drink) => dispatch(deleteMyDrink(drink)),
     };
   };
 
-export default connect(null, mapDispatchToProps)(MyDrink);
+export default connect(mapStateToProps, mapDispatchToProps)(MyDrink);
