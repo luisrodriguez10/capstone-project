@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipes } from '../store';
+import { fetchRecipes, fetchIngredients, fetchPantry } from '../store';
 import { Link } from "react-router-dom";
 
 class Recipes extends Component {
@@ -8,17 +8,28 @@ class Recipes extends Component {
 		super();
 		this.state = {
 			currentPage: 1,
-			productsPerPage: 9
+			productsPerPage: 9,
+			listPantry: false
 		}
+		this.pantryToggle = this.pantryToggle.bind(this)
 	}
-	async componentDidMount() {
-		await this.props.fetchRecipes();
+	componentDidMount() {
+		this.props.fetchRecipes();
+		this.props.fetchIngredients();
+		this.props.fetchPantry( this.props.auth );
+		console.log( this.props.auth )
+	}
+	pantryToggle(){
+		this.setState({ listPantry: !this.state.listPantry })
 	}
 	render() {
-		const { recipes } = this.props;
-		const { currentPage, productsPerPage } = this.state;
+		const { recipes, ingredients, pantry } = this.props;
+		const { currentPage, productsPerPage, listPantry } = this.state;
+		const { pantryToggle }  = this;
 		const results = recipes.drinks;
 		console.log( results );
+		console.log( ingredients );
+		console.log( pantry );
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
@@ -49,6 +60,22 @@ class Recipes extends Component {
 
 		return(
 			<div>
+				<div className='ingredient-list'>
+					<button onClick={ pantryToggle }>pantry</button>
+					{	
+						listPantry ? 
+						pantry.map( ingredient => {
+							return (
+								<li key={ ingredient.id }> { ingredient.name }</li>
+							)
+						}) :
+						ingredients.map( ingredient => {
+							return (
+								<li key={ ingredient.id }> { ingredient.name }</li>
+							)
+						})
+					}
+				</div>
 				<ul>
 					{
 						results ? 
@@ -84,63 +111,19 @@ class Recipes extends Component {
 
 const mapStateToProps = ( state ) => {
 	return {
-		recipes: state.recipes
+		auth: state.auth,
+		recipes: state.recipes,
+		ingredients: state.ingredients,
+		pantry: state.pantry
 	}
 }
 
 const mapDispatchToProps = ( dispatch ) => {
 	return{
-		fetchRecipes: () => dispatch(fetchRecipes())
+		fetchRecipes: () => dispatch(fetchRecipes()),
+		fetchIngredients: () => dispatch(fetchIngredients()),
+		fetchPantry: ( user ) => dispatch(fetchPantry( user ))
 	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
-
-
-// render() {
-// 	console.log(this.props.products)
-// 	const indexOfLastPost = this.state.currentPage * this.state.productsPerPage;
-// 	const indexOfFirstPost = indexOfLastPost - this.state.productsPerPage;
-// 	const currentProducts = this.props.products.slice(indexOfFirstPost, indexOfLastPost);
-
-// 	const pageNumbers = []
-
-// 	const products = this.props.products;
-
-// 	for (let i = 1; i <= Math.ceil(products.length / this.state.productsPerPage); i++){
-// 		pageNumbers.push(i);
-// 	}
-// 	const setPage = (pageNum) => {
-// 		this.setState({currentPage: pageNum})
-// 	}
-
-// 	console.log(pageNumbers)
-
-// 	return (
-// 		<main>
-// 			<h2>Products</h2>
-// 			<ul>
-// 				{
-// 					currentProducts
-// 					.sort( (a,b) => a.name.localeCompare(b.name) )
-// 					.map( product => {
-// 						return (
-// 							<li key={ product.id }>
-// 								<img src={ product.imageUrl } alt={`${ product.name } Image`}></img><br></br>
-// 								<Link to={`/products/${ product.id }`}>{ product.name }</Link> - ${ product.price }
-// 							</li>
-// 						)
-// 					})
-// 				}
-// 			</ul>
-// 			<div>
-// 				{
-// 					pageNumbers.map((pageNum, index) => (
-// 						<button key={ index } onClick={() => {setPage(pageNum)}}>{pageNum}</button>
-// 					))
-// 				}
-// 			</div>
-// 		</main>
-// 		)
-// 	}
-// }
