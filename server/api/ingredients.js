@@ -13,7 +13,7 @@ router.post('/', async (req, res, next) => {
 })
 
 /* get all ingredients */
-router.get('', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     res.send(await Ingredient.findAll())
   } catch (err) {
