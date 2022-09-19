@@ -6,15 +6,17 @@ import { Link } from "react-router-dom";
 class Recipes extends Component {
 	constructor() {
 		super();
+		const page = window.location.hash.slice(10)
 		this.state = {
 			currentPage: 1,
 			productsPerPage: 9,
-			listPantry: false
+			listPantry: false,
+			search: page
 		}
 		this.pantryToggle = this.pantryToggle.bind(this)
 	}
 	componentDidMount() {
-		this.props.fetchRecipes();
+		this.props.fetchRecipes( this.state.search );
 		this.props.fetchIngredients();
 		this.props.fetchPantry( this.props.auth );
 		console.log( this.props.auth )
@@ -24,12 +26,13 @@ class Recipes extends Component {
 	}
 	render() {
 		const { recipes, ingredients, pantry } = this.props;
-		const { currentPage, productsPerPage, listPantry } = this.state;
+		const { currentPage, productsPerPage, listPantry, search } = this.state;
 		const { pantryToggle }  = this;
 		const results = recipes.drinks;
 		console.log( results );
 		console.log( ingredients );
 		console.log( pantry );
+		console.log( search );
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
@@ -61,7 +64,7 @@ class Recipes extends Component {
 		return(
 			<div>
 				<div className='ingredient-list'>
-					<button onClick={ pantryToggle }>pantry</button>
+					<button onClick={ pantryToggle }>Toggle Pantry List</button>
 					{	
 						listPantry ? 
 						pantry.map( ingredient => {
@@ -120,7 +123,7 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
 	return{
-		fetchRecipes: () => dispatch(fetchRecipes()),
+		fetchRecipes: ( search ) => dispatch(fetchRecipes( search )),
 		fetchIngredients: () => dispatch(fetchIngredients()),
 		fetchPantry: ( user ) => dispatch(fetchPantry( user ))
 	}

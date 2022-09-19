@@ -10,9 +10,9 @@ const recipes = ( state = [], action) => {
   return state;
 };
 
-export const fetchRecipes = () => {
+export const fetchRecipes = ( search ) => {
   return async(dispatch) => {
-    const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
+    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${ search }`)
     dispatch({ type: 'SET_RECIPES', recipes: response.data })
 
   }
