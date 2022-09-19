@@ -11,7 +11,7 @@ import {
   EmojiSunglasses,
   ArrowRightSquareFill
 } from "react-bootstrap-icons";
-import axios from "axios";
+import SearchBarMyDrinks from "./SearchBarMyDrinks";
 
 class Mydrinks extends Component {
 
@@ -25,6 +25,9 @@ class Mydrinks extends Component {
     return (
       <div className="my-drinks-page">
         <h2>My Drinks</h2>
+        <div className="my-4">
+          <SearchBarMyDrinks myDrinks={myDrinks}/>
+        </div>
         <div id="my-drinks">
           {myDrinks.map((drink) => {
 
@@ -43,16 +46,16 @@ class Mydrinks extends Component {
                 <div>
                 <hr className="hr-mydrinks"/>
 
-                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}><h2>{drink.drinkName}</h2></Link>
+                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}><h2 className="drinkname">{drink.drinkName}</h2></Link>
                   <hr className="hr-mydrinks"/>
 
                 </div>
 
                 <div>
                   {drink.alcoholic ? (
-                    <EmojiSunglasses size={40} />
+                    <EmojiSunglasses size={30} />
                   ) : (
-                    <EmojiFrown size={40} />
+                    <EmojiFrown size={30} />
                   )}
                 </div>
                 <div
@@ -63,12 +66,21 @@ class Mydrinks extends Component {
                     justifyContent: "space-evenly",
                   }}
                 >
-                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}>
+                  <div className="bottom">
+                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}>
                     <ArrowRightSquareFill size={25} />
+                  </Link> */}
+
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
+                    {/* <ArrowRightSquareFill size={25} /> */}
+                    Recipe
                   </Link>
+                  <div className="bottom">
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
                     <Trash3Fill size={25} />
                   </Link>
+                  </div>
+                  </div>
                 </div>
               </div>
             );

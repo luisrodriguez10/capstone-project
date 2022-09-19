@@ -19,3 +19,18 @@ hr.hr-mydrinks{
    margin-left: auto;margin-right: 50%;
 
 }
+
+.drinkname{
+    text-align: center;
+    color: black;
+    font-size: 20px
+}
+
+.drinkname:hover {
+    text-shadow: -.25px -.25px 0 blue, 
+    .5px .5px black;
+}
+
+.bottom{
+    vertical-align: baseline;
+}
