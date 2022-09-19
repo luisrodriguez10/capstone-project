@@ -16,8 +16,11 @@ class Mypantry extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    const { auth } = this.props;
-    this.props.getItems(auth.id);
+    const { items } = this.props;
+    if (items.length === 0) {    
+      const { auth } = this.props;
+      this.props.getItems(auth.id);
+    }
   }
   handleClick(item) {
     item.stock = !item.stock;
