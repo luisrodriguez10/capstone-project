@@ -11,9 +11,11 @@ class Recipes extends Component {
 			currentPage: 1,
 			productsPerPage: 9,
 			listPantry: false,
-			search: page
+			search: page,
+			checked: []
 		}
 		this.pantryToggle = this.pantryToggle.bind(this)
+		this.handleCheck = this.handleCheck.bind(this)
 	}
 	componentDidMount() {
 		this.props.fetchRecipes( this.state.search );
@@ -21,18 +23,41 @@ class Recipes extends Component {
 		this.props.fetchPantry( this.props.auth );
 		console.log( this.props.auth )
 	}
-	pantryToggle(){
+	componentDidUpdate(prevProps) {
+		if ( prevProps.checked ) {
+			if( prevProps.checked.length !== this.state.checked.length ) {
+				this.props.fetchRecipes( this.state.search );
+				console.log('updated')
+			}
+		} 
+	}
+	pantryToggle() {
 		this.setState({ listPantry: !this.state.listPantry })
+	}
+	handleCheck(ev) {
+		let updatedList = [...this.state.checked]
+		if (ev.target.checked) {
+			updatedList = [...this.state.checked, ev.target.value]
+		} else {
+			updatedList.splice(this.state.checked.indexOf(ev.target.value), 1)
+		}
+		this.setState({ checked: updatedList })
+		let searchList = updatedList.length ? 
+			updatedList.reduce((total, item) => {
+				return total + ',' + item;
+			}) : "";
+		this.setState({ search: searchList })
 	}
 	render() {
 		const { recipes, ingredients, pantry } = this.props;
-		const { currentPage, productsPerPage, listPantry, search } = this.state;
-		const { pantryToggle }  = this;
+		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
+		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
 		console.log( results );
 		console.log( ingredients );
 		console.log( pantry );
 		console.log( search );
+		console.log( checked );
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
@@ -69,12 +94,16 @@ class Recipes extends Component {
 						listPantry ? 
 						pantry.map( ingredient => {
 							return (
-								<li key={ ingredient.id }> { ingredient.name }</li>
+								<div>
+									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+								</div>
 							)
 						}) :
 						ingredients.map( ingredient => {
 							return (
-								<li key={ ingredient.id }> { ingredient.name }</li>
+								<div>
+									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+								</div>
 							)
 						})
 					}
