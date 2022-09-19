@@ -1,0 +1,36 @@
+.my-drinks{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.drinkimg{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    align-items: center
+}
+
+.drink-info{
+    border: 1px solid;
+}
+
+hr.hr-mydrinks{
+   width:10rem;
+   margin-left: auto;margin-right: 50%;
+
+}
+
+.drinkname{
+    text-align: center;
+    color: black;
+    font-size: 20px
+}
+
+.drinkname:hover {
+    text-shadow: -.25px -.25px 0 blue, 
+    .5px .5px black;
+}
+
+.bottom{
+    vertical-align: baseline;
+}

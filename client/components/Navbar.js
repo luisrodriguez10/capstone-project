@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import Landingpage from './Landingpage';
 import './Navbar.css';
 
 
@@ -16,8 +17,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           {/* The navbar will show these links after you log in */}
           <div className='drink'> <Link to="/home">Home</Link></div>
           <div className='drink'><Link to="/myDrinks">My Drinks</Link></div>
-          <div className='drink'><Link to="/myPantry">My Pantry</Link></div>
-          <div className='drink'><Link to="/recipes">Recipes</Link></div>
+          <div className='drink'><Link to="/Mypantry">My Pantry</Link></div>
+          <div className='drink'><Link to="/Recipes">Recipes</Link></div>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
@@ -36,7 +37,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       )}
     </nav>
     <hr />
-
     {/* <div className='footer'>
     <hr className='footerhr' />
 
