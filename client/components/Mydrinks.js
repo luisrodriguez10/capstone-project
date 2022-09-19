@@ -9,7 +9,7 @@ import {
   EmojiSunglasses,
   ArrowRightSquareFill
 } from "react-bootstrap-icons";
-import axios from "axios";
+import SearchBarMyDrinks from "./SearchBarMyDrinks";
 
 class Mydrinks extends Component {
 
@@ -30,6 +30,9 @@ class Mydrinks extends Component {
         }}
       >
         <h2>My Drinks</h2>
+        <div className="my-4">
+          <SearchBarMyDrinks myDrinks={myDrinks}/>
+        </div>
         <div id="my-drinks">
           {myDrinks.map((drink) => {
 
@@ -53,7 +56,8 @@ class Mydrinks extends Component {
                 </div>
                 
                 <div style={{ height: "70px", marginTop: "1rem" }}>
-                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}><h2>{drink.drinkName}</h2></Link>
+                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}><h2>{drink.drinkName}</h2></Link> */}
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2>{drink.drinkName}</h2></Link>
                 </div>
                 <div style={{ height: "70px", marginTop: "1rem" }}>
                   {drink.alcoholic ? (
@@ -70,7 +74,10 @@ class Mydrinks extends Component {
                     justifyContent: "space-evenly",
                   }}
                 >
-                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}>
+                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}>
+                    <ArrowRightSquareFill size={25} />
+                  </Link> */}
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
                     <ArrowRightSquareFill size={25} />
                   </Link>
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
