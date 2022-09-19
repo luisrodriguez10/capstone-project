@@ -6,30 +6,58 @@ import { Link } from "react-router-dom";
 class Recipes extends Component {
 	constructor() {
 		super();
+		const page = window.location.hash.slice(10)
 		this.state = {
 			currentPage: 1,
 			productsPerPage: 9,
-			listPantry: false
+			listPantry: false,
+			search: page,
+			checked: []
 		}
 		this.pantryToggle = this.pantryToggle.bind(this)
+		this.handleCheck = this.handleCheck.bind(this)
 	}
 	componentDidMount() {
-		this.props.fetchRecipes();
+		this.props.fetchRecipes( this.state.search );
 		this.props.fetchIngredients();
 		this.props.fetchPantry( this.props.auth );
 		console.log( this.props.auth )
 	}
-	pantryToggle(){
+	componentDidUpdate(prevProps) {
+		if ( prevProps.checked ) {
+			if( prevProps.checked.length !== this.state.checked.length ) {
+				this.props.fetchRecipes( this.state.search );
+				console.log('updated')
+			}
+		} 
+	}
+	pantryToggle() {
 		this.setState({ listPantry: !this.state.listPantry })
+	}
+	handleCheck(ev) {
+		let updatedList = [...this.state.checked]
+		if (ev.target.checked) {
+			updatedList = [...this.state.checked, ev.target.value]
+		} else {
+			updatedList.splice(this.state.checked.indexOf(ev.target.value), 1)
+		}
+		this.setState({ checked: updatedList })
+		let searchList = updatedList.length ? 
+			updatedList.reduce((total, item) => {
+				return total + ',' + item;
+			}) : "";
+		this.setState({ search: searchList })
 	}
 	render() {
 		const { recipes, ingredients, pantry } = this.props;
-		const { currentPage, productsPerPage, listPantry } = this.state;
-		const { pantryToggle }  = this;
+		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
+		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
 		console.log( results );
 		console.log( ingredients );
 		console.log( pantry );
+		console.log( search );
+		console.log( checked );
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
@@ -61,17 +89,21 @@ class Recipes extends Component {
 		return(
 			<div>
 				<div className='ingredient-list'>
-					<button onClick={ pantryToggle }>pantry</button>
+					<button onClick={ pantryToggle }>Toggle Pantry List</button>
 					{	
 						listPantry ? 
 						pantry.map( ingredient => {
 							return (
-								<li key={ ingredient.id }> { ingredient.name }</li>
+								<div>
+									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+								</div>
 							)
 						}) :
 						ingredients.map( ingredient => {
 							return (
-								<li key={ ingredient.id }> { ingredient.name }</li>
+								<div>
+									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+								</div>
 							)
 						})
 					}
@@ -120,7 +152,7 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
 	return{
-		fetchRecipes: () => dispatch(fetchRecipes()),
+		fetchRecipes: ( search ) => dispatch(fetchRecipes( search )),
 		fetchIngredients: () => dispatch(fetchIngredients()),
 		fetchPantry: ( user ) => dispatch(fetchPantry( user ))
 	}
