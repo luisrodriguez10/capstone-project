@@ -1,0 +1,21 @@
+.my-drinks{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.drinkimg{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    align-items: center
+}
+
+.drink-info{
+    border: 1px solid;
+}
+
+hr.hr-mydrinks{
+   width:10rem;
+   margin-left: auto;margin-right: 50%;
+
+}

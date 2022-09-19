@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteMyDrink, fetchMyDrinks } from "../store";
 import { Link } from "react-router-dom";
+import './Mydrinks.css';
+
 import {
   PencilFill,
   Trash3Fill,
@@ -21,29 +23,15 @@ class Mydrinks extends Component {
     const { myDrinks, deleteMyDrink } = this.props;
 
     return (
-      <div
-        id="my-drinks-page"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <div className="my-drinks-page">
         <h2>My Drinks</h2>
         <div id="my-drinks">
           {myDrinks.map((drink) => {
 
             return (
               <div key={drink.id} className="drink-info">
-                <div style={{ height: "300px" }}>
-                  <img
-                    style={{
-                      borderRadius: "20px",
-                      width: "100%",
-                      height: "100%",
-                      backgroundColor: '#6e6b66',
-                      padding: '1rem'
-                    }}
+                <div >
+                  <img className="drinkimg"
                     src={
                       drink.imageURL
                         ? drink.imageURL
@@ -51,11 +39,16 @@ class Mydrinks extends Component {
                     }
                   ></img>
                 </div>
-                
-                <div style={{ height: "70px", marginTop: "1rem" }}>
+
+                <div>
+                <hr className="hr-mydrinks"/>
+
                   <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}><h2>{drink.drinkName}</h2></Link>
+                  <hr className="hr-mydrinks"/>
+
                 </div>
-                <div style={{ height: "70px", marginTop: "1rem" }}>
+
+                <div>
                   {drink.alcoholic ? (
                     <EmojiSunglasses size={40} />
                   ) : (
