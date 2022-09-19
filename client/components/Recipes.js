@@ -27,7 +27,6 @@ class Recipes extends Component {
 		if ( prevProps.checked ) {
 			if( prevProps.checked.length !== this.state.checked.length ) {
 				this.props.fetchRecipes( this.state.search );
-				console.log('updated')
 			}
 		} 
 	}
@@ -53,26 +52,27 @@ class Recipes extends Component {
 		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
 		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
-		console.log( results );
-		console.log( ingredients );
-		console.log( pantry );
-		console.log( search );
-		console.log( checked );
+		console.log( 'results', results );
+		console.log( 'search', search );
+		console.log( 'checked', checked );
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
 		const indexOfFirstPost = indexOfLastPost - productsPerPage;
 		let currentResults = [];
 		let pageNumbers = [];
-		if( results ) {
-			const pageResults = results
-				.sort( (a,b) => a.strDrink.localeCompare(b.strDrink))
-				.slice(indexOfFirstPost, indexOfLastPost);
-			pageResults
-				.map( recipe => {
-				currentResults.push(recipe)
-			})
-		}
+		// if ( results === 'None Found') {
+		// 	results = []
+		// }
+		// if( results ) {
+		// 	const pageResults = results
+		// 		.sort( (a,b) => a.strDrink.localeCompare(b.strDrink))
+		// 		.slice(indexOfFirstPost, indexOfLastPost);
+		// 	pageResults
+		// 		.map( recipe => {
+		// 		currentResults.push(recipe)
+		// 	})
+		// } 
 
 		for (let i = 1; i <= Math.ceil(results?.length / productsPerPage); i++){
 			pageNumbers.push(i);
@@ -109,7 +109,7 @@ class Recipes extends Component {
 					}
 				</div>
 				<ul>
-					{
+					{/* {
 						results ? 
 						currentResults.map( recipe => {
 							return (
@@ -127,7 +127,7 @@ class Recipes extends Component {
 							)
 						})
 						: null
-					}
+					} */}
 				</ul>
 				<div>
 					{
