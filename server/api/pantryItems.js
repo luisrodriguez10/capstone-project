@@ -50,7 +50,7 @@ router.put('/:id', async (req, res, next) => {
   try {
     const item = await PantryItem.findByPk(req.params.id)
     await item.update(req.body);
-    res.sendStatus(204)
+    res.send(item);
   } catch (err) {
     next(err)
   }

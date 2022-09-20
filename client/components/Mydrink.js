@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteMyDrink } from "../store";
+import { deleteMyDrink, fetchMyDrinks } from "../store";
 import {
     PencilFill,
     Trash3Fill
   } from "react-bootstrap-icons";
 
 class MyDrink extends Component {
+
+  componentDidMount(){
+    this.props.fetchMyDrinks(this.props.auth);
+  }
+
   render() {
     const { myDrink } = this.props;
-    console.log(myDrink)
     const { deleteMyDrink } = this.props;
 
     return (
@@ -142,10 +146,10 @@ class MyDrink extends Component {
               justifyContent: "space-evenly",
             }}
           >
-            <Link to={{ pathname: "/editMyDrink", state: myDrink }}>
+            <Link to={{ pathname: `/editMyDrink/${myDrink.id}` }}>
               <PencilFill size={25} />
             </Link>
-            <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+            <Link to="/myDrinks" onClick={() => deleteMyDrink(myDrink)}>
               <Trash3Fill size={25} />
             </Link>
           </div>
@@ -156,19 +160,18 @@ class MyDrink extends Component {
 }
 
 const mapStateToProps = (state, { match }) =>{
-  console.log(match)
   const id = match.params.id * 1;
-  console.log(id)
-  console.log(state)
   let myDrink = state.myDrinks.find((myDrink) => myDrink.id === id) || {};
 
   return {
+    auth: state.auth,
     myDrink
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+      fetchMyDrinks: (user) => dispatch(fetchMyDrinks(user)),
       deleteMyDrink: (drink) => dispatch(deleteMyDrink(drink)),
     };
   };

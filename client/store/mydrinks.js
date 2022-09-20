@@ -10,6 +10,9 @@ const myDrinks = (state = [], action) =>{
     if(action.type === 'DELETE_MY_DRINK'){
         state = state.filter(drink => drink.id !== action.myDrink.id)
     }
+    if(action.type === 'CREATE_MY_DRINK'){
+        return [...state, action.myDrink]
+    }
     return state;
 }
 
@@ -30,9 +33,15 @@ export const deleteMyDrink = (drink) => {
 export const updateMyDrink = (drink, history) =>{
     return async (dispatch) => {
         const response  = await axios.put(`/api/myDrinks/${drink.id}`, drink);
-        console.log(response.data)
         dispatch({ type: 'UPDATE_MY_DRINK', myDrink: response.data })
         history.push('/myDrinks')
+    }
+}
+
+export const createMyDrink = (drink) => {
+    return async(dispatch) => {
+        const response  = await axios.post('/api/myDrinks', drink);
+        dispatch({ type: 'CREATE_MY_DRINK', myDrink: response.data})
     }
 }
 
