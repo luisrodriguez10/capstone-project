@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const SearchBarMyDrinks = ({ myDrinks }) => {
-  console.log(myDrinks);
   const [query, setQuery] = useState("");
 
   return (

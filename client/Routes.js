@@ -30,7 +30,7 @@ class Routes extends Component {
          <Route exact path="/home" component={Landingpage} />
             <Route exact path="/myDrinks" component={Mydrinks} />
             <Route path="/myDrinks/:id" component={MyDrink} />
-            <Route path="/editMyDrink" component={EditMyDrink} />
+            <Route path="/editMyDrink/:id" component={EditMyDrink} />
             <Route path="/Mypantry" component={Mypantry} />
             <Route path="/Recipes" component={Recipes} />
        </Switch>

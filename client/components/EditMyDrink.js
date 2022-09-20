@@ -99,6 +99,7 @@ class EditMyDrink extends Component {
 
   componentDidUpdate(prevProps) {
     if (!prevProps.drink.id && this.props.drink.id) {
+      
       this.setState({
         drinkName: this.props.drink.drinkName,
         alcoholic: this.props.drink.alcoholic,
@@ -146,7 +147,6 @@ class EditMyDrink extends Component {
 
   async save(ev) {
     ev.preventDefault();
-    console.log(this.state.avatar)
     let drink = {
       id: this.props.drink.id,
       ingredient1: this.state.ingredient1,
@@ -725,9 +725,9 @@ class EditMyDrink extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, myDrinks }, { location }) => {
+const mapStateToProps = ({ auth, myDrinks }, { match }) => {
   const drink =
-    myDrinks.find((drink) => drink.id === location.state.id * 1) || {};
+    myDrinks.find((drink) => drink.id === match.params.id * 1) || {};
   return {
     auth,
     drink,
@@ -738,7 +738,6 @@ const mapDispatchToProps = (dispatch, { history }) => {
   return {
     fetchMyDrinks: (user) => dispatch(fetchMyDrinks(user)),
     updateMyDrink: (drink) => {
-      console.log(drink);
       dispatch(updateMyDrink(drink, history));
     },
   };
