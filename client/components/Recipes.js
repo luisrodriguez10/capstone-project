@@ -21,11 +21,10 @@ class Recipes extends Component {
 		this.props.fetchRecipes( this.state.search );
 		this.props.fetchIngredients();
 		this.props.fetchPantry( this.props.auth );
-		console.log( this.props.auth )
 	}
-	componentDidUpdate(prevProps) {
-		if ( prevProps.checked ) {
-			if( prevProps.checked.length !== this.state.checked.length ) {
+	componentDidUpdate(prevProps, prevState) {
+		if ( prevState.checked ) {
+			if( prevState.checked.length !== this.state.checked.length ) {
 				this.props.fetchRecipes( this.state.search );
 			}
 		} 
@@ -52,19 +51,16 @@ class Recipes extends Component {
 		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
 		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
-		console.log( 'results', results );
-		console.log( 'search', search );
-		console.log( 'checked', checked );
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
 		const indexOfFirstPost = indexOfLastPost - productsPerPage;
 		let currentResults = [];
 		let pageNumbers = [];
-		// if ( results === 'None Found') {
-		// 	results = []
-		// }
-		// if( results ) {
+		if ( results !== '') {
+			console.log('results ', results)
+		}
+		// if( results !== '' ) {
 		// 	const pageResults = results
 		// 		.sort( (a,b) => a.strDrink.localeCompare(b.strDrink))
 		// 		.slice(indexOfFirstPost, indexOfLastPost);
@@ -81,7 +77,7 @@ class Recipes extends Component {
 			this.setState({ currentPage: pageNum })
 		}
 
-		console.log(currentResults)
+		console.log('currentResults', currentResults)
 
 		// Create list of ingredients 
 		// For now just click one ingredient and set as state for search url
@@ -109,9 +105,9 @@ class Recipes extends Component {
 					}
 				</div>
 				<ul>
-					{/* {
+					{
 						results ? 
-						currentResults.map( recipe => {
+						results.map( recipe => {
 							return (
 								<li key={ recipe.idDrink }>
 									 <img
@@ -122,12 +118,12 @@ class Recipes extends Component {
 										}}
 										src={ recipe.strDrinkThumb } alt={ `${ recipe.strDrink } Image` }>										
 									</img>
-									{ recipe.strDrink }
+									<Link to={`/recipe/${ recipe.idDrink }`}>{ recipe.strDrink }</Link>
 								</li>
 							)
 						})
-						: null
-					} */}
+						: 'There are no recipes!'
+					}
 				</ul>
 				<div>
 					{

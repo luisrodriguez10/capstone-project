@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Mydrinks from './components/Mydrinks';
 import Mypantry from './components/Mypantry';
 import Recipes from './components/Recipes';
+import Recipe from './components/Recipe';
 import MyDrink from './components/MyDrink';
 import Landingpage from './components/Landingpage';
 import EditMyDrink from './components/EditMyDrink';
@@ -33,6 +34,7 @@ class Routes extends Component {
             <Route path="/editMyDrink" component={EditMyDrink} />
             <Route path="/Mypantry" component={Mypantry} />
             <Route path="/Recipes" component={Recipes} />
+            <Route path="/Recipe/:id" component={Recipe} />
           </Switch>
         ) : (
           <Switch>
