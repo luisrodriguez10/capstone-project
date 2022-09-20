@@ -6,8 +6,9 @@ import MyDrink from './components/Mydrink';
 import Mydrinks from './components/Mydrinks';
 import Mypantry from './components/Mypantry';
 import Recipes from './components/Recipes';
-import EditMyDrink from './components/EditMyDrink';
+import Recipe from './components/Recipe';
 import Landingpage from './components/Landingpage';
+import EditMyDrink from './components/EditMyDrink';
 
 import {me} from './store'
 
@@ -33,6 +34,7 @@ class Routes extends Component {
             <Route path="/editMyDrink/:id" component={EditMyDrink} />
             <Route path="/Mypantry" component={Mypantry} />
             <Route path="/Recipes" component={Recipes} />
+            <Route path="/Recipe/:id" component={Recipe} />
        </Switch>
      ) : (
        <Switch>
@@ -40,7 +42,6 @@ class Routes extends Component {
          <Route path='/' exact component={ Login } />
          <Route path="/login" component={Login} />
          <Route path="/signup" component={Signup} />
-
        </Switch>
         )}
       </div>
