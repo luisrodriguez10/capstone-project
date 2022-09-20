@@ -145,7 +145,7 @@ class MyDrink extends Component {
             <Link to={{ pathname: "/editMyDrink", state: myDrink }}>
               <PencilFill size={25} />
             </Link>
-            <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+            <Link to="/myDrinks" onClick={() => deleteMyDrink(myDrink)}>
               <Trash3Fill size={25} />
             </Link>
           </div>
