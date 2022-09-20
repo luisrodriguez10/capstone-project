@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 // import function to add to recipe list 
 
 class Recipe extends Component{
@@ -13,6 +14,9 @@ class Recipe extends Component{
     const drinkId = window.location.hash.slice(9)
     const response = await axios.get(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${ drinkId }`)
     this.setState({ drink: response.data })
+  }
+  onClick(ev) {
+    
   }
   render() {
     const { drink } = this.state;
@@ -58,6 +62,7 @@ class Recipe extends Component{
       >
         <div>
           <h1>{ recipe.strDrink }</h1>
+          <button>+</button>
         </div>
         <div
           style={{
@@ -155,4 +160,10 @@ class Recipe extends Component{
   }
 }
 
-export default Recipe;
+const mapDispatchToProps = ( dispatch ) => {
+  return {
+    createMyDrink: ( drink ) => dispatch(createMyDrink(drink))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Recipe);
