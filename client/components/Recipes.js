@@ -11,7 +11,7 @@ class Recipes extends Component {
 			currentPage: 1,
 			productsPerPage: 9,
 			listPantry: false,
-			search: page,
+			search: page ? page : 'vodka',
 			checked: []
 		}
 		this.pantryToggle = this.pantryToggle.bind(this)
