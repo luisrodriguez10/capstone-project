@@ -16,6 +16,7 @@ class MyDrink extends Component {
   render() {
     const { myDrink } = this.props;
     const { deleteMyDrink } = this.props;
+    console.log(myDrink)
 
     return (
       <div
@@ -39,8 +40,8 @@ class MyDrink extends Component {
               padding: "1rem"
             }}
             src={
-              myDrink.imageURL
-                ? myDrink.imageURL
+              myDrink.strDrinkThumb
+                ? myDrink.strDrinkThumb
                 : "https://www.plslwd.org/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
           ></img>
@@ -55,7 +56,7 @@ class MyDrink extends Component {
           }}
         >
           <div>
-            <h1>{myDrink.drinkName}</h1>
+            <h1>{myDrink.strDrink}</h1>
           </div>
           <div
             style={{
@@ -67,64 +68,64 @@ class MyDrink extends Component {
           >
             <h2 style={{ textAlign: "center" }}>Ingredients</h2>
             <p>
-              {myDrink.ingredient1 ? myDrink.ingredient1 : null}{" "}
-              {myDrink.measure1 ? ` | ${myDrink.measure1}` : null}
+              {myDrink.strIngredient1 ? myDrink.strIngredient1 : null}{" "}
+              {myDrink.strMeasure1 ? ` | ${myDrink.strMeasure1}` : null}
             </p>
             <p>
-              {myDrink.ingredient2 ? myDrink.ingredient2 : null}{" "}
-              {myDrink.measure2 ? ` | ${myDrink.measure2}` : null}
+              {myDrink.strIngredient2 ? myDrink.strIngredient2 : null}{" "}
+              {myDrink.strMeasure2 ? ` | ${myDrink.strMeasure2}` : null}
             </p>
             <p>
-              {myDrink.ingredient3 ? myDrink.ingredient3 : null}{" "}
-              {myDrink.measure3 ? ` | ${myDrink.measure3}` : null}
+              {myDrink.strIngredient3 ? myDrink.strIngredient3 : null}{" "}
+              {myDrink.strMeasure3 ? ` | ${myDrink.strMeasure3}` : null}
             </p>
             <p>
-              {myDrink.ingredient4 ? myDrink.ingredient4 : null}{" "}
-              {myDrink.measure4 ? ` | ${myDrink.measure4}` : null}
+              {myDrink.strIngredient4 ? myDrink.strIngredient4 : null}{" "}
+              {myDrink.strMeasure4 ? ` | ${myDrink.strMeasure4}` : null}
             </p>
             <p>
-              {myDrink.ingredient5 ? myDrink.ingredient5 : null}{" "}
-              {myDrink.measure5 ? ` | ${myDrink.measure5}` : null}
+              {myDrink.strIngredient5 ? myDrink.strIngredient5 : null}{" "}
+              {myDrink.strMeasure5 ? ` | ${myDrink.strMeasure5}` : null}
             </p>
             <p>
-              {myDrink.ingredient6 ? myDrink.ingredient6 : null}{" "}
-              {myDrink.measure6 ? ` | ${myDrink.measure6}` : null}
+              {myDrink.strIngredient6 ? myDrink.strIngredient6 : null}{" "}
+              {myDrink.strMeasure6 ? ` | ${myDrink.strMeasure6}` : null}
             </p>
             <p>
-              {myDrink.ingredient7 ? myDrink.ingredient7 : null}{" "}
-              {myDrink.measure7 ? ` | ${myDrink.measure7}` : null}
+              {myDrink.strIngredient7 ? myDrink.strIngredient7 : null}{" "}
+              {myDrink.strMeasure7 ? ` | ${myDrink.strMeasure7}` : null}
             </p>
             <p>
-              {myDrink.ingredient8 ? myDrink.ingredient8 : null}{" "}
-              {myDrink.measure8 ? ` | ${myDrink.measure8}` : null}
+              {myDrink.strIngredient8 ? myDrink.strIngredient8 : null}{" "}
+              {myDrink.strMeasure8 ? ` | ${myDrink.strMeasure8}` : null}
             </p>
             <p>
-              {myDrink.ingredient9 ? myDrink.ingredient9 : null}{" "}
-              {myDrink.measure9 ? ` | ${myDrink.measure9}` : null}
+              {myDrink.strIngredient9 ? myDrink.strIngredient9 : null}{" "}
+              {myDrink.strMeasure9 ? ` | ${myDrink.strMeasure9}` : null}
             </p>
             <p>
-              {myDrink.ingredient10 ? myDrink.ingredient10 : null}{" "}
-              {myDrink.measure10 ? ` | ${myDrink.measure10}` : null}
+              {myDrink.strIngredient10 ? myDrink.strIngredient10 : null}{" "}
+              {myDrink.strMeasure10 ? ` | ${myDrink.strMeasure10}` : null}
             </p>
             <p>
-              {myDrink.ingredient11 ? myDrink.ingredient11 : null}{" "}
-              {myDrink.measure11 ? ` | ${myDrink.measure11}` : null}
+              {myDrink.strIngredient11 ? myDrink.strIngredient11 : null}{" "}
+              {myDrink.strMeasure11 ? ` | ${myDrink.strMeasure11}` : null}
             </p>
             <p>
-              {myDrink.ingredient12 ? myDrink.ingredient12 : null}{" "}
-              {myDrink.measure12 ? ` | ${myDrink.measure12}` : null}
+              {myDrink.strIngredient12 ? myDrink.strIngredient12 : null}{" "}
+              {myDrink.strMeasure12 ? ` | ${myDrink.strMeasure12}` : null}
             </p>
             <p>
-              {myDrink.ingredient13 ? myDrink.ingredient13 : null}{" "}
-              {myDrink.measure13 ? ` | ${myDrink.measure13}` : null}
+              {myDrink.strIngredient13 ? myDrink.strIngredient13 : null}{" "}
+              {myDrink.strMeasure13 ? ` | ${myDrink.strMeasure13}` : null}
             </p>
             <p>
-              {myDrink.ingredient14 ? myDrink.ingredient14 : null}{" "}
-              {myDrink.measure14 ? ` | ${myDrink.measure14}` : null}
+              {myDrink.strIngredient14 ? myDrink.strIngredient14 : null}{" "}
+              {myDrink.strMeasure14 ? ` | ${myDrink.strMeasure14}` : null}
             </p>
             <p>
-              {myDrink.ingredient15 ? myDrink.ingredient15 : null}{" "}
-              {myDrink.measure15 ? ` | ${myDrink.measure15}` : null}
+              {myDrink.strIngredient15 ? myDrink.strIngredient15 : null}{" "}
+              {myDrink.strMeasure15 ? ` | ${myDrink.strMeasure15}` : null}
             </p>
           </div>
           <div
@@ -136,7 +137,7 @@ class MyDrink extends Component {
             }}
           >
             <h2>Instructions</h2>
-            <p>{myDrink.directions}</p>
+            <p>{myDrink.strInstructions}</p>
           </div>
           <div
             style={{
