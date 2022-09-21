@@ -10,6 +10,7 @@ import Recipe from './components/Recipe';
 import Landingpage from './components/Landingpage';
 import EditMyDrink from './components/EditMyDrink';
 import Store from './components/Store';
+import { createCoordinates } from './store';
 
 import {me} from './store'
 
@@ -19,6 +20,9 @@ import {me} from './store'
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      await this.props.createCoordinates(position.coords)
+    });
   }
 
   render() {
@@ -66,7 +70,8 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
-    }
+    },
+    createCoordinates:(coordinates) => dispatch(createCoordinates(coordinates))
   }
 }
 
