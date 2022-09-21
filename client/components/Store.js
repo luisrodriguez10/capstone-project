@@ -65,18 +65,20 @@ class Store extends React.Component {
     const { places } = this.state;
 
     return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center", padding: '2rem' }}>
         <div>
           {places.map((place, idx) => {
+            console.log(place)
             return (
-              <div key={idx}>
+              <div key={idx} style={{ padding: '1rem'}}>
                 <div>{place.name}</div>
                 <div>{place.vicinity}</div>
               </div>
+              
             );
           })}
         </div>
-        <div id="map" style={{ height: "50vh", width: "70vh" }}></div>
+        <div id="map" style={{ height: "100vh", width: "100vh" }}></div>
       </div>
     );
   }
