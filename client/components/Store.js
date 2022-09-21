@@ -68,7 +68,6 @@ class Store extends React.Component {
       <div style={{ display: "flex", justifyContent: "center", padding: '2rem' }}>
         <div>
           {places.map((place, idx) => {
-            console.log(place)
             return (
               <div key={idx} style={{ padding: '1rem'}}>
                 <div>{place.name}</div>
