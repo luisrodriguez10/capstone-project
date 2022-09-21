@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import  "./Mydrinks.css"
 
 const SearchBarMyDrinks = ({ myDrinks }) => {
   console.log(myDrinks);
   const [query, setQuery] = useState("");
 
   return (
-    <div
-      className="dropdown"
-      style={{
-        zIndex: "10",
-      }}
-    >
-      <input
+    <div className="container">
+      <input className="searchinput"
         type="text"
         class="form-control"
-        placeholder="Search drinks by name"
+        placeholder="Search drinks by name ..." 
         onChange={(e) => setQuery(e.target.value)}
-      />
-      <div id="myDropdown" className="dropdown-content">
+      /><div></div>
+
+      <div className="dropdown-content">
         {myDrinks
           .filter((myDrink) => {
             if (query === "") {
@@ -34,20 +31,27 @@ const SearchBarMyDrinks = ({ myDrinks }) => {
           .map((myDrink) => {
             if (query !== "") {
               return (
+                <div className="dropdownlink">
                 <Link
                   to={`/myDrinks/${myDrink.id}`}
                   key={myDrink.id}
                   style={{
                     display: "block",
-                    width: "100%",
+                    width: "62.7%",
                     boxSizing: "border-box",
                     border: "1px solid black",
                     marginTop: "-1px",
+                    textAlign:"center",
+                    padding: "5px",
+                    position: "relative",
+                    left: "180px", 
+                    color: "black"
                   }}
                   className="text-link p-2"
                 >
                     {myDrink.drinkName}
                 </Link>
+                </div>
               );
             }
           })}

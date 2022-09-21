@@ -24,10 +24,14 @@ class Mydrinks extends Component {
 
     return (
       <div className="my-drinks-page">
-        <h2>My Drinks</h2>
+        <br></br>
         <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
+
         </div>
+        <br></br>
+        <br></br>
+
         <div id="my-drinks">
           {myDrinks.map((drink) => {
 
@@ -70,15 +74,19 @@ class Mydrinks extends Component {
                   {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}>
                     <ArrowRightSquareFill size={25} />
                   </Link> */}
-
-                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
+<div>
+                  <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
                     {/* <ArrowRightSquareFill size={25} /> */}
                     Recipe
-                  </Link>
-                  <div className="bottom">
-                  <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                    <Trash3Fill size={25} />
-                  </Link>
+                  </Link></button>
+                  </div>
+               
+
+                  <div className="bottom1">
+                  <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+                    {/* <Trash3Fill size={25} /> */}
+                    Remove
+                  </Link></button>
                   </div>
                   </div>
                 </div>
