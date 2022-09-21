@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { createMyDrink } from '../store'
 // import function to add to recipe list 
 
 class Recipe extends Component{
@@ -19,6 +20,7 @@ class Recipe extends Component{
     
   }
   render() {
+    const { createMyDrink } = this.props
     const { drink } = this.state;
     const recipe = drink.drinks ? drink.drinks[0] : {}
     console.log(drink)
@@ -62,7 +64,7 @@ class Recipe extends Component{
       >
         <div>
           <h1>{ recipe.strDrink }</h1>
-          <button>+</button>
+          <button onClick={ () => createMyDrink(recipe) }>+</button>
         </div>
         <div
           style={{
