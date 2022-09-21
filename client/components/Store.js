@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 class Store extends React.Component {
   constructor() {
@@ -9,7 +8,6 @@ class Store extends React.Component {
     this.state = {
       type: "liquor_store",
       radius: "50",
-      // places: [{geometry: {location: {lat: 29.6902903, lng: -95.5374071}}}],
       places: [],
     };
   }
@@ -42,18 +40,12 @@ class Store extends React.Component {
   };
 
   async componentDidMount() {
-    // navigator.geolocation.getCurrentPosition((position) => {
-    //   this.setState({
-    //     lat: position.coords.latitude * 1,
-    //     lng: position.coords.longitude * 1,
-    //   });
-    // });
 
     const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
       this.props.coordinates[0].lat
     },${this.props.coordinates[0].lng}&type=${this.state.type}&radius=${
       this.state.radius * 1000
-    }&key=AIzaSyC-YWXQD-c1em0GcHP3SRTfJdRr-5U5_SI`;
+    }&key=${process.env.REACT_APP_API_KEY}`;
     await axios
       .get(URL, {
         headers: {
