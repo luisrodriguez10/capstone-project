@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getItems, createItem, updateItem } from '../store';
+import { getItems, createItem, updateItem, deleteItem } from '../store';
 import axios from 'axios';
 
 class Mypantry extends Component {
@@ -14,11 +14,17 @@ class Mypantry extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClickDelete = this.handleClickDelete.bind(this);
   }
   componentDidMount() {
-    const { items } = this.props;
-    const { auth } = this.props;
+    const { auth, items } = this.props;
     if (items.length === 0 || auth.id !== items[0].userId) {    
+      this.props.getItems(auth.id);
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (!prevProps.auth.id && this.props.auth.id) {
+      const { auth } = this.props;
       this.props.getItems(auth.id);
     }
   }
@@ -41,10 +47,13 @@ class Mypantry extends Component {
     this.props.createItem({ name: ingredient, stock: true, userId: auth.id });
     this.setState({ ingredient: '', recipes: [] });
   }
+  handleClickDelete(id) {
+    this.props.deleteItem(id);
+  }
   render() {
-    const { items } = this.props;
+    const { auth, items } = this.props;
     const { ingredient, recipes } = this.state;
-    const { handleClick, handleChange, handleSubmit } = this;
+    const { handleClick, handleChange, handleSubmit, handleClickDelete } = this;
     return(
       <div>
         <h2>Add Ingredients</h2>
@@ -65,6 +74,7 @@ class Mypantry extends Component {
                   <li key={item.id}>
                     <span>{item.name}</span>
                     <button onClick={() => handleClick(item)}>remove from pantry</button><br />
+                    <button onClick={() => handleClickDelete(item.id)}>delete item</button>
                     <Link to=''>{item.drinks.length} recipes using {item.name}</Link>
                   </li>
                 );
@@ -81,6 +91,7 @@ class Mypantry extends Component {
                   <li key={item.id}>
                     <span>{item.name}</span>
                     <button onClick={() => handleClick(item)}>add back to pantry</button>
+                    <button onClick={() => handleClickDelete(item.id)}>delete item</button>
                   </li>
                 );
               })
@@ -108,6 +119,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateItem: (item) => {
       dispatch(updateItem(item));
+    },
+    deleteItem: (id) => {
+      dispatch(deleteItem(id));
     }
   };
 };
