@@ -41,7 +41,6 @@ class Mydrinks extends Component {
 
         <div id="my-drinks">
           {myDrinks.map((drink) => {
-
             return (
               <div key={drink.id} className="drink-info">
                 <div style={{ height: "300px" }}>
@@ -83,20 +82,19 @@ class Mydrinks extends Component {
                   {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}>
                     <ArrowRightSquareFill size={25} />
                   </Link> */}
-<div>
-                  <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
-                    {/* <ArrowRightSquareFill size={25} /> */}
-                    Recipe
-                  </Link></button>
+                  <div>
+                    <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
+                      {/* <ArrowRightSquareFill size={25} /> */}
+                      Recipe
+                    </Link></button>
                   </div>
                
 
                   <div className="bottom1">
-                  <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                    {/* <Trash3Fill size={25} /> */}
-                    Remove
-                  </Link></button>
-                  </div>
+                    <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+                      {/* <Trash3Fill size={25} /> */}
+                      Remove
+                    </Link></button>
                   </div>
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
                     <ArrowRightSquareFill size={25} />
@@ -109,6 +107,7 @@ class Mydrinks extends Component {
             );
           })}
         </div>
+      </div>
       </div>
     );
   }

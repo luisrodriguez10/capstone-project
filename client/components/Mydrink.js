@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteMyDrink } from "../store";
 import "./Mydrinks.css"
 import { deleteMyDrink, fetchMyDrinks } from "../store";
 import {
