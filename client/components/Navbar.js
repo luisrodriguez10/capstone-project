@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import {logout, removeItems} from '../store'
 import Landingpage from './Landingpage';
 import './Navbar.css';
 
@@ -62,6 +62,7 @@ const mapDispatch = dispatch => {
   return {
     handleClick() {
       dispatch(logout())
+      dispatch(removeItems())
     }
   }
 }
