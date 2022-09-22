@@ -46,13 +46,26 @@ class Store extends React.Component {
     },${this.props.coordinates[0].lng}&type=${this.state.type}&radius=${
       this.state.radius * 1000
     }&key=${process.env.REACT_APP_API_KEY}`;
-    await axios
-      .get(URL, {
-        headers: {
-          "X-Requested-With": "XMLHttpRequest",
+
+    // const body = {
+    //   lat: this.props.coordinates[0].lat,
+    //   lng: this.props.coordinates[0].lng,
+    //   type: this.state.type,
+    //   radius: this.state.radius * 1000,
+    //   key: process.env.REACT_APP_API_KEY
+    // }
+
+    // fetch('http://localhost:8080/stores', {method: 'GET'} ).then(response => {
+    //   console.log(response)
+    // })
+
+    await axios.get(URL, {
+        Headers: {
+          "Access-Control-Allow-Orign": 'http://localhost:8080'
         },
       })
       .then((response) => {
+        console.log(response)
         this.setState({ places: response.data.results });
         this.addStoresToGoogleMaps(response.data.results);
       })
