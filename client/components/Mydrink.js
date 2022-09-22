@@ -9,9 +9,13 @@ import {
   } from "react-bootstrap-icons";
 
 class MyDrink extends Component {
+
+  componentDidMount(){
+    this.props.fetchMyDrinks(this.props.auth);
+  }
+
   render() {
     const { myDrink } = this.props;
-    console.log(myDrink)
     const { deleteMyDrink } = this.props;
 
     return (
@@ -167,19 +171,18 @@ class MyDrink extends Component {
 }
 
 const mapStateToProps = (state, { match }) =>{
-  console.log(match)
   const id = match.params.id * 1;
-  console.log(id)
-  console.log(state)
   let myDrink = state.myDrinks.find((myDrink) => myDrink.id === id) || {};
 
   return {
+    auth: state.auth,
     myDrink
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+      fetchMyDrinks: (user) => dispatch(fetchMyDrinks(user)),
       deleteMyDrink: (drink) => dispatch(deleteMyDrink(drink)),
     };
   };

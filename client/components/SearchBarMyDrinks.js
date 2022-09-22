@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import  "./Mydrinks.css"
 
 const SearchBarMyDrinks = ({ myDrinks }) => {
-  console.log(myDrinks);
   const [query, setQuery] = useState("");
 
   return (

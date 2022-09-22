@@ -24,7 +24,6 @@ class Mydrinks extends Component {
 
     return (
       <div className="my-drinks-page">
-        <br></br>
         <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
 
