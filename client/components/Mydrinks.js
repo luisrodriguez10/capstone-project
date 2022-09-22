@@ -33,9 +33,10 @@ class Mydrinks extends Component {
           alignItems: "center",
         }}
       >
-        <h2>My Drinks</h2>
+        <h2 className="mydrinks">My Drinks</h2>
         <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
+          </div>
 
         </div>
         <br></br>
@@ -99,10 +100,10 @@ class Mydrinks extends Component {
                   </div>
                   </div>
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
-                    <ArrowRightSquareFill size={25} />
+                    {/* <ArrowRightSquareFill size={25} /> */}
                   </Link>
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                    <Trash3Fill size={25} />
+                    {/* <Trash3Fill size={25} /> */}
                   </Link>
                 </div>
               </div>

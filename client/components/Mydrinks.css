@@ -94,3 +94,8 @@ h2.drink-nameh1{
 p.instructions{
     font-style: italic;
 }
+
+.mydrinks {
+    bottom: 20px;
+    position: relative;
+}
