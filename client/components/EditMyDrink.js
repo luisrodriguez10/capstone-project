@@ -6,41 +6,41 @@ class EditMyDrink extends Component {
   constructor() {
     super();
     this.state = {
-      drinkName: "",
-      alcoholic: false,
-      ingredient1: "",
-      ingredient2: "",
-      ingredient3: "",
-      ingredient4: "",
-      ingredient5: "",
-      ingredient6: "",
-      ingredient7: "",
-      ingredient8: "",
-      ingredient9: "",
-      ingredient10: "",
-      ingredient11: "",
-      ingredient12: "",
-      ingredient13: "",
-      ingredient14: "",
-      ingredient15: "",
-      measure1: "",
-      measure2: "",
-      measure3: "",
-      measure4: "",
-      measure5: "",
-      measure6: "",
-      measure7: "",
-      measure8: "",
-      measure9: "",
-      measure10: "",
-      measure11: "",
-      measure12: "",
-      measure13: "",
-      measure14: "",
-      measure15: "",
-      imageURL: "",
+      strDrink: "",
+      strAlcoholic2: false,
+      strIngredient1: "",
+      strIngredient2: "",
+      strIngredient3: "",
+      strIngredient4: "",
+      strIngredient5: "",
+      strIngredient6: "",
+      strIngredient7: "",
+      strIngredient8: "",
+      strIngredient9: "",
+      strIngredient10: "",
+      strIngredient11: "",
+      strIngredient12: "",
+      strIngredient13: "",
+      strIngredient14: "",
+      strIngredient15: "",
+      strMeasure1: "",
+      strMeasure2: "",
+      strMeasure3: "",
+      strMeasure4: "",
+      strMeasure5: "",
+      strMeasure6: "",
+      strMeasure7: "",
+      strMeasure8: "",
+      strMeasure9: "",
+      strMeasure10: "",
+      strMeasure11: "",
+      strMeasure12: "",
+      strMeasure13: "",
+      strMeasure14: "",
+      strMeasure15: "",
+      strDrinkThumb: "",
       avatar: "",
-      directions: "",
+      strInstructions: "",
       error: "",
     };
     this.onChange = this.onChange.bind(this);
@@ -59,40 +59,40 @@ class EditMyDrink extends Component {
     this.props.fetchMyDrinks(this.props.auth);
     if (this.props.drink.id) {
       this.setState({
-        drinkName: this.props.drink.drinkName,
-        alcoholic: this.props.drink.alcoholic,
-        ingredient1: this.props.drink.ingredient1,
-        ingredient2: this.props.drink.ingredient2,
-        ingredient3: this.props.drink.ingredient3,
-        ingredient4: this.props.drink.ingredient4,
-        ingredient5: this.props.drink.ingredient5,
-        ingredient6: this.props.drink.ingredient6,
-        ingredient7: this.props.drink.ingredient7,
-        ingredient8: this.props.drink.ingredient8,
-        ingredient9: this.props.drink.ingredient9,
-        ingredient10: this.props.drink.ingredient10,
-        ingredient11: this.props.drink.ingredient11,
-        ingredient12: this.props.drink.ingredient12,
-        ingredient13: this.props.drink.ingredient13,
-        ingredient14: this.props.drink.ingredient14,
-        ingredient15: this.props.drink.ingredient15,
-        measure1: this.props.drink.measure1,
-        measure2: this.props.drink.measure2,
-        measure3: this.props.drink.measure3,
-        measure4: this.props.drink.measure4,
-        measure5: this.props.drink.measure5,
-        measure6: this.props.drink.measure6,
-        measure7: this.props.drink.measure7,
-        measure8: this.props.drink.measure8,
-        measure9: this.props.drink.measure9,
-        measure10: this.props.drink.measure10,
-        measure11: this.props.drink.measure11,
-        measure12: this.props.drink.measure12,
-        measure13: this.props.drink.measure13,
-        measure14: this.props.drink.measure14,
-        measure15: this.props.drink.measure15,
-        imageURL: this.props.drink.imageURL,
-        directions: this.props.drink.directions,
+        strDrink: this.props.drink.strDrink,
+        strAlcoholic2: this.props.drink.strAlcoholic2,
+        strIngredient1: this.props.drink.strIngredient1,
+        strIngredient2: this.props.drink.strIngredient2,
+        strIngredient3: this.props.drink.strIngredient3,
+        strIngredient4: this.props.drink.strIngredient4,
+        strIngredient5: this.props.drink.strIngredient5,
+        strIngredient6: this.props.drink.strIngredient6,
+        strIngredient7: this.props.drink.strIngredient7,
+        strIngredient8: this.props.drink.strIngredient8,
+        strIngredient9: this.props.drink.strIngredient9,
+        strIngredient10: this.props.drink.strIngredient10,
+        strIngredient11: this.props.drink.strIngredient11,
+        strIngredient12: this.props.drink.strIngredient12,
+        strIngredient13: this.props.drink.strIngredient13,
+        strIngredient14: this.props.drink.strIngredient14,
+        strIngredient15: this.props.drink.strIngredient15,
+        strMeasure1: this.props.drink.strMeasure1,
+        strMeasure2: this.props.drink.strMeasure2,
+        strMeasure3: this.props.drink.strMeasure3,
+        strMeasure4: this.props.drink.strMeasure4,
+        strMeasure5: this.props.drink.strMeasure5,
+        strMeasure6: this.props.drink.strMeasure6,
+        strMeasure7: this.props.drink.strMeasure7,
+        strMeasure8: this.props.drink.strMeasure8,
+        strMeasure9: this.props.drink.strMeasure9,
+        strMeasure10: this.props.drink.strMeasure10,
+        strMeasure11: this.props.drink.strMeasure11,
+        strMeasure12: this.props.drink.strMeasure12,
+        strMeasure13: this.props.drink.strMeasure13,
+        strMeasure14: this.props.drink.strMeasure14,
+        strMeasure15: this.props.drink.strMeasure15,
+        strDrinkThumb: this.props.drink.strDrinkThumb,
+        strInstructions: this.props.drink.strInstructions,
       });
     }
   }
@@ -101,40 +101,40 @@ class EditMyDrink extends Component {
     if (!prevProps.drink.id && this.props.drink.id) {
       
       this.setState({
-        drinkName: this.props.drink.drinkName,
-        alcoholic: this.props.drink.alcoholic,
-        ingredient1: this.props.drink.ingredient1,
-        ingredient2: this.props.drink.ingredient2,
-        ingredient3: this.props.drink.ingredient3,
-        ingredient4: this.props.drink.ingredient4,
-        ingredient5: this.props.drink.ingredient5,
-        ingredient6: this.props.drink.ingredient6,
-        ingredient7: this.props.drink.ingredient7,
-        ingredient8: this.props.drink.ingredient8,
-        ingredient9: this.props.drink.ingredient9,
-        ingredient10: this.props.drink.ingredient10,
-        ingredient11: this.props.drink.ingredient11,
-        ingredient12: this.props.drink.ingredient12,
-        ingredient13: this.props.drink.ingredient13,
-        ingredient14: this.props.drink.ingredient14,
-        ingredient15: this.props.drink.ingredient15,
-        measure1: this.props.drink.measure1,
-        measure2: this.props.drink.measure2,
-        measure3: this.props.drink.measure3,
-        measure4: this.props.drink.measure4,
-        measure5: this.props.drink.measure5,
-        measure6: this.props.drink.measure6,
-        measure7: this.props.drink.measure7,
-        measure8: this.props.drink.measure8,
-        measure9: this.props.drink.measure9,
-        measure10: this.props.drink.measure10,
-        measure11: this.props.drink.measure11,
-        measure12: this.props.drink.measure12,
-        measure13: this.props.drink.measure13,
-        measure14: this.props.drink.measure14,
-        measure15: this.props.drink.measure15,
-        imageURL: this.props.drink.imageURL,
-        directions: this.props.drink.directions,
+        strDrink: this.props.drink.strDrink,
+        strAlcoholic2: this.props.drink.strAlcoholic2,
+        strIngredient1: this.props.drink.strIngredient1,
+        strIngredient2: this.props.drink.strIngredient2,
+        strIngredient3: this.props.drink.strIngredient3,
+        strIngredient4: this.props.drink.strIngredient4,
+        strIngredient5: this.props.drink.strIngredient5,
+        strIngredient6: this.props.drink.strIngredient6,
+        strIngredient7: this.props.drink.strIngredient7,
+        strIngredient8: this.props.drink.strIngredient8,
+        strIngredient9: this.props.drink.strIngredient9,
+        strIngredient10: this.props.drink.strIngredient10,
+        strIngredient11: this.props.drink.strIngredient11,
+        strIngredient12: this.props.drink.strIngredient12,
+        strIngredient13: this.props.drink.strIngredient13,
+        strIngredient14: this.props.drink.strIngredient14,
+        strIngredient15: this.props.drink.strIngredient15,
+        strMeasure1: this.props.drink.strMeasure1,
+        strMeasure2: this.props.drink.strMeasure2,
+        strMeasure3: this.props.drink.strMeasure3,
+        strMeasure4: this.props.drink.strMeasure4,
+        strMeasure5: this.props.drink.strMeasure5,
+        strMeasure6: this.props.drink.strMeasure6,
+        strMeasure7: this.props.drink.strMeasure7,
+        strMeasure8: this.props.drink.strMeasure8,
+        strMeasure9: this.props.drink.strMeasure9,
+        strMeasure10: this.props.drink.strMeasure10,
+        strMeasure11: this.props.drink.strMeasure11,
+        strMeasure12: this.props.drink.strMeasure12,
+        strMeasure13: this.props.drink.strMeasure13,
+        strMeasure14: this.props.drink.strMeasure14,
+        strMeasure15: this.props.drink.strMeasure15,
+        strDrinkThumb: this.props.drink.strDrinkThumb,
+        strInstructions: this.props.drink.strInstructions,
       });
     }
   }
@@ -149,38 +149,38 @@ class EditMyDrink extends Component {
     ev.preventDefault();
     let drink = {
       id: this.props.drink.id,
-      ingredient1: this.state.ingredient1,
-      ingredient2: this.state.ingredient2,
-      ingredient3: this.state.ingredient3,
-      ingredient4: this.state.ingredient4,
-      ingredient5: this.state.ingredient5,
-      ingredient6: this.state.ingredient6,
-      ingredient7: this.state.ingredient7,
-      ingredient8: this.state.ingredient8,
-      ingredient9: this.state.ingredient9,
-      ingredient10: this.state.ingredient10,
-      ingredient11: this.state.ingredient11,
-      ingredient12: this.state.ingredient12,
-      ingredient13: this.state.ingredient13,
-      ingredient14: this.state.ingredient14,
-      ingredient15: this.state.ingredient15,
-      measure1: this.state.measure1,
-      measure2: this.state.measure2,
-      measure3: this.state.measure3,
-      measure4: this.state.measure4,
-      measure5: this.state.measure5,
-      measure6: this.state.measure6,
-      measure7: this.state.measure7,
-      measure8: this.state.measure8,
-      measure9: this.state.measure9,
-      measure10: this.state.measure10,
-      measure11: this.state.measure11,
-      measure12: this.state.measure12,
-      measure13: this.state.measure13,
-      measure14: this.state.measure14,
-      measure15: this.state.measure15,
-      directions: this.state.directions,
-      imageURL: this.state.avatar ? this.state.avatar : this.props.drink.imageURL,
+      strIngredient1: this.state.strIngredient1,
+      strIngredient2: this.state.strIngredient2,
+      strIngredient3: this.state.strIngredient3,
+      strIngredient4: this.state.strIngredient4,
+      strIngredient5: this.state.strIngredient5,
+      strIngredient6: this.state.strIngredient6,
+      strIngredient7: this.state.strIngredient7,
+      strIngredient8: this.state.strIngredient8,
+      strIngredient9: this.state.strIngredient9,
+      strIngredient10: this.state.strIngredient10,
+      strIngredient11: this.state.strIngredient11,
+      strIngredient12: this.state.strIngredient12,
+      strIngredient13: this.state.strIngredient13,
+      strIngredient14: this.state.strIngredient14,
+      strIngredient15: this.state.strIngredient15,
+      strMeasure1: this.state.strMeasure1,
+      strMeasure2: this.state.strMeasure2,
+      strMeasure3: this.state.strMeasure3,
+      strMeasure4: this.state.strMeasure4,
+      strMeasure5: this.state.strMeasure5,
+      strMeasure6: this.state.strMeasure6,
+      strMeasure7: this.state.strMeasure7,
+      strMeasure8: this.state.strMeasure8,
+      strMeasure9: this.state.strMeasure9,
+      strMeasure10: this.state.strMeasure10,
+      strMeasure11: this.state.strMeasure11,
+      strMeasure12: this.state.strMeasure12,
+      strMeasure13: this.state.strMeasure13,
+      strMeasure14: this.state.strMeasure14,
+      strMeasure15: this.state.strMeasure15,
+      strInstructions: this.state.strInstructions,
+      strDrinkThumb: this.state.avatar ? this.state.avatar : this.props.drink.strDrinkThumb,
     };
     this.props.updateMyDrink(drink);
   }
@@ -189,41 +189,41 @@ class EditMyDrink extends Component {
     const { onChange, save } = this;
     const { drink, history } = this.props;
     const {
-      drinkName,
-      alcoholic,
-      ingredient1,
-      ingredient2,
-      ingredient3,
-      ingredient4,
-      ingredient5,
-      ingredient6,
-      ingredient7,
-      ingredient8,
-      ingredient9,
-      ingredient10,
-      ingredient11,
-      ingredient12,
-      ingredient13,
-      ingredient14,
-      ingredient15,
-      measure1,
-      measure2,
-      measure3,
-      measure4,
-      measure5,
-      measure6,
-      measure7,
-      measure8,
-      measure9,
-      measure10,
-      measure11,
-      measure12,
-      measure13,
-      measure14,
-      measure15,
-      imageURL,
+      strDrink,
+      strAlcoholic2,
+      strIngredient1,
+      strIngredient2,
+      strIngredient3,
+      strIngredient4,
+      strIngredient5,
+      strIngredient6,
+      strIngredient7,
+      strIngredient8,
+      strIngredient9,
+      strIngredient10,
+      strIngredient11,
+      strIngredient12,
+      strIngredient13,
+      strIngredient14,
+      strIngredient15,
+      strMeasure1,
+      strMeasure2,
+      strMeasure3,
+      strMeasure4,
+      strMeasure5,
+      strMeasure6,
+      strMeasure7,
+      strMeasure8,
+      strMeasure9,
+      strMeasure10,
+      strMeasure11,
+      strMeasure12,
+      strMeasure13,
+      strMeasure14,
+      strMeasure15,
+      strDrinkThumb,
       avatar,
-      directions,
+      strInstructions,
       error,
     } = this.state;
     return (
@@ -242,7 +242,7 @@ class EditMyDrink extends Component {
               >
                 {!avatar ? (
                   <img
-                    src={drink.imageURL}
+                    src={drink.strDrinkThumb}
                     style={{
                       width: "8rem",
                       height: "8rem",
@@ -273,425 +273,425 @@ class EditMyDrink extends Component {
                   ></input>
                 </div>
                 <div className="mt-4">
-                  <h2>{drink.drinkName}</h2>
+                  <h2>{drink.strDrink}</h2>
                 </div>
-                {drink.ingredient1 ? (
+                {drink.strIngredient1 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient1" className="form-label small">
-                      Ingredient 1
+                    <label htmlFor="strIngredient1" className="form-label small">
+                      ingredient1
                     </label>
                     <input
-                      value={ingredient1}
-                      name="ingredient1"
+                      value={strIngredient1}
+                      name="strIngredient1"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure1 ? (
+                {drink.strMeasure1 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure1" className="form-label small">
-                      Measure 1
+                    <label htmlFor="strMeasure1" className="form-label small">
+                      measure 1
                     </label>
                     <input
-                      value={measure1}
-                      name="measure1"
+                      value={strMeasure1}
+                      name="strMeasure1"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient2 ? (
+                {drink.strIngredient2 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient2" className="form-label small">
-                      Ingredient 2
+                    <label htmlFor="strIngredient2" className="form-label small">
+                      ingredient2
                     </label>
                     <input
-                      value={ingredient2}
-                      name="ingredient2"
+                      value={strIngredient2}
+                      name="strIngredient2"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure2 ? (
+                {drink.strMeasure2 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure2" className="form-label small">
-                      Measure 2
+                    <label htmlFor="strMeasure2" className="form-label small">
+                      measure 2
                     </label>
                     <input
-                      value={measure2}
-                      name="measure2"
+                      value={strMeasure2}
+                      name="strMeasure2"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient3 ? (
+                {drink.strIngredient3 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient3" className="form-label small">
-                      Ingredient 3
+                    <label htmlFor="strIngredient3" className="form-label small">
+                      ingredient3
                     </label>
                     <input
-                      value={ingredient3}
-                      name="ingredient3"
+                      value={strIngredient3}
+                      name="strIngredient3"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure3 ? (
+                {drink.strMeasure3 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure1" className="form-label small">
-                      Measure 3
+                    <label htmlFor="strMeasure1" className="form-label small">
+                      measure 3
                     </label>
                     <input
-                      value={measure3}
-                      name="measure3"
+                      value={strMeasure3}
+                      name="strMeasure3"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient4 ? (
+                {drink.strIngredient4 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient4" className="form-label small">
-                      Ingredient 4
+                    <label htmlFor="strIngredient4" className="form-label small">
+                      ingredient4
                     </label>
                     <input
-                      value={ingredient4}
-                      name="ingredient4"
+                      value={strIngredient4}
+                      name="strIngredient4"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure4 ? (
+                {drink.strMeasure4 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure4" className="form-label small">
-                      Measure 4
+                    <label htmlFor="strMeasure4" className="form-label small">
+                      measure 4
                     </label>
                     <input
-                      value={measure4}
-                      name="measure4"
+                      value={strMeasure4}
+                      name="strMeasure4"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient5 ? (
+                {drink.strIngredient5 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient5" className="form-label small">
-                      Ingredient 5
+                    <label htmlFor="strIngredient5" className="form-label small">
+                      ingredient5
                     </label>
                     <input
-                      value={ingredient5}
-                      name="ingredient5"
+                      value={strIngredient5}
+                      name="strIngredient5"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure5 ? (
+                {drink.strMeasure5 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure1" className="form-label small">
-                      Measure 5
+                    <label htmlFor="strMeasure1" className="form-label small">
+                      measure 5
                     </label>
                     <input
-                      value={measure5}
-                      name="measure5"
+                      value={strMeasure5}
+                      name="strMeasure5"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient6 ? (
+                {drink.strIngredient6 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient6" className="form-label small">
-                      Ingredient 6
+                    <label htmlFor="strIngredient6" className="form-label small">
+                      ingredient6
                     </label>
                     <input
-                      value={ingredient6}
-                      name="ingredient6"
+                      value={strIngredient6}
+                      name="strIngredient6"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure6 ? (
+                {drink.strMeasure6 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure1" className="form-label small">
-                      Measure 6
+                    <label htmlFor="strMeasure1" className="form-label small">
+                      measure 6
                     </label>
                     <input
-                      value={measure6}
-                      name="measure6"
+                      value={strMeasure6}
+                      name="strMeasure6"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient7 ? (
+                {drink.strIngredient7 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient1" className="form-label small">
-                      Ingredient 7
+                    <label htmlFor="strIngredient1" className="form-label small">
+                      ingredient7
                     </label>
                     <input
-                      value={ingredient7}
-                      name="ingredient7"
+                      value={strIngredient7}
+                      name="strIngredient7"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure7 ? (
+                {drink.strMeasure7 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure7" className="form-label small">
-                      Measure 7
+                    <label htmlFor="strMeasure7" className="form-label small">
+                      measure 7
                     </label>
                     <input
-                      value={measure7}
-                      name="measure7"
+                      value={strMeasure7}
+                      name="strMeasure7"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient8 ? (
+                {drink.strIngredient8 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient8" className="form-label small">
-                      Ingredient 8
+                    <label htmlFor="strIngredient8" className="form-label small">
+                      ingredient8
                     </label>
                     <input
-                      value={ingredient8}
-                      name="ingredient8"
+                      value={strIngredient8}
+                      name="strIngredient8"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure8 ? (
+                {drink.strMeasure8 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure8" className="form-label small">
-                      Measure 8
+                    <label htmlFor="strMeasure8" className="form-label small">
+                      measure 8
                     </label>
                     <input
-                      value={measure8}
-                      name="measure8"
+                      value={strMeasure8}
+                      name="strMeasure8"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient9 ? (
+                {drink.strIngredient9 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient9" className="form-label small">
-                      Ingredient 9
+                    <label htmlFor="strIngredient9" className="form-label small">
+                      ingredient9
                     </label>
                     <input
-                      value={ingredient9}
-                      name="ingredient9"
+                      value={strIngredient9}
+                      name="strIngredient9"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure9 ? (
+                {drink.strMeasure9 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure9" className="form-label small">
-                      Measure 9
+                    <label htmlFor="strMeasure9" className="form-label small">
+                      measure 9
                     </label>
                     <input
-                      value={measure9}
-                      name="measure9"
+                      value={strMeasure9}
+                      name="strMeasure9"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient10 ? (
+                {drink.strIngredient10 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient10" className="form-label small">
-                      Ingredient 10
+                    <label htmlFor="strIngredient10" className="form-label small">
+                      ingredient10
                     </label>
                     <input
-                      value={ingredient10}
-                      name="ingredient10"
+                      value={strIngredient10}
+                      name="strIngredient10"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure10 ? (
+                {drink.strMeasure10 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure10" className="form-label small">
-                      Measure 10
+                    <label htmlFor="strMeasure10" className="form-label small">
+                      measure 10
                     </label>
                     <input
-                      value={measure10}
-                      name="measure10"
+                      value={strMeasure10}
+                      name="strMeasure10"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient11 ? (
+                {drink.strIngredient11 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient11" className="form-label small">
-                      Ingredient 11
+                    <label htmlFor="strIngredient11" className="form-label small">
+                      ingredient11
                     </label>
                     <input
-                      value={ingredient11}
-                      name="ingredient11"
+                      value={strIngredient11}
+                      name="strIngredient11"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure11 ? (
+                {drink.strMeasure11 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure11" className="form-label small">
-                      Measure 11
+                    <label htmlFor="strMeasure11" className="form-label small">
+                      measure 11
                     </label>
                     <input
-                      value={measure11}
-                      name="measure11"
+                      value={strMeasure11}
+                      name="strMeasure11"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient12 ? (
+                {drink.strIngredient12 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient12" className="form-label small">
-                      Ingredient 12
+                    <label htmlFor="strIngredient12" className="form-label small">
+                      ingredient12
                     </label>
                     <input
-                      value={ingredient12}
-                      name="ingredient12"
+                      value={strIngredient12}
+                      name="strIngredient12"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure12 ? (
+                {drink.strMeasure12 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure12" className="form-label small">
-                      Measure 12
+                    <label htmlFor="strMeasure12" className="form-label small">
+                      measure 12
                     </label>
                     <input
-                      value={measure12}
-                      name="measure12"
+                      value={strMeasure12}
+                      name="strMeasure12"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient13 ? (
+                {drink.strIngredient13 ? (
                   <div className="mt-4">
                     <label
-                      htmlFor="ingredient13xw"
+                      htmlFor="strIngredient13xw"
                       className="form-label small"
                     >
-                      Ingredient 13
+                      ingredient13
                     </label>
                     <input
-                      value={ingredient13}
-                      name="ingredient13"
+                      value={strIngredient13}
+                      name="strIngredient13"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure13 ? (
+                {drink.strMeasure13 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure13" className="form-label small">
-                      Measure 13
+                    <label htmlFor="strMeasure13" className="form-label small">
+                      measure 13
                     </label>
                     <input
-                      value={measure13}
-                      name="measure13"
+                      value={strMeasure13}
+                      name="strMeasure13"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient14 ? (
+                {drink.strIngredient14 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient14" className="form-label small">
-                      Ingredient 14
+                    <label htmlFor="strIngredient14" className="form-label small">
+                      ingredient14
                     </label>
                     <input
-                      value={ingredient14}
-                      name="ingredient14"
+                      value={strIngredient14}
+                      name="strIngredient14"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure14 ? (
+                {drink.strMeasure14 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure14" className="form-label small">
-                      Measure 14
+                    <label htmlFor="strMeasure14" className="form-label small">
+                      measure 14
                     </label>
                     <input
-                      value={measure14}
-                      name="measure14"
+                      value={strMeasure14}
+                      name="strMeasure14"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.ingredient15 ? (
+                {drink.strIngredient15 ? (
                   <div className="mt-4">
-                    <label htmlFor="ingredient15" className="form-label small">
-                      Ingredient 15
+                    <label htmlFor="strIngredient15" className="form-label small">
+                      ingredient15
                     </label>
                     <input
-                      value={ingredient15}
-                      name="ingredient15"
+                      value={strIngredient15}
+                      name="strIngredient15"
                       type="text"
                       className="form-control"
                       onChange={onChange}
                     ></input>
                   </div>
                 ) : null}
-                {drink.measure15 ? (
+                {drink.strMeasure15 ? (
                   <div className="mt-4">
-                    <label htmlFor="measure15" className="form-label small">
-                      Measure 15
+                    <label htmlFor="strMeasure15" className="form-label small">
+                      measure 15
                     </label>
                     <input
-                      value={measure15}
-                      name="measure15"
+                      value={strMeasure15}
+                      name="strMeasure15"
                       type="text"
                       className="form-control"
                       onChange={onChange}
@@ -699,12 +699,12 @@ class EditMyDrink extends Component {
                   </div>
                 ) : null}
                 <div className="mt-4">
-                  <label htmlFor="directions" className="form-label small">
+                  <label htmlFor="strInstructions" className="form-label small">
                     Directions
                   </label>
                   <textarea
-                    value={directions}
-                    name="directions"
+                    value={strInstructions}
+                    name="strInstructions"
                     type="text"
                     className="form-control"
                     onChange={onChange}

@@ -23,7 +23,7 @@ const SearchBarMyDrinks = ({ myDrinks }) => {
             if (query === "") {
               return myDrink;
             } else if (
-              myDrink.drinkName.toLowerCase().includes(query.toLowerCase())
+              myDrink.strDrink.toLowerCase().includes(query.toLowerCase())
             ) {
               return myDrink;
             }
@@ -50,7 +50,7 @@ const SearchBarMyDrinks = ({ myDrinks }) => {
                   }}
                   className="text-link p-2"
                 >
-                    {myDrink.drinkName}
+                    {myDrink.strDrink}
                 </Link>
                 </div>
               );

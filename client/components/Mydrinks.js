@@ -54,19 +54,19 @@ class Mydrinks extends Component {
                       padding: '1rem'
                     }}
                     src={
-                      drink.imageURL
-                        ? drink.imageURL
+                      drink.strDrinkThumb
+                        ? drink.strDrinkThumb
                         : "https://www.plslwd.org/wp-content/plugins/lightbox/images/No-image-found.jpg"
                     }
                   ></img>
                 </div>
                 
                 <div style={{ height: "70px", marginTop: "1rem" }}>
-                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}><h2>{drink.drinkName}</h2></Link> */}
-                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2>{drink.drinkName}</h2></Link>
+                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}><h2>{drink.strDrink}</h2></Link> */}
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2>{drink.strDrink}</h2></Link>
                 </div>
                 <div style={{ height: "70px", marginTop: "1rem" }}>
-                  {drink.alcoholic ? (
+                  {drink.strAlcoholic2 ? (
                     <EmojiSunglasses size={40} />
                   ) : (
                     <EmojiFrown size={40} />

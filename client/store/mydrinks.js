@@ -38,10 +38,11 @@ export const updateMyDrink = (drink, history) =>{
     }
 }
 
-export const createMyDrink = (drink) => {
+export const createMyDrink = (drink, user) => {
     return async(dispatch) => {
+        drink.userId = user;
         const response  = await axios.post('/api/myDrinks', drink);
-        dispatch({ type: 'CREATE_MY_DRINK', myDrink: response.data})
+        dispatch({ type: 'CREATE_MY_DRINK', myDrink: response.data })
     }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { createMyDrink } from '../store'
 // import function to add to recipe list 
 
 class Recipe extends Component{
@@ -19,10 +20,12 @@ class Recipe extends Component{
     
   }
   render() {
+    const { createMyDrink, auth } = this.props
     const { drink } = this.state;
     const recipe = drink.drinks ? drink.drinks[0] : {}
     console.log(drink)
     console.log(recipe)
+    console.log(auth)
     return (
       <div
       id="drink-page"
@@ -62,7 +65,7 @@ class Recipe extends Component{
       >
         <div>
           <h1>{ recipe.strDrink }</h1>
-          <button>+</button>
+          <button onClick={ () => createMyDrink(recipe, auth.id) }>+</button>
         </div>
         <div
           style={{
@@ -160,10 +163,16 @@ class Recipe extends Component{
   }
 }
 
-const mapDispatchToProps = ( dispatch ) => {
+const mapStateToProps = state => {
   return {
-    createMyDrink: ( drink ) => dispatch(createMyDrink(drink))
+    auth: state.auth
   }
 }
 
-export default connect(null, mapDispatchToProps)(Recipe);
+const mapDispatchToProps = ( dispatch ) => {
+  return {
+    createMyDrink: ( drink, userId ) => dispatch(createMyDrink(drink, userId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe);
