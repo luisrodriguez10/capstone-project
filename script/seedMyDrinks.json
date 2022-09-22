@@ -1,7 +1,7 @@
 [
     {
         "strDrink": "A1",
-        "strstrAlcoholic": true,
+        "strstrAlcoholic2": true,
         "strIngredient1": "Gin",
         "strIngredient2": "Grand Marnier",
         "strIngredient3": "Lemon Juice",
@@ -38,7 +38,7 @@
     },
     {
         "strDrink": "ABC",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Amaretto",
         "strIngredient2": "Baileys irish cream",
         "strIngredient3": "Cognac",
@@ -75,7 +75,7 @@
     },
     {
         "strDrink": "Mojito",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Light rum",
         "strIngredient2": "Lime",
         "strIngredient3": "Sugar",
@@ -112,7 +112,7 @@
     },
     {
         "strDrink": "After sex",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Vodka",
         "strIngredient2": "Creme de Banane",
         "strIngredient3": "Orange juice",
@@ -149,7 +149,7 @@
     },
     {
         "strDrink": "Margarita",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Tequila",
         "strIngredient2": "Triple sec",
         "strIngredient3": "Lime juice",
@@ -186,7 +186,7 @@
     },
     {
         "strDrink": "Autodafé",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Vodka",
         "strIngredient2": "Lime juice",
         "strIngredient3": "Soda water",
@@ -223,7 +223,7 @@
     },
     {
         "strDrink": "Affinity",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Scotch",
         "strIngredient2": "Sweet Vermouth",
         "strIngredient3": "Dry Vermouth",
@@ -260,7 +260,7 @@
     },
     {
         "strDrink": "Autodafé",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Vodka",
         "strIngredient2": "Lime juice",
         "strIngredient3": "Soda water",
@@ -297,7 +297,7 @@
     },
     {
         "strDrink": "Algonquin",
-        "strAlcoholic": true,
+        "strAlcoholic2": true,
         "strIngredient1": "Blended whiskey",
         "strIngredient2": "Dry Vermouth",
         "strIngredient3": "Pineapple juice",

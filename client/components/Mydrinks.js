@@ -60,7 +60,7 @@ class Mydrinks extends Component {
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2>{drink.strDrink}</h2></Link>
                 </div>
                 <div style={{ height: "70px", marginTop: "1rem" }}>
-                  {drink.strAlcoholic ? (
+                  {drink.strAlcoholic2 ? (
                     <EmojiSunglasses size={40} />
                   ) : (
                     <EmojiFrown size={40} />

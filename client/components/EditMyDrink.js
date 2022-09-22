@@ -7,7 +7,7 @@ class EditMyDrink extends Component {
     super();
     this.state = {
       strDrink: "",
-      strAlcoholic: false,
+      strAlcoholic2: false,
       strIngredient1: "",
       strIngredient2: "",
       strIngredient3: "",
@@ -60,7 +60,7 @@ class EditMyDrink extends Component {
     if (this.props.drink.id) {
       this.setState({
         strDrink: this.props.drink.strDrink,
-        strAlcoholic: this.props.drink.strAlcoholic,
+        strAlcoholic2: this.props.drink.strAlcoholic2,
         strIngredient1: this.props.drink.strIngredient1,
         strIngredient2: this.props.drink.strIngredient2,
         strIngredient3: this.props.drink.strIngredient3,
@@ -102,7 +102,7 @@ class EditMyDrink extends Component {
       
       this.setState({
         strDrink: this.props.drink.strDrink,
-        strAlcoholic: this.props.drink.strAlcoholic,
+        strAlcoholic2: this.props.drink.strAlcoholic2,
         strIngredient1: this.props.drink.strIngredient1,
         strIngredient2: this.props.drink.strIngredient2,
         strIngredient3: this.props.drink.strIngredient3,
@@ -190,7 +190,7 @@ class EditMyDrink extends Component {
     const { drink, history } = this.props;
     const {
       strDrink,
-      strAlcoholic,
+      strAlcoholic2,
       strIngredient1,
       strIngredient2,
       strIngredient3,

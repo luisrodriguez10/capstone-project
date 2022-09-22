@@ -10,6 +10,9 @@ const MyDrink = db.define('myDrink', {
     }
   },
   strAlcoholic: {
+    type: Sequelize.STRING
+  },
+  strAlcoholic2: {
     type: Sequelize.BOOLEAN,
     defaultValue: true,
     allowNull: false
