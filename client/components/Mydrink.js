@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { deleteMyDrink } from "../store";
+import "./Mydrinks.css"
 import { deleteMyDrink, fetchMyDrinks } from "../store";
 import {
     PencilFill,
@@ -32,10 +34,11 @@ class MyDrink extends Component {
         >
           <img
             style={{
-              borderRadius: "20px",
+              borderRadius: "40px",
+              // border: "1px solid",
               width: "80%",
               height: "100%",
-              backgroundColor: "#6e6b66",
+              backgroundColor: "transparent",
               padding: "1rem"
             }}
             src={
@@ -48,14 +51,17 @@ class MyDrink extends Component {
         <div
           id="drink-info"
           style={{
-            display: "flex",
-            flexDirection: "column",
+            // display: "flex",
+            // flexDirection: "column",
             alignItems: "center",
             width: '350px',
+
           }}
         >
           <div>
-            <h1>{myDrink.drinkName}</h1>
+            <h2 className="drink-nameh1">{myDrink.drinkName}</h2>
+            <hr className="drink-name"/>
+
           </div>
           <div
             style={{
@@ -66,6 +72,8 @@ class MyDrink extends Component {
             }}
           >
             <h2 style={{ textAlign: "center" }}>Ingredients</h2>
+            <hr className="drink-name"/>
+
             <p>
               {myDrink.ingredient1 ? myDrink.ingredient1 : null}{" "}
               {myDrink.measure1 ? ` | ${myDrink.measure1}` : null}
@@ -127,6 +135,8 @@ class MyDrink extends Component {
               {myDrink.measure15 ? ` | ${myDrink.measure15}` : null}
             </p>
           </div>
+          <br></br>
+
           <div
             style={{
               height: "200px",
@@ -136,7 +146,9 @@ class MyDrink extends Component {
             }}
           >
             <h2>Instructions</h2>
-            <p>{myDrink.directions}</p>
+            <hr className="drink-name"/>
+
+            <p className="instructions">{myDrink.directions}</p>
           </div>
           <div
             style={{

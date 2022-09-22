@@ -21,6 +21,8 @@ class Mydrinks extends Component {
     const { myDrinks, deleteMyDrink } = this.props;
 
     return (
+      <div className="my-drinks-page">
+        <br></br>
       <div
         id="my-drinks-page"
         style={{
@@ -32,7 +34,11 @@ class Mydrinks extends Component {
         <h2>My Drinks</h2>
         <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
+
         </div>
+        <br></br>
+        <br></br>
+
         <div id="my-drinks">
           {myDrinks.map((drink) => {
 
@@ -77,6 +83,21 @@ class Mydrinks extends Component {
                   {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}>
                     <ArrowRightSquareFill size={25} />
                   </Link> */}
+<div>
+                  <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
+                    {/* <ArrowRightSquareFill size={25} /> */}
+                    Recipe
+                  </Link></button>
+                  </div>
+               
+
+                  <div className="bottom1">
+                  <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+                    {/* <Trash3Fill size={25} /> */}
+                    Remove
+                  </Link></button>
+                  </div>
+                  </div>
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
                     <ArrowRightSquareFill size={25} />
                   </Link>
