@@ -28,9 +28,9 @@ export const me = () => async dispatch => {
   }
 }
 
-export const authenticate = (username, password, method, history) => async dispatch => {
+export const authenticate = (username, password, method, firstName, lastName, email, history) => async dispatch => {
   try {
-    const res = await axios.post(`/auth/${method}`, {username, password})
+    const res = method === 'login' ? await axios.post(`/auth/${method}`, {username, password}) : await axios.post(`/auth/${method}`, {id: Math.floor(Math.random() * (10000000 - 50) + 50), username, password, firstName, lastName, email})
     window.localStorage.setItem(TOKEN, res.data.token)
     dispatch(me())
     history.push('/')
