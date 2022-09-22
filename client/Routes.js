@@ -9,6 +9,8 @@ import Recipes from './components/Recipes';
 import Recipe from './components/Recipe';
 import Landingpage from './components/Landingpage';
 import EditMyDrink from './components/EditMyDrink';
+import Store from './components/Store';
+import { createCoordinates } from './store';
 
 import {me} from './store'
 
@@ -18,6 +20,9 @@ import {me} from './store'
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      await this.props.createCoordinates(position.coords)
+    });
   }
 
   render() {
@@ -27,19 +32,20 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
          <Switch>
-         <Route exact path="/" component={Landingpage}/>
-         <Route exact path="/home" component={Landingpage} />
+            <Route exact path="/" component={Landingpage}/>
+         {/* <Route exact path="/home" component={Landingpage} /> */}
             <Route exact path="/myDrinks" component={Mydrinks} />
             <Route path="/myDrinks/:id" component={MyDrink} />
             <Route path="/editMyDrink/:id" component={EditMyDrink} />
             <Route path="/Mypantry" component={Mypantry} />
             <Route path="/Recipes" component={Recipes} />
             <Route path="/Recipe/:id" component={Recipe} />
+            <Route path="/stores" component={Store} />
        </Switch>
      ) : (
        <Switch>
-         <Route exact path="/home" component={Landingpage} />
-         <Route path='/' exact component={ Login } />
+         {/* <Route exact path="/home" component={Landingpage} /> */}
+         <Route path='/' exact component={ Landingpage } />
          <Route path="/login" component={Login} />
          <Route path="/signup" component={Signup} />
        </Switch>
@@ -64,7 +70,8 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
-    }
+    },
+    createCoordinates:(coordinates) => dispatch(createCoordinates(coordinates))
   }
 }
 
