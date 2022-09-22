@@ -24,6 +24,16 @@ class Mydrinks extends Component {
 
     return (
       <div className="my-drinks-page">
+        <br></br>
+      <div
+        id="my-drinks-page"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <h2>My Drinks</h2>
         <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
 
@@ -88,6 +98,12 @@ class Mydrinks extends Component {
                   </Link></button>
                   </div>
                   </div>
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
+                    <ArrowRightSquareFill size={25} />
+                  </Link>
+                  <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+                    <Trash3Fill size={25} />
+                  </Link>
                 </div>
               </div>
             );
