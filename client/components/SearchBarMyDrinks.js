@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import  "./Mydrinks.css"
 
 const SearchBarMyDrinks = ({ myDrinks }) => {
-  console.log(myDrinks);
   const [query, setQuery] = useState("");
 
   return (
@@ -13,6 +12,8 @@ const SearchBarMyDrinks = ({ myDrinks }) => {
         type="text"
         class="form-control"
         placeholder="Search drinks by name ..." 
+        className="form-control"
+        placeholder="Search drinks by name"
         onChange={(e) => setQuery(e.target.value)}
       /><div></div>
 

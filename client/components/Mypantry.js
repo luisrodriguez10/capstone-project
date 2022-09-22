@@ -17,8 +17,8 @@ class Mypantry extends Component {
   }
   componentDidMount() {
     const { items } = this.props;
-    if (items.length === 0) {    
-      const { auth } = this.props;
+    const { auth } = this.props;
+    if (items.length === 0 || auth.id !== items[0].userId) {    
       this.props.getItems(auth.id);
     }
   }
