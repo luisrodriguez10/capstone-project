@@ -17,7 +17,6 @@ class MyDrink extends Component {
   render() {
     const { myDrink } = this.props;
     const { deleteMyDrink } = this.props;
-    console.log(myDrink)
 
     return (
       <div

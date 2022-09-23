@@ -1,39 +1,55 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout, removeItems} from '../store'
-import Landingpage from './Landingpage';
-import './Navbar.css';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout, removeItems } from "../store";
+import Landingpage from "./Landingpage";
+import "./Navbar.css";
 
-
-const Navbar = ({handleClick, isLoggedIn}) => (
+const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <h1 className='firstrow'>The Cocktelero</h1>
+    <h1 className="firstrow">The Cocktelero</h1>
     <hr />
 
     <nav>
       {isLoggedIn ? (
-        <div className='secondrowlogin'>
+        <div className="secondrowlogin">
           {/* The navbar will show these links after you log in */}
-          <div className='drink'> <Link to="/home">Home</Link></div>
-          <div className='drink'><Link to="/myDrinks">My Drinks</Link></div>
-          <div className='drink'><Link to="/Mypantry">My Pantry</Link></div>
-          <div className='drink'><Link to="/Recipes">Recipes</Link></div>
-          <div className='drink'><Link to="/stores">See Nearby Stores</Link></div>
+          <div className="drink">
+            {" "}
+            <Link to="/">Home</Link>
+          </div>
+          <div className="drink">
+            <Link to="/myDrinks">My Drinks</Link>
+          </div>
+          <div className="drink">
+            <Link to="/Mypantry">My Pantry</Link>
+          </div>
+          <div className="drink">
+            <Link to="/Recipes">Recipes</Link>
+          </div>
+          <div className="drink">
+            <Link to="/stores">See Nearby Stores</Link>
+          </div>
           <Link to="/" onClick={handleClick}>
             Logout
           </Link>
         </div>
       ) : (
-
-        <div className='secondrow'>
-
+        <div className="secondrow">
           {/* The navbar will show these links before you log in */}
-          <div className='drink'> <Link to="/">Home</Link></div>
-          <div className='drink'><Link to="/Recipes">Recipes</Link></div>
-          <div className='drink'><Link to="/login">Login</Link></div>
-          <div className='drink'><Link to="/signup">Sign Up</Link></div>
-          
+          <div className="drink">
+            {" "}
+            <Link to="/">Home</Link>
+          </div>
+          <div className="drink">
+            <Link to="/Recipes">Recipes</Link>
+          </div>
+          <div className="drink">
+            <Link to="/login">Login</Link>
+          </div>
+          <div className="drink">
+            <Link to="/signup">Sign Up</Link>
+          </div>
         </div>
       )}
     </nav>
@@ -47,25 +63,24 @@ const Navbar = ({handleClick, isLoggedIn}) => (
 
     </div> */}
   </div>
-  
-)
+);
 
 /**
  * CONTAINER
  */
-const mapState = state => {
+const mapState = (state) => {
   return {
-    isLoggedIn: !!state.auth.id
-  }
-}
+    isLoggedIn: !!state.auth.id,
+  };
+};
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     handleClick() {
-      dispatch(logout())
-      dispatch(removeItems())
-    }
-  }
-}
+      dispatch(logout());
+      dispatch(removeItems());
+    },
+  };
+};
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(Navbar);

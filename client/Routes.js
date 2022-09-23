@@ -11,7 +11,7 @@ import Landingpage from './components/Landingpage';
 import EditMyDrink from './components/EditMyDrink';
 import Store from './components/Store';
 import { createCoordinates } from './store';
-
+import { gapi } from 'gapi-script';
 import {me} from './store'
 
 /**
@@ -20,9 +20,21 @@ import {me} from './store'
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      await this.props.createCoordinates(position.coords)
-    });
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        await this.props.createCoordinates(position.coords)
+      }, (error) =>{
+        console.log(error)
+      });
+    }
+
+    function start(){
+      gapi.client.init({
+        clientId: process.env.REACT_APP_CLIENT_ID,
+        scope: ""
+      })
+    }
+    gapi.load('client: auth2', start);
   }
 
   render() {
