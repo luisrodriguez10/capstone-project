@@ -32,15 +32,15 @@ class Mydrinks extends Component {
         }}
       >
         <h2>My Drinks</h2>
-        <div className="my-4">
+        { myDrinks.length > 0 ? <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
 
-        </div>
+        </div> : null}  
         <br></br>
         <br></br>
 
         <div id="my-drinks">
-          {myDrinks.map((drink) => {
+          { myDrinks.length > 0 ? myDrinks.map((drink) => {
             return (
               <div key={drink.id} className="drink-info">
                 <div style={{ height: "300px" }}>
@@ -105,7 +105,7 @@ class Mydrinks extends Component {
                 </div>
               </div>
             );
-          })}
+          }) : <p>No drinks saved.</p>}
         </div>
       </div>
       </div>
