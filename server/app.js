@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
+// const axios = require('axios');
 module.exports = app
 
 // logging middleware
@@ -15,6 +16,22 @@ app.use('/auth', require('./auth'))
 app.use('/api', require('./api'))
 
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '..', 'public/index.html')));
+
+// app.get('/stores', (req, res, next) => {
+//   try {
+//     axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
+//       req.body.lat
+//     },${req.body.lng}&type=${req.body.type}&radius=${
+//       req.body.radius
+//     }&key=${req.body.key}`).then(function (response){
+//       res.send(response.data)
+//     }).catch(function (error){
+//       console.log(error)
+//     })
+//   } catch (ex) {
+//     next(ex)
+//   }
+// })
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))

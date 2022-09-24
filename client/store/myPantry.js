@@ -3,6 +3,8 @@ import axios from 'axios';
 const GET_ITEMS = 'GET_ITEMS';
 const CREATE_ITEM = 'CREATE_ITEM';
 const UPDATE_ITEM = 'UPDATE_ITEM';
+const DELETE_ITEM = 'DELETE_ITEM';
+const REMOVE_ITEMS = 'REMOVE_ITEMS';
 
 const pantryReducer = (state = [], action) => {
   if (action.type === GET_ITEMS) {
@@ -14,6 +16,13 @@ const pantryReducer = (state = [], action) => {
   if (action.type === UPDATE_ITEM) {
     const items = state.filter((item) => item.id !== action.item.id);
     return [ ...items, action.item ];
+  }
+  if (action.type === DELETE_ITEM) {
+    const items = state.filter((item) => item.id !== action.id);
+    return items;
+  }
+  if (action.type === REMOVE_ITEMS) {
+    return [];
   }
   return state;
 };
@@ -39,13 +48,26 @@ const _updateItem = (item) => {
   };
 };
 
+const _deleteItem = (id) => {
+  return {
+    type: DELETE_ITEM,
+    id
+  };
+};
+
+const _removeItems = () => {
+  return {
+    type: REMOVE_ITEMS
+  };
+};
+
 export const getItems = (userId) => {
   return async (dispatch) => {
     const response = await axios.get(`/api/pantryItems/user/${userId}`);
     const items = response.data;
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
-      const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${item.name}`);
+      const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${item.name}`);
       const drinksObj = responseDrinks.data;
       item.drinks = drinksObj.drinks;
     }
@@ -80,6 +102,19 @@ export const updateItem = (item) => {
       updatedItem.drinks = [];
     }
     dispatch(_updateItem(updatedItem));
+  };
+};
+
+export const deleteItem = (id) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/pantryItems/${id}`);
+    dispatch(_deleteItem(id));
+  };
+};
+
+export const removeItems = () => {
+  return (dispatch) => {
+    dispatch(_removeItems());
   };
 };
 

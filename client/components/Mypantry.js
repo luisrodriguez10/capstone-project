@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getItems, createItem, updateItem } from '../store';
+import { getItems, createItem, updateItem, deleteItem } from '../store';
 import axios from 'axios';
 import "./Mypantry.css";
 
@@ -15,11 +15,23 @@ class Mypantry extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClickDelete = this.handleClickDelete.bind(this);
   }
   componentDidMount() {
-    const { items } = this.props;
-    const { auth } = this.props;
+    const { auth, items } = this.props;
     if (items.length === 0 || auth.id !== items[0].userId) {    
+      this.props.getItems(auth.id);
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (!prevProps.auth.id && this.props.auth.id) {
+      const { auth } = this.props;
+      this.props.getItems(auth.id);
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (!prevProps.auth.id && this.props.auth.id) {
+      const { auth } = this.props;
       this.props.getItems(auth.id);
     }
   }
@@ -29,7 +41,7 @@ class Mypantry extends Component {
   }
   async handleChange(event) {
     this.setState({ ingredient: event.target.value, recipes: [] });
-    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${event.target.value}`);
+    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${event.target.value}`);
     if (response.data !== '') {
       const drinksObj = response.data;
       this.setState({ recipes: drinksObj.drinks });
@@ -42,10 +54,13 @@ class Mypantry extends Component {
     this.props.createItem({ name: ingredient, stock: true, userId: auth.id });
     this.setState({ ingredient: '', recipes: [] });
   }
+  handleClickDelete(id) {
+    this.props.deleteItem(id);
+  }
   render() {
-    const { items } = this.props;
+    const { auth, items } = this.props;
     const { ingredient, recipes } = this.state;
-    const { handleClick, handleChange, handleSubmit } = this;
+    const { handleClick, handleChange, handleSubmit, handleClickDelete } = this;
     return(
       <div className='everything'>
 
@@ -67,7 +82,9 @@ class Mypantry extends Component {
                 return (
                   <li key={item.id}>
                     <span>{item.name}</span>
-                    <button onClick={() => handleClick(item)}>add back to pantry</button>
+                    <button onClick={() => handleClick(item)}>remove from pantry</button><br />
+                    <button onClick={() => handleClickDelete(item.id)}>delete item</button>
+                    <Link to={`/Recipes/${item.name}`}>{item.drinks.length} recipes using {item.name}</Link>
                   </li>
                 );
               })
@@ -87,8 +104,8 @@ class Mypantry extends Component {
                 return (
                   <li key={item.id}>
                     <span>{item.name}</span>
-                    <button onClick={() => handleClick(item)}>remove from pantry</button><br />
-                    <Link to=''>{item.drinks.length} recipes using {item.name}</Link>
+                    <button onClick={() => handleClick(item)}>add back to pantry</button>
+                    <button onClick={() => handleClickDelete(item.id)}>delete item</button>
                   </li>
                 );
               })
@@ -119,6 +136,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateItem: (item) => {
       dispatch(updateItem(item));
+    },
+    deleteItem: (id) => {
+      dispatch(deleteItem(id));
     }
   };
 };

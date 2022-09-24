@@ -28,9 +28,27 @@ export const me = () => async dispatch => {
   }
 }
 
-export const authenticate = (username, password, method, history) => async dispatch => {
+export const authenticate = (username, password, method, firstName, lastName, email, history) => async dispatch => {
   try {
-    const res = await axios.post(`/auth/${method}`, {username, password})
+    const res = method === 'login' ? await axios.post(`/auth/${method}`, {username, password}) : await axios.post(`/auth/${method}`, {id: Math.floor(Math.random() * (10000000 - 50) + 50), username, password, firstName, lastName, email})
+    window.localStorage.setItem(TOKEN, res.data.token)
+    dispatch(me())
+    history.push('/')
+  } catch (authError) {
+    return dispatch(setAuth({error: authError}))
+  }
+}
+
+export const authenticateGmail = (profile, history) => async dispatch => {
+
+  const username = profile.email;
+  const firstName = profile.givenName;
+  const lastName = profile.familyName;
+  const email = profile.email;
+  const password = Math.random().toString();
+
+  try {
+    const res = await axios.post('/auth/signup', {id: Math.floor(Math.random() * (10000000 - 50) + 50), username, password, firstName, lastName, email})
     window.localStorage.setItem(TOKEN, res.data.token)
     dispatch(me())
     history.push('/')

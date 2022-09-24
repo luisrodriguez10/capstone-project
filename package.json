@@ -18,10 +18,12 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.3",
     "@googlemaps/react-wrapper": "^1.1.35",
+    "@leecheuk/react-google-login": "^5.4.1",
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.2.1",
     "dotenv-webpack": "^8.0.1",
     "express": "^4.18.1",
+    "gapi-script": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",

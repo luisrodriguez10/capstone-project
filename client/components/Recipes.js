@@ -51,24 +51,28 @@ class Recipes extends Component {
 		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
 		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
+		let pageResults = [];
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
 		const indexOfFirstPost = indexOfLastPost - productsPerPage;
 		let currentResults = [];
 		let pageNumbers = [];
-		if ( results !== '') {
-			console.log('results ', results)
+		if( results === 'None Found' ) {
+			pageResults = [] 
+			console.log('None Found page results ', pageResults)
+		} else {
+			pageResults = results ? 
+				results
+				.sort( (a,b) => a.strDrink.localeCompare(b.strDrink))
+				.slice(indexOfFirstPost, indexOfLastPost) :
+				[]			
+			pageResults
+				.map( recipe => {
+				currentResults.push(recipe)
+			})
+			console.log('pageresults Else ', pageResults)
 		}
-		// if( results !== '' ) {
-		// 	const pageResults = results
-		// 		.sort( (a,b) => a.strDrink.localeCompare(b.strDrink))
-		// 		.slice(indexOfFirstPost, indexOfLastPost);
-		// 	pageResults
-		// 		.map( recipe => {
-		// 		currentResults.push(recipe)
-		// 	})
-		// } 
 
 		for (let i = 1; i <= Math.ceil(results?.length / productsPerPage); i++){
 			pageNumbers.push(i);
@@ -92,10 +96,15 @@ class Recipes extends Component {
 								A-F
 					{	
 						listPantry ? 
+<<<<<<< HEAD
 						
 						pantry.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
 
 							if(ingredient.name[0] === "A" || ingredient.name[0] === "B" || ingredient.name[0] === "C" || ingredient.name[0] === "D" || ingredient.name[0] === "E" || ingredient.name[0] === "F" )
+=======
+						pantry
+							.map( ingredient => {
+>>>>>>> 4d81af281eb3f8057026e29bc2a7907cdce84389
 							return (
 								<div  className='a-f'>
 								<div>
@@ -104,6 +113,7 @@ class Recipes extends Component {
 								</div>
 
 							)
+<<<<<<< HEAD
 						
 							if(ingredient.name[0] === "G" || ingredient.name[0] === "H" || ingredient.name[0] === "I" || ingredient.name[0] === "J" || ingredient.name[0] === "K" || ingredient.name[0] === "L" )
 							return (
@@ -127,6 +137,11 @@ class Recipes extends Component {
 
 						:
 						ingredients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
+=======
+						}) :
+						ingredients
+							.map( ingredient => {
+>>>>>>> 4d81af281eb3f8057026e29bc2a7907cdce84389
 							return (
 								<div>
 									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
@@ -138,7 +153,7 @@ class Recipes extends Component {
 				<ul>
 					{
 						results ? 
-						results.map( recipe => {
+						pageResults.map( recipe => {
 							return (
 								<li key={ recipe.idDrink }>
 									 <img
@@ -158,9 +173,9 @@ class Recipes extends Component {
 				</ul>
 				<div>
 					{
-						pageNumbers.map((pageNum, index) => (
+						pageResults.length ? pageNumbers.map((pageNum, index) => (
 							<button key={ index } onClick={() => { setPage(pageNum) }}>{ pageNum }</button>
-						))
+						)) : search ? 'There are no recipes with these ingredients!' : 'Choose your ingredients'
 					}
 				</div>
 			</div>

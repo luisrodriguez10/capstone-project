@@ -33,18 +33,16 @@ class Mydrinks extends Component {
           alignItems: "center",
         }}
       >
-        <h2 className="mydrinks">My Drinks</h2>
-        <div className="my-4">
+        <h2>My Drinks</h2>
+        { myDrinks.length > 0 ? <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
-          </div>
 
-        </div>
+          </div> : null}  
         <br></br>
         <br></br>
 
         <div id="my-drinks">
-          {myDrinks.map((drink) => {
-
+          { myDrinks.length > 0 ? myDrinks.map((drink) => {
             return (
               <div key={drink.id} className="drink-info">
                 <div >
@@ -78,19 +76,18 @@ class Mydrinks extends Component {
                   }}
                 >
                   <div className="bottom">
-                    <div>
                   <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
                     RECIPE
                   </Link></button>
                   </div>
-               
+                  
 
                   <div className="bottom1">
                   <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
                     REMOVE
                   </Link></button>
                   </div>
-                  </div>
+
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
                   </Link>
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
@@ -98,9 +95,12 @@ class Mydrinks extends Component {
                 </div>
               </div>
             );
-          })}
+          }) : <p>No drinks saved.</p>}
         </div>
-      </div>
+                  </div>
+                  </div>
+                 
+
     );
   }
 }
