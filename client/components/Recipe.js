@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { createMyDrink } from '../store'
+import "./Recipes.css"
 // import function to add to recipe list 
 
 class Recipe extends Component{
@@ -19,10 +21,12 @@ class Recipe extends Component{
     
   }
   render() {
+    const { createMyDrink, auth } = this.props
     const { drink } = this.state;
     const recipe = drink.drinks ? drink.drinks[0] : {}
     console.log(drink)
     console.log(recipe)
+    console.log(auth)
     return (
       <div
       id="drink-page"
@@ -38,10 +42,9 @@ class Recipe extends Component{
       >
         <img
           style={{
-            borderRadius: "20px",
+            borderRadius: "40px",
             width: "80%",
             height: "100%",
-            backgroundColor: "#6e6b66",
             padding: "1rem"
           }}
           src={
@@ -61,18 +64,19 @@ class Recipe extends Component{
         }}
       >
         <div>
-          <h1>{ recipe.strDrink }</h1>
-          <button>+</button>
+          <h1 className='recipe-drinkname'>{ recipe.strDrink }</h1>
+          <hr className='drink-name'/>
+          <button onClick={ () => createMyDrink(recipe, auth.id) }>Add to My Drinks</button>
         </div>
         <div
           style={{
             height: "330px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            textAlign: "center",
           }}
         >
           <h2 style={{ textAlign: "center" }}>Ingredients</h2>
+          <hr className='drink-name'/>
+
           <p>
             { recipe.strIngredient1 ? recipe.strIngredient1 : null}{" "}
             { recipe.strMeasure1 ? ` | ${ recipe.strMeasure1 }` : null}
@@ -140,10 +144,13 @@ class Recipe extends Component{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+         
           }}
         >
           <h2>Instructions</h2>
-          <p>{ recipe.strInstructions }</p>
+          <hr className='drink-name'/>
+
+          <p className='recipeinstructions'>{ recipe.strInstructions }</p>
         </div>
         <div
           style={{
@@ -151,6 +158,8 @@ class Recipe extends Component{
             width: "150px",
             display: "flex",
             justifyContent: "space-evenly",
+
+           
           }}
         >
         </div>
@@ -160,10 +169,16 @@ class Recipe extends Component{
   }
 }
 
-const mapDispatchToProps = ( dispatch ) => {
+const mapStateToProps = state => {
   return {
-    createMyDrink: ( drink ) => dispatch(createMyDrink(drink))
+    auth: state.auth
   }
 }
 
-export default connect(null, mapDispatchToProps)(Recipe);
+const mapDispatchToProps = ( dispatch ) => {
+  return {
+    createMyDrink: ( drink, userId ) => dispatch(createMyDrink(drink, userId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe);

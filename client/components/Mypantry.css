@@ -1,0 +1,10 @@
+.listofingredients {
+    overflow: auto;
+    width: 400px;
+    height: 400px;
+    background-color: #E4DCCF;
+}
+.everything{
+    display: flex;
+    justify-content: space-around;
+}

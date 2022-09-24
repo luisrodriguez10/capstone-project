@@ -50,26 +50,23 @@ class Mydrinks extends Component {
                 <div >
                   <img className="drinkimg"
                     src={
-                      drink.imageURL
-                        ? drink.imageURL
+                      drink.strDrinkThumb
+                        ? drink.strDrinkThumb
                         : "https://www.plslwd.org/wp-content/plugins/lightbox/images/No-image-found.jpg"
                     }
                   ></img>
                 </div>
 
-                <div>
-                <hr className="hr-mydrinks"/>
-
-                  <Link to={{ pathname: `/myDrink/${drink.id}`, state: drink }}><h2 className="drinkname">{drink.drinkName}</h2></Link>
-                  <hr className="hr-mydrinks"/>
-
+                <div style={{ height: "70px", marginTop: "1rem" }}>
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2 className="nameofdrink">{drink.strDrink}</h2></Link>
                 </div>
+                <hr/>
 
-                <div>
-                  {drink.alcoholic ? (
-                    <EmojiSunglasses size={30} />
+                <div style={{ height: "70px", marginTop: "1rem", textAlign:"center" }}>
+                  {drink.strAlcoholic2 ? (
+                    <EmojiSunglasses size={20} />
                   ) : (
-                    <EmojiFrown size={30} />
+                    <EmojiFrown size={20} />
                   )}
                 </div>
                 <div
@@ -81,29 +78,22 @@ class Mydrinks extends Component {
                   }}
                 >
                   <div className="bottom">
-                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}>
-                    <ArrowRightSquareFill size={25} />
-                  </Link> */}
-<div>
+                    <div>
                   <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
-                    {/* <ArrowRightSquareFill size={25} /> */}
-                    Recipe
+                    RECIPE
                   </Link></button>
                   </div>
                
 
                   <div className="bottom1">
                   <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                    {/* <Trash3Fill size={25} /> */}
-                    Remove
+                    REMOVE
                   </Link></button>
                   </div>
                   </div>
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
-                    {/* <ArrowRightSquareFill size={25} /> */}
                   </Link>
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                    {/* <Trash3Fill size={25} /> */}
                   </Link>
                 </div>
               </div>

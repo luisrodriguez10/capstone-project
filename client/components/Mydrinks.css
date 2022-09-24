@@ -39,11 +39,19 @@ hr.hr-mydrinks{
     justify-content: space-between;
 }
 .recipebutton{
-    background-color: #F8F0E3;
-    padding: 7px;
+    background-color: #E4DCCF;
+    padding: 0.5rem .7rem;
 margin-right: 7px;
-margin-top: 5px;
 font-family: 'DM Serif Display', serif;  
+position: relative;
+bottom: 20px;
+border-radius: 0.2rem;
+letter-spacing: 0.1rem;
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+color: black
+
+
+
 
 }
 .recipebutton:hover{
@@ -51,23 +59,26 @@ font-family: 'DM Serif Display', serif;
     .5px .5px black;
 }
 .removebutton{
-    background-color: #F8F0E3;
-    padding: 7px;
-    margin-top: 5px;
+    background-color: #E4DCCF;
+    padding: 0.5rem .7rem;
     font-family: 'DM Serif Display', serif;  
-
+    position: relative;
+bottom: 20px;
+letter-spacing: 0.1rem;
+border-radius: 0.2rem;
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 .removebutton:hover{
     text-shadow: -.25px -.25px 0 blue, 
     .5px .5px black;
 }
 
-input {
+.form-control {
     background-color: transparent;
     border: 1px solid;
     padding: 10px;
     font-family: 'DM Serif Display', serif;  
-width: 60.5%;
+width: 30rem;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
 }
@@ -98,4 +109,42 @@ p.instructions{
 .mydrinks {
     bottom: 20px;
     position: relative;
+}
+.nameofdrink{
+    color: black
+}
+.nameofdrink:hover{
+    text-shadow: -.25px -.25px 0 blue, 
+    .5px .5px black;
+}
+.edit{
+    background-color: #E4DCCF;
+    padding: 0.5rem .7rem;
+    font-family: 'DM Serif Display', serif;  
+    position: relative;
+bottom: 20px;
+letter-spacing: 0.1rem;
+border-radius: 0.2rem;
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.trash{
+    background-color: #E4DCCF;
+    padding: 0.5rem 1rem;
+    font-family: 'DM Serif Display', serif;  
+    position: relative;
+bottom: 20px;
+left: 10px;
+
+letter-spacing: 0.1rem;
+border-radius: 0.2rem;
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.buttons{
+    display: flex;
+    text-align: center;
+    position: relative;
+    top: 30px;
+    align-items: center;
+    margin-left: 11rem;
+    justify-content: space-evenly;
 }

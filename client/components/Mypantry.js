@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getItems, createItem, updateItem } from '../store';
 import axios from 'axios';
+import "./Mypantry.css";
 
 class Mypantry extends Component {
   constructor(props) {
@@ -46,7 +47,9 @@ class Mypantry extends Component {
     const { ingredient, recipes } = this.state;
     const { handleClick, handleChange, handleSubmit } = this;
     return(
-      <div>
+      <div className='everything'>
+
+        <div>
         <h2>Add Ingredients</h2>
         <form onSubmit={handleSubmit}>
           <input name='ingredient' type='text' value={ingredient} onChange={handleChange} />
@@ -55,22 +58,6 @@ class Mypantry extends Component {
         {
           recipes.length !== 0 ? `${recipes.length} recipes using ${ingredient}` : '*there are currently no recipes using this ingredient'
         }
-        <h2>My Ingredients</h2>
-        <ul>
-          {
-            items
-              .filter((item) => item.stock === true)
-              .map((item) => {
-                return (
-                  <li key={item.id}>
-                    <span>{item.name}</span>
-                    <button onClick={() => handleClick(item)}>remove from pantry</button><br />
-                    <Link to=''>{item.drinks.length} recipes using {item.name}</Link>
-                  </li>
-                );
-              })
-          }
-        </ul>
         <h2>Out of Stock</h2>
         <ul>
           {
@@ -86,6 +73,30 @@ class Mypantry extends Component {
               })
           }
         </ul>
+        </div>
+
+       <div>
+        <h2>My Ingredients</h2>
+        <div className='listofingredients'>
+        <ul>
+          {
+            items
+              .filter((item) => item.stock === true)
+              .sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+              .map((item) => {
+                return (
+                  <li key={item.id}>
+                    <span>{item.name}</span>
+                    <button onClick={() => handleClick(item)}>remove from pantry</button><br />
+                    <Link to=''>{item.drinks.length} recipes using {item.name}</Link>
+                  </li>
+                );
+              })
+          }
+        </ul>
+        </div>
+        </div>
+       
       </div>
     )
   }

@@ -2,112 +2,115 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 const MyDrink = db.define('myDrink', {
-  drinkName: {
+  strDrink: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true
     }
   },
-  alcoholic: {
+  strAlcoholic: {
+    type: Sequelize.STRING
+  },
+  strAlcoholic2: {
     type: Sequelize.BOOLEAN,
     defaultValue: true,
     allowNull: false
   },
-  ingredient1: {
+  strIngredient1: {
     type: Sequelize.STRING
   },
-  ingredient2: {
+  strIngredient2: {
     type: Sequelize.STRING
   },
-  ingredient3: {
+  strIngredient3: {
     type: Sequelize.STRING
   },
-  ingredient4: {
+  strIngredient4: {
     type: Sequelize.STRING
   },
-  ingredient5: {
+  strIngredient5: {
     type: Sequelize.STRING
   },
-  ingredient6: {
+  strIngredient6: {
     type: Sequelize.STRING
   },
-  ingredient7: {
+  strIngredient7: {
     type: Sequelize.STRING
   },
-  ingredient8: {
+  strIngredient8: {
     type: Sequelize.STRING
   },
-  ingredient9: {
+  strIngredient9: {
     type: Sequelize.STRING
   },
-  ingredient10: {
+  strIngredient10: {
     type: Sequelize.STRING
   },
-  ingredient11: {
+  strIngredient11: {
     type: Sequelize.STRING
   },
-  ingredient12: {
+  strIngredient12: {
     type: Sequelize.STRING
   },
-  ingredient13: {
+  strIngredient13: {
     type: Sequelize.STRING
   },
-  ingredient14: {
+  strIngredient14: {
     type: Sequelize.STRING
   },
-  ingredient15: {
+  strIngredient15: {
     type: Sequelize.STRING
   },
-  measure1: {
+  strMeasure1: {
     type: Sequelize.STRING
   },
-  measure2: {
+  strMeasure2: {
     type: Sequelize.STRING
   },
-  measure3: {
+  strMeasure3: {
     type: Sequelize.STRING
   },
-  measure4: {
+  strMeasure4: {
     type: Sequelize.STRING
   },
-  measure5: {
+  strMeasure5: {
     type: Sequelize.STRING
   },
-  measure6: {
+  strMeasure6: {
     type: Sequelize.STRING
   },
-  measure7: {
+  strMeasure7: {
     type: Sequelize.STRING
   },
-  measure8: {
+  strMeasure8: {
     type: Sequelize.STRING
   },
-  measure9: {
+  strMeasure9: {
     type: Sequelize.STRING
   },
-  measure10: {
+  strMeasure10: {
     type: Sequelize.STRING
   },
-  measure11: {
+  strMeasure11: {
     type: Sequelize.STRING
   },
-  measure12: {
+  strMeasure12: {
     type: Sequelize.STRING
   },
-  measure13: {
+  strMeasure13: {
     type: Sequelize.STRING
   },
-  measure14: {
+  strMeasure14: {
     type: Sequelize.STRING
   },
-  measure15: {
+  strMeasure15: {
     type: Sequelize.STRING
   },
-  imageURL: {
+  strDrinkThumb: {
     type: Sequelize.TEXT
   },
-  directions: {
+  strInstructions: {
     type: Sequelize.TEXT
   }
 });
