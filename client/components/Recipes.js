@@ -51,24 +51,28 @@ class Recipes extends Component {
 		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
 		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
+		let pageResults = [];
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
 		const indexOfFirstPost = indexOfLastPost - productsPerPage;
 		let currentResults = [];
 		let pageNumbers = [];
-		if ( results !== '') {
-			console.log('results ', results)
+		if( results === 'None Found' ) {
+			pageResults = [] 
+			console.log('None Found page results ', pageResults)
+		} else {
+			pageResults = results ? 
+				results
+				.sort( (a,b) => a.strDrink.localeCompare(b.strDrink))
+				.slice(indexOfFirstPost, indexOfLastPost) :
+				[]			
+			pageResults
+				.map( recipe => {
+				currentResults.push(recipe)
+			})
+			console.log('pageresults Else ', pageResults)
 		}
-		// if( results !== '' ) {
-		// 	const pageResults = results
-		// 		.sort( (a,b) => a.strDrink.localeCompare(b.strDrink))
-		// 		.slice(indexOfFirstPost, indexOfLastPost);
-		// 	pageResults
-		// 		.map( recipe => {
-		// 		currentResults.push(recipe)
-		// 	})
-		// } 
 
 		for (let i = 1; i <= Math.ceil(results?.length / productsPerPage); i++){
 			pageNumbers.push(i);
@@ -88,14 +92,16 @@ class Recipes extends Component {
 					<button onClick={ pantryToggle }>Toggle Pantry List</button>
 					{	
 						listPantry ? 
-						pantry.map( ingredient => {
+						pantry
+							.map( ingredient => {
 							return (
 								<div>
 									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
 								</div>
 							)
 						}) :
-						ingredients.map( ingredient => {
+						ingredients
+							.map( ingredient => {
 							return (
 								<div>
 									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
@@ -107,7 +113,7 @@ class Recipes extends Component {
 				<ul>
 					{
 						results ? 
-						results.map( recipe => {
+						pageResults.map( recipe => {
 							return (
 								<li key={ recipe.idDrink }>
 									 <img
@@ -127,9 +133,9 @@ class Recipes extends Component {
 				</ul>
 				<div>
 					{
-						pageNumbers.map((pageNum, index) => (
+						pageResults.length ? pageNumbers.map((pageNum, index) => (
 							<button key={ index } onClick={() => { setPage(pageNum) }}>{ pageNum }</button>
-						))
+						)) : search ? 'There are no recipes with these ingredients!' : 'Choose your ingredients'
 					}
 				</div>
 			</div>
