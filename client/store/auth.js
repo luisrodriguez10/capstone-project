@@ -49,7 +49,6 @@ export const authenticateGmail = (profile, history) => async dispatch => {
 
   try {
     const res = await axios.post('/auth/signup', {id: Math.floor(Math.random() * (10000000 - 50) + 50), username, password, firstName, lastName, email})
-    console.log(res);
     window.localStorage.setItem(TOKEN, res.data.token)
     dispatch(me())
     history.push('/')
