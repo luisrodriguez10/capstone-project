@@ -79,7 +79,7 @@ export const createItem = (item) => {
   return async (dispatch) => {
     const response = await axios.post('api/pantryItems', item);
     const newItem = response.data;
-    const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${newItem.name}`);
+    const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${newItem.name}`);
     if (responseDrinks.data !== '') {
       const drinksObj = responseDrinks.data;
       newItem.drinks = drinksObj.drinks;
@@ -94,7 +94,7 @@ export const updateItem = (item) => {
   return async (dispatch) => {
     const response = await axios.put(`/api/pantryItems/${item.id}`, item);
     const updatedItem = response.data;
-    const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${updatedItem.name}`);
+    const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${updatedItem.name}`);
     if (responseDrinks.data !== '') {
       const drinksObj = responseDrinks.data;
       updatedItem.drinks = drinksObj.drinks;
