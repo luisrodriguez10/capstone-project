@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authenticate, authenticateGmail } from "../store";
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "@leecheuk/react-google-login";
 
 /**
  * COMPONENT

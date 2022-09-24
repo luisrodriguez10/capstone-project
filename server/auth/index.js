@@ -19,11 +19,12 @@ router.post("/signup", async (req, res, next) => {
         username: req.body.username,
       },
     });
-    
+
     if (!userExist) {
       const user = await User.create(req.body);
       res.send({ token: await user.generateToken() });
     }
+    
     const token = require('jsonwebtoken').sign({id: userExist.id}, process.env.JWT)
     res.send({ token: token });
   } catch (err) {
