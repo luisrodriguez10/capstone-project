@@ -52,7 +52,7 @@ class Store extends React.Component {
     await axios
         .get(URL, {
           Headers: {
-            "Access-Control-Allow-Orign": "http://localhost:8080",
+            "Access-Control-Allow-Orign": "https://the-cocktelero.herokuapp.com/#/",
           },
         })
         .then((response) => {
