@@ -1,11 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import { fetchCoordinates, createCoordinates } from "../store";
 
 class Store extends React.Component {
   constructor() {
     super();
     this.state = {
+      lat: "",
+      lng: "",
       type: "liquor_store",
       radius: "50",
       places: [],
@@ -31,68 +34,68 @@ class Store extends React.Component {
       });
       var infowindow = new window.google.maps.InfoWindow();
       window.google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(`<div class="ui header">${place.name}</div><p>${place.vicinity}</p>`);
+        infowindow.setContent(
+          `<div class="ui header">${place.name}</div><p>${place.vicinity}</p>`
+        );
         infowindow.open(map, marker);
       });
-
     });
-
   };
 
-  async componentDidUpdate(){
-    console.log('hello')
-  }
-
-  async componentDidMount() {
-
-    console.log(this.props)
-
+  async getStorePlaces(lat, lng) {
     const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
-      this.props.coordinates[0].lat
-    },${this.props.coordinates[0].lng}&type=${this.state.type}&radius=${
+      lat
+    },${lng}&type=${this.state.type}&radius=${
       this.state.radius * 1000
     }&key=${process.env.REACT_APP_API_KEY}`;
 
-    // const body = {
-    //   lat: this.props.coordinates[0].lat,
-    //   lng: this.props.coordinates[0].lng,
-    //   type: this.state.type,
-    //   radius: this.state.radius * 1000,
-    //   key: process.env.REACT_APP_API_KEY
-    // }
+    await axios
+        .get(URL, {
+          Headers: {
+            "Access-Control-Allow-Orign": "http://localhost:8080",
+          },
+        })
+        .then((response) => {
+          this.setState({ places: response.data.results });
+          this.addStoresToGoogleMaps(response.data.results);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  }
 
-    // fetch('http://localhost:8080/stores', {method: 'GET'} ).then(response => {
-    //   console.log(response)
-    // })
-
-    await axios.get(URL, {
-        Headers: {
-          "Access-Control-Allow-Orign": 'http://localhost:8080'
-        },
-      })
-      .then((response) => {
-        console.log(response)
-        this.setState({ places: response.data.results });
-        this.addStoresToGoogleMaps(response.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  async componentDidMount() {
+    if (this.props.coordinates.length === 0) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            await this.props.createCoordinates(position.coords);
+            this.getStorePlaces(this.props.coordinates[0].lat, this.props.coordinates[0].lng)
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
+    } else {
+      this.getStorePlaces(this.props.coordinates[0].lat, this.props.coordinates[0].lng)
+    }
   }
 
   render() {
     const { places } = this.state;
 
     return (
-      <div style={{ display: "flex", justifyContent: "center", padding: '2rem' }}>
+      <div
+        style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
+      >
         <div>
           {places.map((place, idx) => {
             return (
-              <div key={idx} style={{ padding: '1rem'}}>
+              <div key={idx} style={{ padding: "1rem" }}>
                 <div>{place.name}</div>
                 <div>{place.vicinity}</div>
               </div>
-              
             );
           })}
         </div>
@@ -105,7 +108,16 @@ class Store extends React.Component {
 const mapStateToProps = (state) => {
   return {
     coordinates: state.coordinates,
+    auth: state.auth,
   };
 };
 
-export default connect(mapStateToProps)(Store);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchCoordinates: () => dispatch(fetchCoordinates()),
+    createCoordinates: (coordinates) =>
+      dispatch(createCoordinates(coordinates)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Store);
