@@ -17,6 +17,7 @@ class MyDrink extends Component {
   render() {
     const { myDrink } = this.props;
     const { deleteMyDrink } = this.props;
+    console.log(myDrink)
 
     return (
       <div
@@ -69,7 +70,7 @@ class MyDrink extends Component {
               alignItems: "center",
             }}
           >
-            <h2 style={{ textAlign: "center" }}>Ingredients</h2>
+            <h3 style={{ textAlign: "center" }}>Ingredients</h3>
             <hr className="drink-name"/>
 
             <p>
@@ -143,7 +144,7 @@ class MyDrink extends Component {
               alignItems: "center",
             }}
           >
-            <h2>Instructions</h2>
+            <h3>Instructions</h3>
             <hr className="drink-name"/>
             <p className="instructions">{myDrink.strInstructions}</p>
           </div>
@@ -155,12 +156,14 @@ class MyDrink extends Component {
               justifyContent: "space-evenly",
             }}
           >
-            <Link to={{ pathname: `/editMyDrink/${myDrink.id}` }}>
-              <PencilFill size={25} />
-            </Link>
-            <Link to="/myDrinks" onClick={() => deleteMyDrink(myDrink)}>
-              <Trash3Fill size={25} />
-            </Link>
+            <div className="buttons">
+            <button className="edit"><Link to={{ pathname: "/editMyDrink", state: myDrink }}>
+              {/* <PencilFill size={25} /> */}EDIT
+            </Link></button>
+            <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+              {/* <Trash3Fill size={25} /> */}REMOVE
+            </Link></button>
+            </div>
           </div>
         </div>
       </div>

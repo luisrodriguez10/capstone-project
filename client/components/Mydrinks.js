@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteMyDrink, fetchMyDrinks } from "../store";
 import { Link } from "react-router-dom";
+import './Mydrinks.css';
+
 import {
   PencilFill,
   Trash3Fill,
@@ -35,7 +37,7 @@ class Mydrinks extends Component {
         { myDrinks.length > 0 ? <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
 
-        </div> : null}  
+          </div> : null}  
         <br></br>
         <br></br>
 
@@ -43,15 +45,8 @@ class Mydrinks extends Component {
           { myDrinks.length > 0 ? myDrinks.map((drink) => {
             return (
               <div key={drink.id} className="drink-info">
-                <div style={{ height: "300px" }}>
-                  <img
-                    style={{
-                      borderRadius: "20px",
-                      width: "100%",
-                      height: "100%",
-                      backgroundColor: '#6e6b66',
-                      padding: '1rem'
-                    }}
+                <div >
+                  <img className="drinkimg"
                     src={
                       drink.strDrinkThumb
                         ? drink.strDrinkThumb
@@ -59,16 +54,17 @@ class Mydrinks extends Component {
                     }
                   ></img>
                 </div>
-                
+
                 <div style={{ height: "70px", marginTop: "1rem" }}>
-                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}><h2>{drink.strDrink}</h2></Link> */}
-                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2>{drink.strDrink}</h2></Link>
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2 className="nameofdrink">{drink.strDrink}</h2></Link>
                 </div>
-                <div style={{ height: "70px", marginTop: "1rem" }}>
+                <hr/>
+
+                <div style={{ height: "70px", marginTop: "1rem", textAlign:"center" }}>
                   {drink.strAlcoholic2 ? (
-                    <EmojiSunglasses size={40} />
+                    <EmojiSunglasses size={20} />
                   ) : (
-                    <EmojiFrown size={40} />
+                    <EmojiFrown size={20} />
                   )}
                 </div>
                 <div
@@ -79,36 +75,32 @@ class Mydrinks extends Component {
                     justifyContent: "space-evenly",
                   }}
                 >
-                  {/* <Link to={{ pathname: `/myDrinks/${drink.id}`, state: drink }}>
-                    <ArrowRightSquareFill size={25} />
-                  </Link> */}
-                  <div>
-                    <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
-                      {/* <ArrowRightSquareFill size={25} /> */}
-                      Recipe
-                    </Link></button>
+                  <div className="bottom">
+                  <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
+                    RECIPE
+                  </Link></button>
                   </div>
-               
+                  
 
                   <div className="bottom1">
-                    <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                      {/* <Trash3Fill size={25} /> */}
-                      Remove
-                    </Link></button>
+                  <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+                    REMOVE
+                  </Link></button>
                   </div>
+
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}>
-                    <ArrowRightSquareFill size={25} />
                   </Link>
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                    <Trash3Fill size={25} />
                   </Link>
                 </div>
               </div>
             );
           }) : <p>No drinks saved.</p>}
         </div>
-      </div>
-      </div>
+                  </div>
+                  </div>
+                 
+
     );
   }
 }
