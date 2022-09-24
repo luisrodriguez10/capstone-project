@@ -34,7 +34,7 @@ class Mypantry extends Component {
   }
   async handleChange(event) {
     this.setState({ ingredient: event.target.value, recipes: [] });
-    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${event.target.value}`);
+    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${event.target.value}`);
     if (response.data !== '') {
       const drinksObj = response.data;
       this.setState({ recipes: drinksObj.drinks });
@@ -75,7 +75,7 @@ class Mypantry extends Component {
                     <span>{item.name}</span>
                     <button onClick={() => handleClick(item)}>remove from pantry</button><br />
                     <button onClick={() => handleClickDelete(item.id)}>delete item</button>
-                    <Link to=''>{item.drinks.length} recipes using {item.name}</Link>
+                    <Link to={`/Recipes/${item.name}`}>{item.drinks.length} recipes using {item.name}</Link>
                   </li>
                 );
               })

@@ -67,7 +67,7 @@ export const getItems = (userId) => {
     const items = response.data;
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
-      const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${item.name}`);
+      const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${item.name}`);
       const drinksObj = responseDrinks.data;
       item.drinks = drinksObj.drinks;
     }
