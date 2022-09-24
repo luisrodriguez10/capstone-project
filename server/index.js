@@ -1,10 +1,8 @@
-/*
 try {
   require("../.env");
 } catch (ex) {
   console.log(ex);
 }
-*/
 
 const { db } = require("./db");
 const PORT = process.env.PORT || 8080;
