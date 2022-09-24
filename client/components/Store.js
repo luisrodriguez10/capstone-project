@@ -39,7 +39,13 @@ class Store extends React.Component {
 
   };
 
+  async componentDidUpdate(){
+    console.log('hello')
+  }
+
   async componentDidMount() {
+
+    console.log(this.props)
 
     const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
       this.props.coordinates[0].lat
