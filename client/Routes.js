@@ -9,6 +9,7 @@ import Recipes from './components/Recipes';
 import Recipe from './components/Recipe';
 import Landingpage from './components/Landingpage';
 import EditMyDrink from './components/EditMyDrink';
+import Profile from './components/Profile';
 import Store from './components/Store';
 import { createCoordinates } from './store';
 import { gapi } from 'gapi-script';
@@ -53,6 +54,7 @@ class Routes extends Component {
             <Route path="/Recipes" component={Recipes} />
             <Route path="/Recipe/:id" component={Recipe} />
             <Route path="/stores" component={Store} />
+            <Route path="/profile" component={Profile} />
        </Switch>
      ) : (
        <Switch>
