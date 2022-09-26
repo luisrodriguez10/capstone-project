@@ -30,6 +30,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <div className="drink">
             <Link to="/stores">See Nearby Stores</Link>
           </div>
+          <div className="drink">
+            <Link to="/profile">My Profile</Link>
+          </div>
           <Link to="/" onClick={handleClick}>
             Logout
           </Link>
