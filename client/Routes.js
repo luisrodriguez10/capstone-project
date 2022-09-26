@@ -7,6 +7,7 @@ import Mydrinks from './components/Mydrinks';
 import Mypantry from './components/Mypantry';
 import Recipes from './components/Recipes';
 import Recipe from './components/Recipe';
+import Reviews from './components/Reviews';
 import Landingpage from './components/Landingpage';
 import EditMyDrink from './components/EditMyDrink';
 import Store from './components/Store';
@@ -52,6 +53,7 @@ class Routes extends Component {
             <Route path="/Mypantry" component={Mypantry} />
             <Route path="/Recipes" component={Recipes} />
             <Route path="/Recipe/:id" component={Recipe} />
+            {/* <Route path="/Recipe/:id" component={Reviews} /> */}
             <Route path="/stores" component={Store} />
        </Switch>
      ) : (
@@ -60,6 +62,9 @@ class Routes extends Component {
          <Route path='/' exact component={ Landingpage } />
          <Route path="/login" component={Login} />
          <Route path="/signup" component={Signup} />
+         <Route path="/Recipes" component={Recipes} />
+          <Route path="/Recipe/:id" component={Recipe} />
+        <Route path="/Recipe/:id" component={Reviews} />
        </Switch>
         )}
       </div>

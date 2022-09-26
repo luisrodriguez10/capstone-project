@@ -12,7 +12,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-/* get reviews by user */
+/* get reviews by drink */
 router.get('/drinks/:drinkId', async (req, res, next) => {
   try {
     res.send(await Review.findAll({

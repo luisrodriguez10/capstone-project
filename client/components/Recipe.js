@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { createMyDrink } from '../store'
+import { createMyDrink } from '../store';
+import Reviews from './Reviews';
 // import function to add to recipe list 
 
 class Recipe extends Component{
@@ -16,16 +17,10 @@ class Recipe extends Component{
     const response = await axios.get(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${ drinkId }`)
     this.setState({ drink: response.data })
   }
-  onClick(ev) {
-    
-  }
   render() {
     const { createMyDrink, auth } = this.props
     const { drink } = this.state;
     const recipe = drink.drinks ? drink.drinks[0] : {}
-    console.log(drink)
-    console.log(recipe)
-    console.log(auth)
     return (
       <div
       id="drink-page"
@@ -65,7 +60,7 @@ class Recipe extends Component{
       >
         <div>
           <h1>{ recipe.strDrink }</h1>
-          <button onClick={ () => createMyDrink(recipe, auth.id) }>+</button>
+          <button onClick={ () => createMyDrink(recipe, auth.id) }>Add to My Drinks</button>
         </div>
         <div
           style={{
@@ -156,6 +151,10 @@ class Recipe extends Component{
             justifyContent: "space-evenly",
           }}
         >
+        </div>
+        <div>
+          <h2>Reviews</h2>
+          <Reviews drinkId={recipe.idDrink}/>
         </div>
       </div>
     </div>

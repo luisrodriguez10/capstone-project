@@ -8,6 +8,7 @@ import recipes from "./recipes";
 import ingredients from "./ingredients";
 import pantry from "./pantry";
 import coordinates from "./coordinates";
+import reviews from "./reviews";
 
 const reducer = combineReducers({
   auth,
@@ -17,6 +18,7 @@ const reducer = combineReducers({
   pantry,
   myPantry,
   coordinates,
+  reviews
 });
 const middleware = applyMiddleware(
   thunkMiddleware,
@@ -32,3 +34,4 @@ export * from "./recipes";
 export * from "./ingredients";
 export * from "./pantry";
 export * from "./coordinates";
+export * from "./reviews";

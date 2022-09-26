@@ -60,7 +60,6 @@ class Recipes extends Component {
 		let pageNumbers = [];
 		if( results === 'None Found' ) {
 			pageResults = [] 
-			console.log('None Found page results ', pageResults)
 		} else {
 			pageResults = results ? 
 				results
@@ -71,7 +70,6 @@ class Recipes extends Component {
 				.map( recipe => {
 				currentResults.push(recipe)
 			})
-			console.log('pageresults Else ', pageResults)
 		}
 
 		for (let i = 1; i <= Math.ceil(results?.length / productsPerPage); i++){
