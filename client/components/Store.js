@@ -45,7 +45,7 @@ class Store extends React.Component {
   async getStorePlaces(lat, lng) {
 
 
-    await fetch("http://localhost:8080/api/stores/", {
+    await fetch("https://the-cocktelero.herokuapp.com/api/stores/", {
       headers: {
         lat: lat,
         lng: lng,
