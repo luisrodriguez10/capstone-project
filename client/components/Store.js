@@ -1,7 +1,7 @@
 import React from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import { fetchCoordinates, createCoordinates } from "../store";
+import { RotatingLines } from "react-loader-spinner";
 
 class Store extends React.Component {
   constructor() {
@@ -43,9 +43,8 @@ class Store extends React.Component {
   };
 
   async getStorePlaces(lat, lng) {
-
-
-    await fetch("https://the-cocktelero.herokuapp.com/api/stores/", {
+    // await fetch("https://the-cocktelero.herokuapp.com/api/stores/", {
+    await fetch("http://localhost:8080/api/stores/", {
       headers: {
         lat: lat,
         lng: lng,
@@ -90,21 +89,38 @@ class Store extends React.Component {
 
   render() {
     const { places } = this.state;
+    console.log(places);
 
     return (
       <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
-        <div>
-          {places.map((place, idx) => {
-            return (
-              <div key={idx} style={{ padding: "1rem" }}>
-                <div>{place.name}</div>
-                <div>{place.vicinity}</div>
-              </div>
-            );
-          })}
-        </div>
+        {places.length === 0 ? (
+          <div
+            style={{ marginLeft: '48%' }}
+          >
+            <RotatingLines
+              strokeColor="black"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="50"
+              visible={true}
+            />
+          </div>
+        ) : (
+          <div>
+            <h3>Liquor Stores</h3>
+            {places.map((place, idx) => {
+              return (
+                <div key={idx} style={{ padding: "1rem" }}>
+                  <div>{place.name}</div>
+                  <div>{place.vicinity}</div>
+                </div>
+              );
+            })}
+            
+          </div>
+        )}
         <div id="map" style={{ height: "100vh", width: "100vh" }}></div>
       </div>
     );
