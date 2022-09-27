@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipes, fetchIngredients, fetchPantry } from '../store';
+import { fetchRecipes, fetchIngredients, getItems } from '../store';
 import { Link } from "react-router-dom";
 
 class Recipes extends Component {
@@ -18,9 +18,12 @@ class Recipes extends Component {
 		this.handleCheck = this.handleCheck.bind(this)
 	}
 	componentDidMount() {
+		const { auth, items } = this.props;
 		this.props.fetchRecipes( this.state.search );
 		this.props.fetchIngredients();
-		this.props.fetchPantry( this.props.auth );
+		if (items.length === 0 || auth.id !== items[0].userId) {    
+      this.props.getItems(auth.id);
+    }
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if ( prevState.checked ) {
@@ -28,6 +31,10 @@ class Recipes extends Component {
 				this.props.fetchRecipes( this.state.search );
 			}
 		} 
+		if (!prevProps.auth.id && this.props.auth.id) {
+      const { auth } = this.props;
+      this.props.getItems(auth.id);
+    }
 	}
 	pantryToggle() {
 		this.setState({ listPantry: !this.state.listPantry })
@@ -47,7 +54,7 @@ class Recipes extends Component {
 		this.setState({ search: searchList })
 	}
 	render() {
-		const { recipes, ingredients, pantry } = this.props;
+		const { recipes, ingredients, items } = this.props;
 		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
 		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
@@ -96,7 +103,7 @@ class Recipes extends Component {
 					{	
 						listPantry ? 
 						
-						pantry.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
+						items.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
 
 							
 							return (
@@ -159,7 +166,7 @@ const mapStateToProps = ( state ) => {
 		auth: state.auth,
 		recipes: state.recipes,
 		ingredients: state.ingredients,
-		pantry: state.pantry
+    items: state.myPantry,
 	}
 }
 
@@ -167,7 +174,9 @@ const mapDispatchToProps = ( dispatch ) => {
 	return{
 		fetchRecipes: ( search ) => dispatch(fetchRecipes( search )),
 		fetchIngredients: () => dispatch(fetchIngredients()),
-		fetchPantry: ( user ) => dispatch(fetchPantry( user ))
+    getItems: (userId) => {
+      dispatch(getItems(userId));
+    },
 	}
 }
 
