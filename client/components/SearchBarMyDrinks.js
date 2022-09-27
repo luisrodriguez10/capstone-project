@@ -7,12 +7,17 @@ const SearchBarMyDrinks = ({ myDrinks }) => {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="container">
-      <input className="searchinput"
+    <div>
+      <input
         type="text"
-        placeholder="Search drinks by name ..."
+
+        className="form-control"
+        placeholder="Search drinks by name ..." 
+
+
+
         onChange={(e) => setQuery(e.target.value)}
-      /><div></div>
+      />
 
       <div className="dropdown-content">
         {myDrinks
@@ -35,14 +40,15 @@ const SearchBarMyDrinks = ({ myDrinks }) => {
                   key={myDrink.id}
                   style={{
                     display: "block",
-                    width: "62.7%",
+                    width: "100%",
                     boxSizing: "border-box",
-                    border: "1px solid black",
+                    // border: "1.5px solid black",
+                    borderRadius:"30px",
                     marginTop: "-1px",
-                    textAlign:"center",
-                    padding: "5px",
+                    textAlign:"left",
+                    padding: "10px",
                     position: "relative",
-                    left: "180px", 
+                    right: "0px", 
                     color: "black"
                   }}
                   className="text-link p-2"

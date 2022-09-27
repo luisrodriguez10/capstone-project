@@ -33,6 +33,7 @@
     "react-icons": "^4.4.0",
     "react-loader-spinner": "^5.3.4",
     "react-multi-carousel": "^2.8.2",
+    "sed": "^0.0.2",
     "seed": "^0.4.4",
     "sequelize": "^6.21.4",
     "style-loader": "^3.3.1",

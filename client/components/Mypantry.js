@@ -62,50 +62,84 @@ class Mypantry extends Component {
     const { ingredient, recipes } = this.state;
     const { handleClick, handleChange, handleSubmit, handleClickDelete } = this;
     return(
-      <div className='everything'>
-
         <div>
-        <h2>Add Ingredients</h2>
+          <div className='everything'>
+
+       <div>
+       <div className='my-ingredientsflex'>
+       <div>        
+
+          <div className='entireaddingredients'>
+          <hr className='tophr'></hr>
+
+        <h2 className='addingredients'>ADD INGREDIENTS</h2>
         <form onSubmit={handleSubmit}>
-          <input name='ingredient' type='text' value={ingredient} onChange={handleChange} />
-          <button>add to pantry</button>
+          <input class="inputingredient" name='ingredient' type='text' value={ingredient} onChange={handleChange} />
+          <button className='addtopantrybutton'>ADD TO PANTRY</button>
         </form>
+        <div className='thereare'>
         {
           recipes.length !== 0 ? `${recipes.length} recipes using ${ingredient}` : '*there are currently no recipes using this ingredient'
         }
-        <h2>Out of Stock</h2>
-        <ul>
+        <br></br>
+        <br></br>
+        <hr className='tophr'></hr>
+        </div>
+        </div> 
+        <h2 className='myingredients'>MY PANTRY</h2>
+        <div className='listofingredients'>
+          
+          <ul className='unorderedlist'>
+            {
+              items
+                .filter((item) => item.stock === true)
+                .sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+                .map((item) => {
+                  return (
+                    <li key={item.id}>
+                      <div className='ingr'>
+                      <span className='ingredient-names'>{item.name}</span>
+                      <button className="removefrompantry" onClick={() => handleClick(item)}>REMOVE FROM PANTRY</button>
+                      <button className="removefrompantry" onClick={() => handleClickDelete(item.id)}>DELETE ITEM</button>
+                      <div className='linktorecipes'>*<Link to={`/Recipes/${item.name}`}>{item.drinks.length} recipes using {item.name}</Link></div>
+                      </div>
+                    </li>
+                  );
+                })
+            }
+          </ul>
+          </div>
+        </div>
+        <div>
+        <img className="img" src="https://i.pinimg.com/564x/a9/e3/e8/a9e3e8a5c2b990bbf2d94a558197d785.jpg" width="500" height="500px"></img>
+        </div>
+        </div>
+        </div>
+
+        <div>
+        <hr className='middlehr1'></hr>
+        <div className="addtopantry">
+          <div>
+          <img className="img" src="https://i.pinimg.com/564x/5c/ae/34/5cae3497e9d2d8e3ec3b20892c8f1a8c.jpg" width="500" height="500px"></img>
+          </div>
+
+        <div>
+        <br></br>
+        <div>
+        <h2 className='outofstock'>OUT OF STOCK</h2>
+        <ul className='overflow'>
           {
             items
               .filter((item) => item.stock === false)
               .map((item) => {
                 return (
-                  <li key={item.id}>
-                    <span>{item.name}</span>
-                    <button onClick={() => handleClick(item)}>remove from pantry</button><br />
-                    <button onClick={() => handleClickDelete(item.id)}>delete item</button>
-                    <Link to={`/Recipes/${item.name}`}>{item.drinks.length} recipes using {item.name}</Link>
-                  </li>
-                );
-              })
-          }
-        </ul>
-        </div>
+                  <li className ="list" key={item.id}>
+                    <div className='oos'>
+                    <div className='oosname'>{item.name}</div>
+                    <div><button className="removefrompantry" onClick={() => handleClick(item)}>ADD BACK TO PANTRY</button><br /></div>
+                    <div><button className="removefrompantry" onClick={() => handleClickDelete(item.id)}>DELETE ITEM</button></div>
+                    </div>
 
-       <div>
-        <h2>My Ingredients</h2>
-        <div className='listofingredients'>
-        <ul>
-          {
-            items
-              .filter((item) => item.stock === true)
-              .sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
-              .map((item) => {
-                return (
-                  <li key={item.id}>
-                    <span>{item.name}</span>
-                    <button onClick={() => handleClick(item)}>add back to pantry</button>
-                    <button onClick={() => handleClickDelete(item.id)}>delete item</button>
                   </li>
                 );
               })
@@ -113,7 +147,11 @@ class Mypantry extends Component {
         </ul>
         </div>
         </div>
-       
+        </div>
+<br></br>
+<br></br>
+        </div>
+        </div>
       </div>
     )
   }
