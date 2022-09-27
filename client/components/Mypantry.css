@@ -1,10 +1,126 @@
 .listofingredients {
-    overflow: auto;
-    width: 400px;
+    overflow: scroll;
+    width: 500px;
     height: 400px;
     background-color: #E4DCCF;
+    border: 2px solid;
 }
-.everything{
+
+.addingredients{
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.myingredients{
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.inputingredient{
+    background-color: transparent;
+    height: 34px;
+    width: 20rem
+}
+
+.addtopantry{
+    text-align: center;
+    border-radius: 5px;
+    width: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    position: relative;
+    top: 10px;
+}
+
+.removefrompantry{
+    background-color: #f1e0d8;
+    height: 40px;
+    font-family: 'DM Serif Display', serif;  
+    letter-spacing: 0.1rem;
+}
+
+.thereare{
+    font-size: 13px;
+    font-style: italic;
+    position: relative;
+    right: 1px
+}
+
+.overflow {
+    overflow: scroll;
+    width: 500px;
+    height: 200px;
+    border: 2px solid;
+    background-color: #E4DCCF;
+    padding: 5px 35px
+}
+
+.addtopantrybutton{
+    background-color: #f1e0d8;
+    height: 40px;
+    font-family: 'DM Serif Display', serif;  
+    letter-spacing: 0.1rem;
+}
+
+.outofstock{
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.out-of-stock{
+    border-radius: 5px;
+    background-color: #f1e0d8;
+    padding: 10px 10px;
+    position: relative;
+    top: 3rem
+}
+
+.img{
+    border-radius: 50%;
+    background-repeat: repeat;
+}
+
+.oos{
+    display: flex;
+    padding: 10px
+}
+
+.entireaddingredients{
+  position: relative;
+  bottom: 20px
+}
+
+.middlehr{
+    width: 650px
+}
+
+.oosname{
+    padding: 5px 10px
+}
+
+.middlehr1{
+    width: 80rem
+}
+
+.my-ingredientsflex{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 4rem
+}
+
+.ingredient-names{
+    padding: 5px
+}
+
+.linktorecipes{
+    font-style: italic;
+    color: black
+}
+
+.ingr{
+    padding: 5px
+}
+
+.tophr{
+    width: 35rem
 }

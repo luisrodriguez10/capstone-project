@@ -24,7 +24,6 @@ class Mydrinks extends Component {
 
     return (
       <div className="my-drinks-page">
-        <br></br>
       <div
         id="my-drinks-page"
         style={{
@@ -33,18 +32,18 @@ class Mydrinks extends Component {
           alignItems: "center",
         }}
       >
-        <h2>My Drinks</h2>
+        <h2 className="drinkstitle">MY DRINKS</h2>
         { myDrinks.length > 0 ? <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
 
           </div> : null}  
         <br></br>
-        <br></br>
-
+{/* <hr className="topdrinkshr"></hr> */}
         <div id="my-drinks">
           { myDrinks.length > 0 ? myDrinks.map((drink) => {
             return (
               <div key={drink.id} className="drink-info">
+                 
                 <div >
                   <img className="drinkimg"
                     src={
@@ -54,27 +53,23 @@ class Mydrinks extends Component {
                     }
                   ></img>
                 </div>
-
-                <div style={{ height: "70px", marginTop: "1rem" }}>
-                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2 className="nameofdrink">{drink.strDrink}</h2></Link>
-                </div>
-                <hr/>
-
-                <div style={{ height: "70px", marginTop: "1rem", textAlign:"center" }}>
-                  {drink.strAlcoholic2 ? (
-                    <EmojiSunglasses size={20} />
+                <div>
+                  <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2 className="nameofdrink">{drink.strDrink}             {drink.strAlcoholic2 ? (
+                    <EmojiSunglasses size={15} />
                   ) : (
-                    <EmojiFrown size={20} />
-                  )}
+                    <EmojiFrown size={15} />
+                  )}</h2></Link>
+                   
+      
+                
                 </div>
-                <div
-                  style={{
-                    height: "50px",
-                    width: "150px",
-                    display: "flex",
-                    justifyContent: "space-evenly",
-                  }}
-                >
+               
+                <hr className="drinknamehr"></hr>
+                
+           
+               <div className="bothbuttons">
+                 
+              
                   <div className="bottom">
                   <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
                     RECIPE
@@ -92,8 +87,10 @@ class Mydrinks extends Component {
                   </Link>
                   <Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
                   </Link>
+                  
                 </div>
-              </div>
+             
+             </div>
             );
           }) : <p>No drinks saved.</p>}
         </div>

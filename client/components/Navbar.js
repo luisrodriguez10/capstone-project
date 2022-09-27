@@ -16,24 +16,28 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           {/* The navbar will show these links after you log in */}
           <div className="drink">
             {" "}
-            <Link to="/">Home</Link>
+            <Link to="/">HOME</Link>
           </div>
           <div className="drink">
-            <Link to="/myDrinks">My Drinks</Link>
+            <Link to="/myDrinks">MY DRINKS</Link>
           </div>
           <div className="drink">
-            <Link to="/Mypantry">My Pantry</Link>
+            <Link to="/Mypantry">MY PANTRY</Link>
           </div>
           <div className="drink">
-            <Link to="/Recipes">Recipes</Link>
+            <Link to="/Recipes">RECIPES</Link>
           </div>
           <div className="drink">
-            <Link to="/stores">See Nearby Stores</Link>
+            <Link to="/stores">NEARBY STORES</Link>
           </div>
+          <div className="drink">
+
           <Link to="/" onClick={handleClick}>
-            Logout
+            LOGOUT
           </Link>
         </div>
+        </div>
+
       ) : (
         <div className="secondrow">
           {/* The navbar will show these links before you log in */}

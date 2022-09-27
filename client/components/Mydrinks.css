@@ -3,20 +3,22 @@
     flex-direction: column;
     align-items: center;
 
+  
 }
 .drinkimg{
-    border-radius: 20px;
     width: 100%;
     height: 100%;
     align-items: center;
+border-radius: 50%;
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+border: 1px solid;
+padding: 5px
 
 }
 
-.drink-info{
-    border: 1px solid;
+/* .drink-info{
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-
-}
+} */
 
 hr.hr-mydrinks{
    width:10rem;
@@ -39,8 +41,8 @@ hr.hr-mydrinks{
     justify-content: space-between;
 }
 .recipebutton{
-    background-color: #E4DCCF;
-    padding: 0.5rem .7rem;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
 margin-right: 7px;
 font-family: 'DM Serif Display', serif;  
 position: relative;
@@ -49,18 +51,20 @@ border-radius: 0.2rem;
 letter-spacing: 0.1rem;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 color: black
-
-
-
-
 }
+.bothbuttons{
+display: flex;
+}
+
+
+
 .recipebutton:hover{
     text-shadow: -.25px -.25px 0 blue, 
     .5px .5px black;
 }
 .removebutton{
-    background-color: #E4DCCF;
-    padding: 0.5rem .7rem;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
     font-family: 'DM Serif Display', serif;  
     position: relative;
 bottom: 20px;
@@ -71,39 +75,33 @@ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 .removebutton:hover{
     text-shadow: -.25px -.25px 0 blue, 
     .5px .5px black;
+    background-color: transparent;
+
 }
 
 .form-control {
     background-color: transparent;
-    border: 1px solid;
+    border: 1.5px solid;
     padding: 10px;
     font-family: 'DM Serif Display', serif;  
 width: 30rem;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-
+text-align: left;
+border-radius: 30px;
 }
 
-.container {
-    text-align: center;
 
-}
 
 .dropdownlink:hover {
     text-shadow: -.25px -.25px 0 blue, 
     .5px .5px black;
 }
-hr.drink-name{
-width: 350px;
-border-top: 1px solid brown;
-position: relative;
-bottom: 10px
-}
-h2.drink-nameh1{
-    text-align: center;
-    text-transform: capitalize;
-}
+
+
 p.instructions{
     font-style: italic;
+    width: 18rem;
+    padding: 5px 15px
 }
 
 .mydrinks {
@@ -111,14 +109,16 @@ p.instructions{
     position: relative;
 }
 .nameofdrink{
-    color: black
+    color: black;
+    text-transform: capitalize;
+
 }
 .nameofdrink:hover{
     text-shadow: -.25px -.25px 0 blue, 
     .5px .5px black;
 }
 .edit{
-    background-color: #E4DCCF;
+    background-color: transparent;
     padding: 0.5rem .7rem;
     font-family: 'DM Serif Display', serif;  
     position: relative;
@@ -134,7 +134,6 @@ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     position: relative;
 bottom: 20px;
 left: 10px;
-
 letter-spacing: 0.1rem;
 border-radius: 0.2rem;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -143,8 +142,71 @@ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     display: flex;
     text-align: center;
     position: relative;
-    top: 30px;
     align-items: center;
-    margin-left: 11rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+.drinknamehr{
+    position:relative;
+    bottom: 15px
+}
+
+.bothbuttons{
+    position: relative;
+    top: 20px;
+}
+.topdrinkshr{
+    width: 70rem
+}
+.drinkstitle{
+    letter-spacing: 0.1rem;
+}
+.drink-everything{
+    display: flex;
     justify-content: space-evenly;
 }
+
+
+
+/* MY DRINK */
+
+h2.drink-nameh1{
+    text-align: center;
+}
+.singledrinkimg{
+border-radius: 50%;
+border: 1px solid  ;
+padding: 5px;
+width: 400px;
+height: 400px;
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+
+}
+.wholecontainer{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 40px
+}
+.vl {
+    border-left: 1px solid;
+    margin-left: 10rem;
+    height: 500px;
+  }
+  .wholething{
+    /* border:1px solid; */
+    margin-left: 10rem;
+    margin-right: 10rem; 
+margin-top: 3rem;
+--s: 10px; /* control the size */
+padding: var(--s);
+border: calc(2*var(--s)) solid #0000;
+outline: 1px solid #000;
+outline-offset: calc(-1*var(--s));
+background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
+position: absolute;
+
+  }

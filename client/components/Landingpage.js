@@ -25,7 +25,7 @@ const responsive = {
 class Landingpage extends Component {
     render() {
         return(
-           <div>
+           <div className='landingpageborder'>
             <br></br>
             <br></br>
             <div className='firsthalf'>

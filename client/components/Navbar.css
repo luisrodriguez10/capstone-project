@@ -1,3 +1,4 @@
+
 .firstrow {
     text-align: center;
 }
@@ -5,6 +6,7 @@
 .secondrow {
     display: flex;
     justify-content: center; 
+    letter-spacing: .1rem;
 }
 .secondrowlogin{
     display: flex;
@@ -14,6 +16,11 @@
 .drink:hover{
     text-shadow: -.25px -.25px 0 black, 
     .25px .25px black;
+}
+.drink{
+    font-size: 15px;
+    letter-spacing: .01rem;
+
 }
 
 hr {
@@ -86,19 +93,24 @@ hr {
 .mainimage {
     opacity: 0.8;
     border-radius: 15rem;
+
 }
  
 .firsthalf {
     display: flex;
-    justify-content:  center
+    justify-content:  center;
+ 
+
 }
 
 .definition{
     /* border: 1px solid; */
     position: relative;
+    margin-bottom: 10rem;
     left: 25px;
     top: 50px;
-    width: 40rem
+    width: 40rem;
+   
 }
 
 .drinktitle{

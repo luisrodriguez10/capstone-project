@@ -20,27 +20,21 @@ class MyDrink extends Component {
     console.log(myDrink)
 
     return (
-      <div
-        id="drink-page"
-        style={{
-          display: "flex",
-        //   width: "100%",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          id="drink-info-container"
-          style={{ height: "400px", paddingTop: "2rem" }}
-        >
-          <img
-            style={{
-              borderRadius: "40px",
-              // border: "1px solid",
-              width: "80%",
-              height: "100%",
-              backgroundColor: "transparent",
-              padding: "1rem"
-            }}
+      <div className="wholething">
+        
+          
+        <div>
+
+            <h2 className="drink-nameh1">{myDrink.strDrink}</h2>
+            <hr></hr>
+            <hr></hr>
+
+          </div>
+       
+       <div className="wholecontainer">
+
+        <div>   
+          <img className="singledrinkimg"
             src={
               myDrink.strDrinkThumb
                 ? myDrink.strDrinkThumb
@@ -48,30 +42,11 @@ class MyDrink extends Component {
             }
           ></img>
         </div>
-        <div
-          id="drink-info"
-          style={{
-            // display: "flex",
-            // flexDirection: "column",
-            alignItems: "center",
-            width: '350px',
 
-          }}
-        >
+        <div>
+        
           <div>
-            <h2 className="drink-nameh1">{myDrink.strDrink}</h2>
-            <hr className="drink-name"/>
-          </div>
-          <div
-            style={{
-              height: "330px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <h3 style={{ textAlign: "center" }}>Ingredients</h3>
-            <hr className="drink-name"/>
+            <h3>INGREDIENTS</h3>
 
             <p>
               {myDrink.strIngredient1 ? myDrink.strIngredient1 : null}{" "}
@@ -135,36 +110,23 @@ class MyDrink extends Component {
             </p>
           </div>
           <br></br>
-
-          <div
-            style={{
-              height: "200px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <h3>Instructions</h3>
-            <hr className="drink-name"/>
+<hr></hr>
+          <div>
+            <h3>INSTRUCTIONS</h3>
             <p className="instructions">{myDrink.strInstructions}</p>
           </div>
-          <div
-            style={{
-              height: "50px",
-              width: "150px",
-              display: "flex",
-              justifyContent: "space-evenly",
-            }}
-          >
+
+          
             <div className="buttons">
             <button className="edit"><Link to={{ pathname: "/editMyDrink", state: myDrink }}>
-              {/* <PencilFill size={25} /> */}EDIT
+             EDIT
             </Link></button>
             <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-              {/* <Trash3Fill size={25} /> */}REMOVE
+            REMOVE
             </Link></button>
             </div>
-          </div>
+
+            </div>
         </div>
       </div>
     );
