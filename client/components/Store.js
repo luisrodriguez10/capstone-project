@@ -1,7 +1,7 @@
 import React from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import { fetchCoordinates, createCoordinates } from "../store";
+import { RotatingLines } from "react-loader-spinner";
 
 class Store extends React.Component {
   constructor() {
@@ -43,25 +43,23 @@ class Store extends React.Component {
   };
 
   async getStorePlaces(lat, lng) {
-    const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
-      lat
-    },${lng}&type=${this.state.type}&radius=${
-      this.state.radius * 1000
-    }&key=${process.env.REACT_APP_API_KEY}`;
-
-    await axios
-        .get(URL, {
-          Headers: {
-            "Access-Control-Allow-Orign": "http://localhost:8080",
-          },
-        })
-        .then((response) => {
-          this.setState({ places: response.data.results });
-          this.addStoresToGoogleMaps(response.data.results);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    await fetch("https://the-cocktelero.herokuapp.com/api/stores/", {
+      headers: {
+        lat: lat,
+        lng: lng,
+        type: this.state.type,
+        radius: this.state.radius,
+        key: process.env.REACT_APP_API_KEY,
+      },
+    })
+      .then(async (response) => {
+        const data = await response.json();
+        this.setState({ places: data.results });
+        this.addStoresToGoogleMaps(data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   async componentDidMount() {
@@ -70,7 +68,10 @@ class Store extends React.Component {
         navigator.geolocation.getCurrentPosition(
           async (position) => {
             await this.props.createCoordinates(position.coords);
-            this.getStorePlaces(this.props.coordinates[0].lat, this.props.coordinates[0].lng)
+            this.getStorePlaces(
+              this.props.coordinates[0].lat,
+              this.props.coordinates[0].lng
+            );
           },
           (error) => {
             console.log(error);
@@ -78,27 +79,47 @@ class Store extends React.Component {
         );
       }
     } else {
-      this.getStorePlaces(this.props.coordinates[0].lat, this.props.coordinates[0].lng)
+      this.getStorePlaces(
+        this.props.coordinates[0].lat,
+        this.props.coordinates[0].lng
+      );
     }
   }
 
   render() {
     const { places } = this.state;
+    console.log(places);
 
     return (
       <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
-        <div>
-          {places.map((place, idx) => {
-            return (
-              <div key={idx} style={{ padding: "1rem" }}>
-                <div>{place.name}</div>
-                <div>{place.vicinity}</div>
-              </div>
-            );
-          })}
-        </div>
+        {places.length === 0 ? (
+          <div
+            style={{ marginLeft: '48%' }}
+          >
+            <RotatingLines
+              strokeColor="black"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="50"
+              visible={true}
+            />
+          </div>
+        ) : (
+          <div>
+            <h3>Liquor Stores</h3>
+            {places.map((place, idx) => {
+              return (
+                <div key={idx} style={{ padding: "1rem" }}>
+                  <div>{place.name}</div>
+                  <div>{place.vicinity}</div>
+                </div>
+              );
+            })}
+            
+          </div>
+        )}
         <div id="map" style={{ height: "100vh", width: "100vh" }}></div>
       </div>
     );
