@@ -51,13 +51,14 @@ class Recipes extends Component {
 		const { currentPage, productsPerPage, listPantry, search, checked } = this.state;
 		const { pantryToggle, handleCheck }  = this;
 		const results = recipes.drinks;
-		let pageResults = [];
+    let pageResults = [];
 
 		// Pagination setup
 		const indexOfLastPost = currentPage * productsPerPage;
 		const indexOfFirstPost = indexOfLastPost - productsPerPage;
 		let currentResults = [];
 		let pageNumbers = [];
+    
 		if( results === 'None Found' ) {
 			pageResults = [] 
 		} else {
@@ -80,26 +81,37 @@ class Recipes extends Component {
 		}
 
 		console.log('currentResults', currentResults)
+		console.log('search', search)
 
 		// Create list of ingredients 
 		// For now just click one ingredient and set as state for search url
 
 		return(
 			<div>
+
 				<div className='ingredient-list'>
-					<button onClick={ pantryToggle }>Toggle Pantry List</button>
+<div className='toggle'>
+					<button className='toggle1' onClick={ pantryToggle }>MY PANTRY</button><button class="toggle1" onClick={ pantryToggle }>ALL INGREDIENTS</button></div>
+							<div className='alphabet'>
 					{	
 						listPantry ? 
-						pantry
-							.map( ingredient => {
+						
+						pantry.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
+
+							
 							return (
+								<div  className='a-f'>
 								<div>
-									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+									<input class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
 								</div>
+								</div>
+
 							)
-						}) :
-						ingredients
-							.map( ingredient => {
+						
+						})
+
+						:
+						ingredients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
 							return (
 								<div>
 									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
@@ -136,6 +148,7 @@ class Recipes extends Component {
 						)) : search ? 'There are no recipes with these ingredients!' : 'Choose your ingredients'
 					}
 				</div>
+			</div>
 			</div>
 		)
 	}

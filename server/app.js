@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
-const axios = require('axios');
+// const axios = require('axios');
 module.exports = app
 
 // logging middleware
@@ -17,19 +17,17 @@ app.use('/api', require('./api'))
 
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '..', 'public/index.html')));
 
-// app.get('/stores', (req, res, next) => {
+// app.get('/', (req, res, next) =>{
 //   try {
-//     axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
-//       req.body.lat
-//     },${req.body.lng}&type=${req.body.type}&radius=${
-//       req.body.radius
-//     }&key=${req.body.key}`).then(function (response){
-//       res.send(response.data)
-//     }).catch(function (error){
-//       console.log(error)
-//     })
+//       console.log('called map stores')
+//       console.log(req.headers.lat)
+//       // axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
+//       //     lat
+//       //   },${lng}&type=${this.state.type}&radius=${
+//       //     this.state.radius * 1000
+//       //   }&key=${process.env.REACT_APP_API_KEY}`)
 //   } catch (ex) {
-//     next(ex)
+//       next(ex)
 //   }
 // })
 

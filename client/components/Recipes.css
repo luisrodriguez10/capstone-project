@@ -1,0 +1,35 @@
+.recipeinstructions{
+    font-style: italic;
+}
+
+.recipe-drinkname{
+    text-align: center;
+}
+.toggle{
+    text-align: center;
+    padding: 2px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.toggle1{
+    border: 1px solid;
+    padding: 1rem 1.6rem;
+    background-color: #E4DCCF;
+    font-family: 'DM Serif Display', serif;  
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    text-align: center;
+    letter-spacing: 0.1rem;
+    border-radius: 0.2rem;
+
+
+
+}
+.toggle1:hover{
+    text-shadow: -.25px -.25px 0 blue, 
+    .5px .5px black;
+}
+
+.checkbox{
+    border: 1px solid
+}
+
