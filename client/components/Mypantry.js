@@ -2,6 +2,7 @@ import React, {Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getItems, createItem, updateItem, deleteItem } from '../store';
+import { RotatingLines } from "react-loader-spinner";
 import axios from 'axios';
 import "./Mypantry.css";
 
@@ -91,6 +92,17 @@ class Mypantry extends Component {
           
           <ul className='unorderedlist'>
             {
+              items.length === 0 ? <div
+              style={{ marginLeft: '40%', marginTop: '35%' }}
+            >
+              <RotatingLines
+                strokeColor="black"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="50"
+                visible={true}
+              />
+            </div> : 
               items
                 .filter((item) => item.stock === true)
                 .sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
@@ -129,6 +141,17 @@ class Mypantry extends Component {
         <h2 className='outofstock'>OUT OF STOCK</h2>
         <ul className='overflow'>
           {
+            items.length === 0 ? <div
+            style={{ marginLeft: '4%', marginTop: '15%' }}
+          >
+            <RotatingLines
+              strokeColor="black"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="50"
+              visible={true}
+            />
+          </div> :
             items
               .filter((item) => item.stock === false)
               .map((item) => {
