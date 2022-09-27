@@ -41,7 +41,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             LOGOUT
           </Link>
         </div>
-        </div>
+  
 
       ) : (
         <div className="secondrow">
