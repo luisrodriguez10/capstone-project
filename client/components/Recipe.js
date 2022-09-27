@@ -3,7 +3,6 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { createMyDrink } from '../store';
 import Reviews from './Reviews';
-import { createMyDrink } from '../store'
 import "./Recipes.css"
 // import function to add to recipe list 
 
