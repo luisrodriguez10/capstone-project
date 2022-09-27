@@ -10,8 +10,7 @@ const SearchBarMyDrinks = ({ myDrinks }) => {
     <div className="container">
       <input className="searchinput"
         type="text"
-        class="form-control"
-        placeholder="Search drinks by name ..." 
+        placeholder="Search drinks by name ..."
         onChange={(e) => setQuery(e.target.value)}
       /><div></div>
 

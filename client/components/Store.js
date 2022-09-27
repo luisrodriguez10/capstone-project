@@ -43,25 +43,25 @@ class Store extends React.Component {
   };
 
   async getStorePlaces(lat, lng) {
-    const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
-      lat
-    },${lng}&type=${this.state.type}&radius=${
-      this.state.radius * 1000
-    }&key=${process.env.REACT_APP_API_KEY}`;
 
-    await axios
-        .get(URL, {
-          Headers: {
-            "Access-Control-Allow-Orign": "https://the-cocktelero.herokuapp.com/#/",
-          },
-        })
-        .then((response) => {
-          this.setState({ places: response.data.results });
-          this.addStoresToGoogleMaps(response.data.results);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+
+    await fetch("http://localhost:8080/api/stores/", {
+      headers: {
+        lat: lat,
+        lng: lng,
+        type: this.state.type,
+        radius: this.state.radius,
+        key: process.env.REACT_APP_API_KEY,
+      },
+    })
+      .then(async (response) => {
+        const data = await response.json();
+        this.setState({ places: data.results });
+        this.addStoresToGoogleMaps(data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   async componentDidMount() {
@@ -70,7 +70,10 @@ class Store extends React.Component {
         navigator.geolocation.getCurrentPosition(
           async (position) => {
             await this.props.createCoordinates(position.coords);
-            this.getStorePlaces(this.props.coordinates[0].lat, this.props.coordinates[0].lng)
+            this.getStorePlaces(
+              this.props.coordinates[0].lat,
+              this.props.coordinates[0].lng
+            );
           },
           (error) => {
             console.log(error);
@@ -78,7 +81,10 @@ class Store extends React.Component {
         );
       }
     } else {
-      this.getStorePlaces(this.props.coordinates[0].lat, this.props.coordinates[0].lng)
+      this.getStorePlaces(
+        this.props.coordinates[0].lat,
+        this.props.coordinates[0].lng
+      );
     }
   }
 
