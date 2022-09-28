@@ -43,7 +43,8 @@ class Store extends React.Component {
   };
 
   async getStorePlaces(lat, lng) {
-    await fetch("https://the-cocktelero.herokuapp.com/api/stores/", {
+    // await fetch("https://the-cocktelero.herokuapp.com/api/stores/", {
+      await fetch("http://localhost:8080/api/stores/", {
       headers: {
         lat: lat,
         lng: lng,
@@ -96,7 +97,7 @@ class Store extends React.Component {
       >
         {places.length === 0 ? (
           <div
-            style={{ marginLeft: '48%' }}
+            style={{ marginLeft: '48%', marginTop: '12%' }}
           >
             <RotatingLines
               strokeColor="black"
