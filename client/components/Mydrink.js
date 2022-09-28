@@ -118,10 +118,10 @@ class MyDrink extends Component {
 
           
             <div className="buttons">
-            <button className="edit"><Link to={{ pathname: "/editMyDrink", state: myDrink }}>
+            <button className="edit"><Link to={{ pathname: `/editMyDrink/${myDrink.id}` }}>
              EDIT
             </Link></button>
-            <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+            <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(myDrink)}>
             REMOVE
             </Link></button>
             </div>
