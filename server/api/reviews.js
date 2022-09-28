@@ -1,11 +1,19 @@
 const router = require('express').Router()
 const { models: { Review }} = require('../db')
+const User = require('../db/models/user')
 module.exports = router
 
 /* add new review */
 router.post('/', async (req, res, next) => {
   try {
-    const review = await Review.create(req.body);
+    let review = await Review.create(req.body);
+    review = await Review.findByPk(review.id, {
+      include: [
+        {
+          model: User
+        }
+      ]
+    })
     res.status(201).send(review)
   } catch (err) {
     next(err)
@@ -18,7 +26,12 @@ router.get('/drinks/:drinkId', async (req, res, next) => {
     res.send(await Review.findAll({
       where: {
         drinkId: req.params.drinkId
-      }
+      },
+      include: [
+        {
+          model: User
+        }
+      ]
     }))
   } catch (err) {
     next(err)
