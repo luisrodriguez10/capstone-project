@@ -24,6 +24,21 @@ class Store extends React.Component {
       ),
       mapTypeId: "roadmap",
     });
+
+    const youHere = {
+      url: "../public/you-here.png",
+      scaledSize: new google.maps.Size(90, 90),
+    };
+
+    const youMarker = new window.google.maps.Marker({
+      position: new window.google.maps.LatLng(
+        this.props.coordinates[0].lat,
+        this.props.coordinates[0].lng
+      ),
+      map: map,
+      icon: youHere,
+    });
+
     places.forEach((place) => {
       const lat = place.geometry.location.lat;
       const lng = place.geometry.location.lng;
@@ -88,16 +103,13 @@ class Store extends React.Component {
 
   render() {
     const { places } = this.state;
-    console.log(places);
 
     return (
       <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
         {places.length === 0 ? (
-          <div
-            style={{ marginLeft: '48%', marginTop: '12%' }}
-          >
+          <div style={{ marginLeft: "48%", marginTop: "12%" }}>
             <RotatingLines
               strokeColor="black"
               strokeWidth="5"
@@ -117,7 +129,6 @@ class Store extends React.Component {
                 </div>
               );
             })}
-            
           </div>
         )}
         <div id="map" style={{ height: "100vh", width: "100vh" }}></div>
