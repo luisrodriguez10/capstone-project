@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateUser } from '../store';
+import './Profile.css'
 
 class Profile extends Component {
   constructor(props) {
@@ -45,19 +46,29 @@ class Profile extends Component {
     const { username, password, firstName, lastName, email } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
-      <div>
-        <h1>My Profile</h1>
+      <div className='profile'>
+        <div className='myprofile'>My Profile</div>
+        <br></br>
         <form onSubmit={handleSubmit}>
+         
           <label htmlFor='username'>username</label>
           <input name='username' type='text' value={username} onChange={handleChange} disabled />
+         
+
+          
           <label htmlFor='password'>password</label>
           <input name='password' type='password' value={password} onChange={handleChange} disabled />
+         
           <label htmlFor='firstName'>first name</label>
           <input name='firstName' type='text' value={firstName} onChange={handleChange} />
+      
           <label htmlFor='lastName'>last name</label>
           <input name='lastName' type='text' value={lastName} onChange={handleChange} />
+         
           <label htmlFor='email'>email</label>
           <input name='email' type='email' value={email} onChange={handleChange} /><br />
+         
+          
           <button>submit</button>
         </form>
       </div>

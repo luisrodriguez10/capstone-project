@@ -33,10 +33,14 @@ class Mydrinks extends Component {
         }}
       >
         <h2 className="drinkstitle">MY DRINKS</h2>
+        <hr className="drinkshrr"/>
+        <br></br>
+
         { myDrinks.length > 0 ? <div className="my-4">
           <SearchBarMyDrinks myDrinks={myDrinks}/>
 
           </div> : null}  
+
         <br></br>
 {/* <hr className="topdrinkshr"></hr> */}
         <div id="my-drinks">
@@ -53,7 +57,9 @@ class Mydrinks extends Component {
                     }
                   ></img>
                 </div>
+
                 <div>
+
                   <Link to={{ pathname: `/myDrinks/${drink.id}` }}><h2 className="nameofdrink">{drink.strDrink}             {drink.strAlcoholic2 ? (
                     <EmojiSunglasses size={15} />
                   ) : (
@@ -72,14 +78,14 @@ class Mydrinks extends Component {
               
                   <div className="bottom">
                   <button className="recipebutton"><Link to={{ pathname: `/myDrinks/${drink.id}` }}>
-                    RECIPE
+                   <div className="colorblack">RECIPE</div> 
                   </Link></button>
                   </div>
                   
 
                   <div className="bottom1">
                   <button className="removebutton"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-                    REMOVE
+                  <div className="colorblack">REMOVE</div> 
                   </Link></button>
                   </div>
 

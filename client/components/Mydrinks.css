@@ -12,7 +12,7 @@
 border-radius: 50%;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 border: 1px solid;
-padding: 5px
+padding: 2px;
 
 }
 
@@ -68,6 +68,7 @@ display: flex;
     font-family: 'DM Serif Display', serif;  
     position: relative;
 bottom: 20px;
+
 letter-spacing: 0.1rem;
 border-radius: 0.2rem;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -75,7 +76,6 @@ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 .removebutton:hover{
     text-shadow: -.25px -.25px 0 blue, 
     .5px .5px black;
-    background-color: transparent;
 
 }
 
@@ -87,7 +87,7 @@ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 width: 30rem;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 text-align: left;
-border-radius: 30px;
+/* border-radius: 30px; */
 }
 
 
@@ -111,10 +111,11 @@ p.instructions{
 .nameofdrink{
     color: black;
     text-transform: capitalize;
+    padding: 5px
 
 }
 .nameofdrink:hover{
-    text-shadow: -.25px -.25px 0 blue, 
+    text-shadow: -.25px -.25px 0 black, 
     .5px .5px black;
 }
 .edit{
@@ -128,7 +129,7 @@ border-radius: 0.2rem;
 box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 .trash{
-    background-color: #E4DCCF;
+    background-color: transparent;
     padding: 0.5rem 1rem;
     font-family: 'DM Serif Display', serif;  
     position: relative;
@@ -158,15 +159,15 @@ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 .topdrinkshr{
     width: 70rem
 }
-.drinkstitle{
-    letter-spacing: 0.1rem;
-}
+
 .drink-everything{
     display: flex;
     justify-content: space-evenly;
 }
 
-
+.colorblack{
+    color: black
+}
 
 /* MY DRINK */
 
@@ -191,22 +192,26 @@ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin-right: 10%;
     padding: 40px
 }
-.vl {
-    border-left: 1px solid;
-    margin-left: 10rem;
-    height: 500px;
-  }
+
   .wholething{
-    /* border:1px solid; */
-    margin-left: 10rem;
-    margin-right: 10rem; 
-margin-top: 3rem;
 --s: 10px; /* control the size */
 padding: var(--s);
 border: calc(2*var(--s)) solid #0000;
 outline: 1px solid #000;
 outline-offset: calc(-1*var(--s));
 background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
-position: absolute;
+position: relative;
+  }
 
+  .my-drinks-page{
+    --s: 10px; /* control the size */
+padding: var(--s);
+border: calc(2*var(--s)) solid #0000;
+outline: 1px solid #000;
+outline-offset: calc(-1*var(--s));
+background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
+position: relative;
+  }
+  .drinkshrr{
+    top: 20px
   }
