@@ -122,7 +122,7 @@ class MyDrink extends Component {
             </Link></button>
             <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
             <div className="colorblack">REMOVE</div>
-            </Link></button>
+            
             </div>
 
             </div>

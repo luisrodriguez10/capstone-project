@@ -42,6 +42,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </Link>
         </div>
 
+
       ) : (
         <div className="secondrow">
           {/* The navbar will show these links before you log in */}
