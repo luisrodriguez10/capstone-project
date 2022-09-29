@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchReviews, createReview } from '../store';
+import ReactStars from 'react-rating-stars-component';
+import "./mydrinks.css"
 
 class Reviews extends Component {
   constructor(){
     super();
     this.state = {
-      rating: '',
+      rating: 0,
       comment: '',
       error: ''
     }
     this.save = this.save.bind(this)
+    this.ratingChanged = this.ratingChanged.bind(this)
   }
   componentDidUpdate(prevProps) {
     if (prevProps.drinkId !== this.props.drinkId ){
@@ -25,34 +28,51 @@ class Reviews extends Component {
     try {
       await this.props.createReview( review )
       this.setState({ error: '' })
+      this.setState({ comment: '', rating: 0 })
     }
     catch(ex){
       this.setState({ error: 'Please provide a rating to submit a review'})
     }
   }
+  ratingChanged(newRating){
+    console.log(newRating)
+    this.setState({ rating: newRating })
+  }
   render() {
     const { reviews } = this.props;
     const { rating, comment, error } = this.state;
-    const { save } = this;
+    const { save, ratingChanged } = this;
     console.log(reviews)
     return (
       <div>
         <form onSubmit={ save }>
           <h3>Leave a review</h3>
-          <ul>Rating: <input value= { rating } onChange={ ev => this.setState({ rating: ev.target.value }) }/></ul>
-          <ul>Comment: <input value= { comment } onChange={ ev => this.setState({ comment: ev.target.value }) }/></ul>
+          <ReactStars
+            count={5}
+            onChange={ratingChanged}
+            emptyIcon={"☹"}
+            filledIcon= {"🍸"}
+            size={24}
+            activeColor="#ca7ca7"
+          />
+          <ul><textarea value= { comment } onChange={ ev => this.setState({ comment: ev.target.value }) }/></ul>
           <button>Post Review</button>
         </form>
-        { error ? error : '' }
+        <p className='review-error'>{ error ? error : '' }</p>
         <ul>
           {
             reviews.map( review => {
+              let ratingCount = ''
+              for( let i=0; i < review.rating; i++) {
+                ratingCount += "🍸"
+              }
               return (
                 <li key={ review.id }>
-                  <p>{ review.user.username }</p>
-                  <p>{ review.createdAt.slice(0,10) }</p>
-                  <p>Rating: { review.rating }</p>
+                  <h3>{ review.user.username }</h3>
+                  {ratingCount}
                   <p>{ review.comment }</p>
+                  <p className='reviewdate'>Posted { review.createdAt.slice(0,10) }</p>
+                  <hr/>
                 </li>
               )
             })

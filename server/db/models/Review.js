@@ -13,7 +13,8 @@ const Review = db.define('review', {
     type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
-      isInt: true
+      isInt: true,
+      min: 1
     }
   },
   comment: {
