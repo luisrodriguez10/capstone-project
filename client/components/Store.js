@@ -5,6 +5,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 
 var map;
+var markers = [];
 
 class Store extends React.Component {
   constructor() {
@@ -20,10 +21,24 @@ class Store extends React.Component {
   }
 
   showStoreInfo(lat, lng, name, vicinity) {
+    var R = 6378137;
+    var dlat = (lat - this.props.coordinates[0].lat) * (Math.PI / 180);
+    var dlong = (lng - this.props.coordinates[0].lng) * (Math.PI / 180);
+    var a =
+      Math.sin(dlat / 2) * Math.sin(dlat / 2) +
+      Math.cos(this.props.coordinates[0].lat * (Math.PI / 180)) *
+        Math.cos(lat * (Math.PI / 180)) *
+        Math.sin(dlong / 2) *
+        Math.sin(dlong / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = (R * c) / 1609;
+
     const storeIcon = {
       url: "../public/store.png",
-      scaledSize: new google.maps.Size(80, 80),
+      scaledSize: new google.maps.Size(60, 60),
     };
+
+    markers[new window.google.maps.LatLng(lat, lng)].setMap(null);
 
     const marker = new window.google.maps.Marker({
       position: new window.google.maps.LatLng(lat, lng),
@@ -32,7 +47,11 @@ class Store extends React.Component {
     });
 
     marker.infowindow = new window.google.maps.InfoWindow();
-    marker.infowindow.setContent(`<div class="ui header">${name}</div><p>${vicinity}</p>`);
+    marker.infowindow.setContent(
+      `<div class="ui header"><span style="font-weight:bold">${name}</span></div><p><span style="font-weight:bold">${vicinity}</span></p><p><span style="font-weight:bold">Distance: ${d.toFixed(
+        2
+      )} miles</span></p>`
+    );
     marker.infowindow.open(map, marker);
   }
 
@@ -68,6 +87,9 @@ class Store extends React.Component {
         position: new window.google.maps.LatLng(lat, lng),
         map: map,
       });
+
+      markers[new window.google.maps.LatLng(lat, lng)] = marker;
+
       var infowindow = new window.google.maps.InfoWindow();
       window.google.maps.event.addListener(marker, "click", () => {
         infowindow.setContent(
