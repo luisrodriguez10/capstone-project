@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchReviews, createReview } from '../store';
+import ReactStars from 'react-rating-stars-component';
 
 class Reviews extends Component {
   constructor(){
@@ -12,6 +13,7 @@ class Reviews extends Component {
       error: ''
     }
     this.save = this.save.bind(this)
+    this.ratingChanged = this.ratingChanged.bind(this)
   }
   componentDidUpdate(prevProps) {
     if (prevProps.drinkId !== this.props.drinkId ){
@@ -30,16 +32,25 @@ class Reviews extends Component {
       this.setState({ error: 'Please provide a rating to submit a review'})
     }
   }
+  ratingChanged(newRating){
+    console.log(newRating)
+    this.setState(newRating)
+  }
   render() {
     const { reviews } = this.props;
     const { rating, comment, error } = this.state;
-    const { save } = this;
+    const { save, ratingChanged } = this;
     console.log(reviews)
     return (
       <div>
         <form onSubmit={ save }>
           <h3>Leave a review</h3>
-          <ul>Rating: <input value= { rating } onChange={ ev => this.setState({ rating: ev.target.value }) }/></ul>
+          <ReactStars
+            count={5}
+            onChange={(rating)=>ratingChanged(rating)}
+            size={24}
+            activeColor="#ffd700"
+          />
           <ul>Comment: <input value= { comment } onChange={ ev => this.setState({ comment: ev.target.value }) }/></ul>
           <button>Post Review</button>
         </form>
