@@ -1,19 +1,21 @@
 .listofingredients {
-    overflow: scroll;
+    /* overflow: scroll;
     width: 500px;
     height: 400px;
     background-color: #E4DCCF;
-    border: 2px solid;
+    border: 2px solid; */
+}
+.unorderedlist{
+    list-style: none;
 }
 
 .addingredients{
-    text-align: center;
-    letter-spacing: 0.1rem;
+    text-align: left;
 }
 
 .myingredients{
-    text-align: center;
-    letter-spacing: 0.1rem;
+    text-align: left;
+
 }
 
 .inputingredient{
@@ -47,13 +49,15 @@
 }
 
 .overflow {
-    overflow: scroll;
+    /* overflow: scroll;
     width: 500px;
     height: 200px;
     border: 2px solid;
     background-color: #E4DCCF;
     padding: 5px 35px
-}
+    */
+    list-style: none;
+} 
 
 .addtopantrybutton{
     background-color: #f1e0d8;
@@ -63,8 +67,7 @@
 }
 
 .outofstock{
-    text-align: center;
-    letter-spacing: 0.1rem;
+    text-align: left;
 }
 
 .out-of-stock{
@@ -76,18 +79,21 @@
 }
 
 .img{
-    border-radius: 50%;
+    border-radius: 15rem;
     background-repeat: repeat;
 }
 
 .oos{
-    display: flex;
-    padding: 10px
+    /* display: flex; */
+    padding: 5px;
+    position: relative;
+    right:100px
 }
 
 .entireaddingredients{
   position: relative;
-  bottom: 20px
+  bottom: 20px;
+
 }
 
 .middlehr{
@@ -95,7 +101,8 @@
 }
 
 .oosname{
-    padding: 5px 10px
+    padding: 5px 10px;
+    text-align: left;
 }
 
 .middlehr1{
@@ -118,9 +125,48 @@
 }
 
 .ingr{
-    padding: 5px
+    padding: 5px;
+    position: relative; 
+    right: 50px
 }
 
 .tophr{
     width: 35rem
+}
+
+.everything{
+    --s: 10px; /* control the size */
+padding: var(--s);
+border: calc(2*var(--s)) solid #0000;
+outline: 1px solid #000;
+outline-offset: calc(-1*var(--s));
+background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
+position: relative;
+}
+.nameofpantryy{
+    text-align: left;
+}
+.unorderedlist{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: left;
+
+}
+
+.pantryhrr{
+    width: 30rem
+}
+.linkblack{
+    color: black
+}
+.oosbuttons{
+    text-align: left;
+display: flex; 
+
+}
+.img1{
+    border-radius: 50%;
+
 }

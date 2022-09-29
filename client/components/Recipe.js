@@ -22,6 +22,9 @@ class Recipe extends Component{
     const { createMyDrink, auth } = this.props
     const { drink } = this.state;
     const recipe = drink.drinks ? drink.drinks[0] : {}
+    function myFunction() {
+      alert("Added to my drinks!");
+    }
     return (
       <div className='wholething'>
         <div>

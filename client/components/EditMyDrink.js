@@ -1,6 +1,8 @@
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchMyDrinks, updateMyDrink } from "../store";
+import "./editmydrink.css"
 
 class EditMyDrink extends Component {
   constructor() {
@@ -230,7 +232,7 @@ class EditMyDrink extends Component {
       <main className="container mt-4">
         <div>
           <div>
-            <h2 style={{ textAlign: "center" }}>Edit My Drink</h2>
+            <h2 style={{ textAlign: "center" }}>EDIT MY DRINK</h2>
             <form className="row g-3 w-50 mt-4" onSubmit={save}>
               <div
                 style={{
@@ -278,8 +280,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient1 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient1" className="form-label small">
-                      ingredient1
-                    </label>
+INGREDIENT 1                    </label>
                     <input
                       value={strIngredient1}
                       name="strIngredient1"
@@ -292,7 +293,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure1 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure1" className="form-label small">
-                      measure 1
+                      MEASURE 1
                     </label>
                     <input
                       value={strMeasure1}
@@ -306,7 +307,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient2 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient2" className="form-label small">
-                      ingredient2
+                    INGREDIENT 2
                     </label>
                     <input
                       value={strIngredient2}
@@ -320,8 +321,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure2 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure2" className="form-label small">
-                      measure 2
-                    </label>
+                    MEASURE 2                    </label>
                     <input
                       value={strMeasure2}
                       name="strMeasure2"
@@ -334,7 +334,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient3 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient3" className="form-label small">
-                      ingredient3
+                    INGREDIENT 3
                     </label>
                     <input
                       value={strIngredient3}
@@ -348,8 +348,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure3 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure1" className="form-label small">
-                      measure 3
-                    </label>
+                    MEASURE 3                    </label>
                     <input
                       value={strMeasure3}
                       name="strMeasure3"
@@ -362,7 +361,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient4 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient4" className="form-label small">
-                      ingredient4
+                    INGREDIENT 4
                     </label>
                     <input
                       value={strIngredient4}
@@ -376,8 +375,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure4 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure4" className="form-label small">
-                      measure 4
-                    </label>
+                    MEASURE 4                    </label>
                     <input
                       value={strMeasure4}
                       name="strMeasure4"
@@ -390,7 +388,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient5 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient5" className="form-label small">
-                      ingredient5
+                    INGREDIENT 5
                     </label>
                     <input
                       value={strIngredient5}
@@ -404,8 +402,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure5 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure1" className="form-label small">
-                      measure 5
-                    </label>
+                    MEASURE 5                    </label>
                     <input
                       value={strMeasure5}
                       name="strMeasure5"
@@ -418,7 +415,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient6 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient6" className="form-label small">
-                      ingredient6
+                    INGREDIENT 6
                     </label>
                     <input
                       value={strIngredient6}
@@ -432,8 +429,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure6 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure1" className="form-label small">
-                      measure 6
-                    </label>
+                    MEASURE 6                    </label>
                     <input
                       value={strMeasure6}
                       name="strMeasure6"
@@ -446,7 +442,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient7 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient1" className="form-label small">
-                      ingredient7
+                    INGREDIENT 7
                     </label>
                     <input
                       value={strIngredient7}
@@ -460,8 +456,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure7 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure7" className="form-label small">
-                      measure 7
-                    </label>
+                    MEASURE 7                    </label>
                     <input
                       value={strMeasure7}
                       name="strMeasure7"
@@ -474,7 +469,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient8 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient8" className="form-label small">
-                      ingredient8
+                    INGREDIENT 8
                     </label>
                     <input
                       value={strIngredient8}
@@ -488,8 +483,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure8 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure8" className="form-label small">
-                      measure 8
-                    </label>
+                    MEASURE 8                    </label>
                     <input
                       value={strMeasure8}
                       name="strMeasure8"
@@ -502,8 +496,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient9 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient9" className="form-label small">
-                      ingredient9
-                    </label>
+                    INGREDIENT 9                    </label>
                     <input
                       value={strIngredient9}
                       name="strIngredient9"
@@ -516,8 +509,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure9 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure9" className="form-label small">
-                      measure 9
-                    </label>
+                    MEASURE 9                    </label>
                     <input
                       value={strMeasure9}
                       name="strMeasure9"
@@ -530,7 +522,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient10 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient10" className="form-label small">
-                      ingredient10
+                       INGREDIENT 10
                     </label>
                     <input
                       value={strIngredient10}
@@ -544,7 +536,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure10 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure10" className="form-label small">
-                      measure 10
+                    MEASURE 10
                     </label>
                     <input
                       value={strMeasure10}
@@ -558,7 +550,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient11 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient11" className="form-label small">
-                      ingredient11
+                    INGREDIENT 11
                     </label>
                     <input
                       value={strIngredient11}
@@ -572,7 +564,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure11 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure11" className="form-label small">
-                      measure 11
+                    MEASURE 11
                     </label>
                     <input
                       value={strMeasure11}
@@ -586,7 +578,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient12 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient12" className="form-label small">
-                      ingredient12
+                    INGREDIENT 12
                     </label>
                     <input
                       value={strIngredient12}
@@ -600,7 +592,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure12 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure12" className="form-label small">
-                      measure 12
+                    MEASURE 12
                     </label>
                     <input
                       value={strMeasure12}
@@ -617,7 +609,7 @@ class EditMyDrink extends Component {
                       htmlFor="strIngredient13xw"
                       className="form-label small"
                     >
-                      ingredient13
+                       INGREDIENT 13
                     </label>
                     <input
                       value={strIngredient13}
@@ -631,8 +623,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure13 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure13" className="form-label small">
-                      measure 13
-                    </label>
+                    MEASURE 13                    </label>
                     <input
                       value={strMeasure13}
                       name="strMeasure13"
@@ -645,7 +636,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient14 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient14" className="form-label small">
-                      ingredient14
+                    INGREDIENT 14
                     </label>
                     <input
                       value={strIngredient14}
@@ -659,7 +650,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure14 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure14" className="form-label small">
-                      measure 14
+                    MEASURE 14
                     </label>
                     <input
                       value={strMeasure14}
@@ -673,7 +664,7 @@ class EditMyDrink extends Component {
                 {drink.strIngredient15 ? (
                   <div className="mt-4">
                     <label htmlFor="strIngredient15" className="form-label small">
-                      ingredient15
+                    INGREDIENT 15
                     </label>
                     <input
                       value={strIngredient15}
@@ -687,7 +678,7 @@ class EditMyDrink extends Component {
                 {drink.strMeasure15 ? (
                   <div className="mt-4">
                     <label htmlFor="strMeasure15" className="form-label small">
-                      measure 15
+                    MEASURE 15
                     </label>
                     <input
                       value={strMeasure15}
@@ -711,10 +702,15 @@ class EditMyDrink extends Component {
                   ></textarea>
                 </div>
                 <div>
-                  <button>Save</button>
-                  <button onClick={() => history.push("/myDrinks")}>
+                  <div>
+                  <button className="savebuttong">Save</button>
+                  </div>
+                  <div>
+
+                  <button  className="savebuttong"onClick={() => history.push("/myDrinks")}>
                     Cancel
                   </button>
+                  </div>
                 </div>
               </div>
             </form>

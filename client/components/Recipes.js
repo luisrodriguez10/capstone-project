@@ -92,6 +92,111 @@ class Recipes extends Component {
       // 	})
       // }
 
+
+		return(
+		
+			<div className='recipeseverything'>
+				<div className='ingredient-list'>
+
+{/* <div className='toggle'>
+					<button className='toggle1' onClick={ pantryToggle }>MY PANTRY</button><button class="toggle1" onClick={ pantryToggle }>ALL INGREDIENTS</button>
+					</div> */}
+
+					<div className='recipesflex'>
+					<div className='insideingred'> <div className='ingredtitle'>INGREDIENTS</div>
+					<hr></hr>
+
+							<div className='alphabet'>
+					{	
+						listPantry ? 
+						
+						items.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
+
+							
+							return (
+								
+									
+									<div  className='a-f' key={ingredient.id}>
+						
+									<input className='inputingred' class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+								</div>
+
+							)
+						
+						})
+
+						:
+						ingredients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
+							return (
+								<div key={ingredient.id}>
+									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+								</div>
+							)
+						})
+					}
+				</div>
+				</div>
+								
+								
+				<div className='insiderec'> <div className='ingredtitle'>DRINKS</div>
+<hr></hr>
+<div className='alphabet2'>
+				<ul className='listrecipe'>
+					{
+						results ? 
+						pageResults.map( recipe => {
+							return (
+								<li key={ recipe.idDrink }>
+									<div className='insideflex'>
+									<div>
+									 <img
+										style={{
+											borderRadius: "50%",
+											width: "100px",
+											height: "100px",
+											border: "1px solid",
+											padding: "2px"
+										}}
+										src={ recipe.strDrinkThumb } alt={ `${ recipe.strDrink } Image` }>										
+									</img>
+									</div>
+									<hr></hr>
+
+									<div className='linkrec'>
+									<Link to={`/recipe/${ recipe.idDrink }`}><div className="linkrec">{ recipe.strDrink }</div></Link>
+									</div>
+
+									</div>
+								</li>
+							)
+						})
+						: 'There are no recipes!'
+					}
+				</ul>
+				<div>
+					{
+						pageResults.length ? pageNumbers.map((pageNum, index) => (
+							<button key={ index } onClick={() => { setPage(pageNum) }}>{ pageNum }</button>
+						)) : search ? 'There are no recipes with these ingredients!' : 'Choose your ingredients'
+					}
+				</div>
+
+				</div>
+				</div>
+				</div>
+				</div>
+				<div>
+					{
+						pageNumbers.map((pageNum, index) => (
+							<button key={ index } onClick={() => { setPage(pageNum) }}>{ pageNum }</button>
+						))
+					}
+				</div>
+				</div>
+
+		)
+	}
+
       for (let i = 1; i <= Math.ceil(results?.length / productsPerPage); i++) {
         pageNumbers.push(i);
       }
@@ -124,7 +229,7 @@ class Recipes extends Component {
                     )
                     .map((ingredient) => {
                       return (
-                        <div className="a-f">
+                        <div className="a-f" key={ingredient.id}>
                           <div>
                             <input
                               class="checkbox"
@@ -144,7 +249,7 @@ class Recipes extends Component {
                     )
                     .map((ingredient) => {
                       return (
-                        <div>
+                        <div key={ingredient.id}>
                           <input
                             type="checkbox"
                             value={ingredient.name}
@@ -195,7 +300,7 @@ class Recipes extends Component {
       );
     }
   }
-}
+
 
 const mapStateToProps = (state) => {
   return {

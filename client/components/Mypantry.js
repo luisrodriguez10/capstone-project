@@ -66,12 +66,12 @@ class Mypantry extends Component {
         <div>
           <div className='everything'>
 
-       <div>
+       <div className='tophalf'>
        <div className='my-ingredientsflex'>
        <div>        
 
           <div className='entireaddingredients'>
-          <hr className='tophr'></hr>
+          {/* <hr className='tophr'></hr> */}
 
         <h2 className='addingredients'>ADD INGREDIENTS</h2>
         <form onSubmit={handleSubmit}>
@@ -82,9 +82,14 @@ class Mypantry extends Component {
         {
           recipes.length !== 0 ? `${recipes.length} recipes using ${ingredient}` : '*there are currently no recipes using this ingredient'
         }
+
         <br></br>
         <br></br>
-        <hr className='tophr'></hr>
+        <br></br>
+
+        <hr className='pantryhrr'></hr>
+
+        {/* <hr className='tophr'></hr> */}
         </div>
         </div> 
         <h2 className='myingredients'>MY PANTRY</h2>
@@ -108,12 +113,15 @@ class Mypantry extends Component {
                 .sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
                 .map((item) => {
                   return (
+                    
                     <li key={item.id}>
                       <div className='ingr'>
                       <span className='ingredient-names'>{item.name}</span>
+                      <div className="nameofpantryy">
                       <button className="removefrompantry" onClick={() => handleClick(item)}>REMOVE FROM PANTRY</button>
                       <button className="removefrompantry" onClick={() => handleClickDelete(item.id)}>DELETE ITEM</button>
-                      <div className='linktorecipes'>*<Link to={`/Recipes/${item.name}`}>{item.drinks.length} recipes using {item.name}</Link></div>
+                      </div>
+                      <div className='linktorecipes'><Link to={`/Recipes/${item.name}`}><div className='linkblack'>*{item.drinks.length} recipes using {item.name}</div></Link></div>
                       </div>
                     </li>
                   );
@@ -123,7 +131,7 @@ class Mypantry extends Component {
           </div>
         </div>
         <div>
-        <img className="img" src="https://i.pinimg.com/564x/a9/e3/e8/a9e3e8a5c2b990bbf2d94a558197d785.jpg" width="500" height="500px"></img>
+        <img className="img" src="https://i.pinimg.com/564x/b2/ff/c6/b2ffc6dc7dbe2a08a461b993bab2dd4d.jpg" width="500" height="500px"></img>
         </div>
         </div>
         </div>
@@ -132,7 +140,7 @@ class Mypantry extends Component {
         <hr className='middlehr1'></hr>
         <div className="addtopantry">
           <div>
-          <img className="img" src="https://i.pinimg.com/564x/5c/ae/34/5cae3497e9d2d8e3ec3b20892c8f1a8c.jpg" width="500" height="500px"></img>
+          <img className="img1" src="https://i.pinimg.com/564x/5c/ae/34/5cae3497e9d2d8e3ec3b20892c8f1a8c.jpg" width="500" height="500px"></img>
           </div>
 
         <div>
@@ -159,8 +167,13 @@ class Mypantry extends Component {
                   <li className ="list" key={item.id}>
                     <div className='oos'>
                     <div className='oosname'>{item.name}</div>
+
+                    <div className='oosbuttons'>
                     <div><button className="removefrompantry" onClick={() => handleClick(item)}>ADD BACK TO PANTRY</button><br /></div>
-                    <div><button className="removefrompantry" onClick={() => handleClickDelete(item.id)}>DELETE ITEM</button></div>
+                    
+                  <div><button className="removefrompantry" onClick={() => handleClickDelete(item.id)}>DELETE ITEM</button></div>
+                  </div>
+
                     </div>
 
                   </li>
