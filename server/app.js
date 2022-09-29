@@ -11,25 +11,13 @@ app.use(morgan('dev'))
 // body parsing middleware
 app.use(express.json({limit: "50mb"}))
 
+app.use('/public', express.static('public'));
+
 // auth and api routes
 app.use('/auth', require('./auth'))
 app.use('/api', require('./api'))
 
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '..', 'public/index.html')));
-
-// app.get('/', (req, res, next) =>{
-//   try {
-//       console.log('called map stores')
-//       console.log(req.headers.lat)
-//       // axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
-//       //     lat
-//       //   },${lng}&type=${this.state.type}&radius=${
-//       //     this.state.radius * 1000
-//       //   }&key=${process.env.REACT_APP_API_KEY}`)
-//   } catch (ex) {
-//       next(ex)
-//   }
-// })
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
