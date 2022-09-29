@@ -16,31 +16,30 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           {/* The navbar will show these links after you log in */}
           <div className="drink">
             {" "}
-            <Link to="/">HOME</Link>
+            <Link to="/"><div className="navbarblack">Home</div></Link>
           </div>
           <div className="drink">
-            <Link to="/myDrinks">MY DRINKS</Link>
+            <Link to="/myDrinks"><div className="navbarblack">Drinks</div></Link>
           </div>
           <div className="drink">
-            <Link to="/Mypantry">MY PANTRY</Link>
+            <Link to="/Mypantry"><div className="navbarblack">Pantry</div></Link>
           </div>
           <div className="drink">
-            <Link to="/Recipes">RECIPES</Link>
+            <Link to="/Recipes"><div className="navbarblack">Recipes</div></Link>
           </div>
           <div className="drink">
-            <Link to="/stores">NEARBY STORES</Link>
+            <Link to="/stores"><div className="navbarblack">Nearby Stores</div></Link>
           </div>
           <div className="drink">
 
 
 
-            <Link to="/profile">My Profile</Link>
+            <Link to="/profile"><div className="navbarblack">Profile</div></Link>
           </div>
 
           <Link to="/" onClick={handleClick}>
-            LOGOUT
+          <div className="navbarblack">Logout</div> 
           </Link>
-        </div>
         </div>
 
       ) : (
@@ -48,16 +47,16 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           {/* The navbar will show these links before you log in */}
           <div className="drink">
             {" "}
-            <Link to="/">Home</Link>
+            <Link to="/"><div className="navbarblack">Home</div></Link>
           </div>
           <div className="drink">
-            <Link to="/Recipes">Recipes</Link>
+            <Link to="/Recipes"><div className="navbarblack">Recipes</div></Link>
           </div>
           <div className="drink">
-            <Link to="/login">Login</Link>
+            <Link to="/login"><div className="navbarblack">Login</div></Link>
           </div>
           <div className="drink">
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signup"><div className="navbarblack">Sign Up</div></Link>
           </div>
         </div>
       )}
@@ -65,11 +64,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
     <hr />
     {/* <div className='footer'>
     <hr className='footerhr' />
-
     <a href="#"><i class="fa fa-facebook"></i></a>
     <a href="#"><i class="fa fa-twitter"></i></a>
     <a href="#"><i class="fa fa-instagram"></i></a>
-
     </div> */}
   </div>
 );

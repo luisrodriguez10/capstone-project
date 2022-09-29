@@ -6,6 +6,10 @@ import Reviews from './Reviews';
 import "./Recipes.css"
 // import function to add to recipe list 
 
+
+
+
+
 class Recipe extends Component{
   constructor(){
     super();
@@ -22,55 +26,40 @@ class Recipe extends Component{
     const { createMyDrink, auth } = this.props
     const { drink } = this.state;
     const recipe = drink.drinks ? drink.drinks[0] : {}
+    function myFunction() {
+      alert("Added to my drinks!");
+    }
     return (
-      <div
-      id="drink-page"
-      style={{
-        display: "flex",
-      //   width: "100%",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        id="drink-info-container"
-        style={{ height: "400px", paddingTop: "2rem" }}
-      >
-        <img
-          style={{
-            borderRadius: "40px",
-            width: "80%",
-            height: "100%",
-            padding: "1rem"
-          }}
-          src={
+      
+      <div id="drink-page">
+
+         <div>
+
+          <h2 className="drink-nameh1">{ recipe.strDrink }</h2>
+          <hr></hr>
+          <hr></hr>
+          <div className='addd'>
+          <button className='addtodrinkbutton' onClick={ () => createMyDrink(recipe, auth.id) && myFunction() }>ADD TO MY DRINKS</button>
+          </div>
+        </div>
+
+       <div className="singlerecflex">
+
+        <div>
+      <img className="singledrinkimg"
+ src={
             recipe.strDrinkThumb
               ? recipe.strDrinkThumb
               : "https://www.plslwd.org/wp-content/plugins/lightbox/images/No-image-found.jpg"
           }
         ></img>
-      </div>
-      <div
-        id="drink-info"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: '350px',
-        }}
-      >
-        <div>
-          <h1 className='recipe-drinkname'>{ recipe.strDrink }</h1>
-          <hr className='drink-name'/>
-          <button onClick={ () => createMyDrink(recipe, auth.id) }>Add to My Drinks</button>
         </div>
-        <div
-          style={{
-            height: "330px",
-            textAlign: "center",
-          }}
-        >
-          <h2 style={{ textAlign: "center" }}>Ingredients</h2>
-          <hr className='drink-name'/>
+
+        <div className="ingredinst">
+
+       
+        <div>
+          <h3>INGREDIENTS</h3>
 
           <p>
             { recipe.strIngredient1 ? recipe.strIngredient1 : null}{" "}
@@ -133,37 +122,27 @@ class Recipe extends Component{
             {recipe.strMeasure15 ? ` | ${recipe.strMeasure15}` : null}
           </p>
         </div>
-        <div
-          style={{
-            height: "200px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-         
-          }}
-        >
-          <h2>Instructions</h2>
-          <hr className='drink-name'/>
+        <br></br>
+        <hr></hr>
 
-          <p className='recipeinstructions'>{ recipe.strInstructions }</p>
+        <div>
+          <h3>INSTRUCTIONS</h3>
+          <p className='instructions'>{ recipe.strInstructions }</p>
         </div>
-        <div
-          style={{
-            height: "50px",
-            width: "150px",
-            display: "flex",
-            justifyContent: "space-evenly",
 
-           
-          }}
-        >
         </div>
+
+
+        </div>
+
         <div>
           <h2>Reviews</h2>
           <Reviews drinkId={recipe.idDrink}/>
         </div>
-      </div>
-    </div>
+
+        </div>
+ 
+
   );
   }
 }

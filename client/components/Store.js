@@ -43,7 +43,7 @@ class Store extends React.Component {
   };
 
   async getStorePlaces(lat, lng) {
-    await fetch("https://the-cocktelero.herokuapp.com/api/stores/", {
+    await fetch("http://localhost:8080/api/stores/", {
       headers: {
         lat: lat,
         lng: lng,
@@ -91,6 +91,7 @@ class Store extends React.Component {
     console.log(places);
 
     return (
+      <div className="storeseverything">
       <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
@@ -108,11 +109,11 @@ class Store extends React.Component {
           </div>
         ) : (
           <div>
-            <h3>Liquor Stores</h3>
+            <h3 className="liquorstores">Liquor Stores</h3>
             {places.map((place, idx) => {
               return (
                 <div key={idx} style={{ padding: "1rem" }}>
-                  <div>{place.name}</div>
+                  <div className="plcename">{place.name}</div>
                   <div>{place.vicinity}</div>
                 </div>
               );
@@ -121,6 +122,7 @@ class Store extends React.Component {
           </div>
         )}
         <div id="map" style={{ height: "100vh", width: "100vh" }}></div>
+      </div>
       </div>
     );
   }

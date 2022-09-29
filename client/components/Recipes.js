@@ -106,11 +106,18 @@ class Recipes extends Component {
 		// For now just click one ingredient and set as state for search url
 
 		return(
-			<div>
-
+		
+			<div className='recipeseverything'>
 				<div className='ingredient-list'>
-<div className='toggle'>
-					<button className='toggle1' onClick={ pantryToggle }>MY PANTRY</button><button class="toggle1" onClick={ pantryToggle }>ALL INGREDIENTS</button></div>
+
+{/* <div className='toggle'>
+					<button className='toggle1' onClick={ pantryToggle }>MY PANTRY</button><button class="toggle1" onClick={ pantryToggle }>ALL INGREDIENTS</button>
+					</div> */}
+
+					<div className='recipesflex'>
+					<div className='insideingred'> <div className='ingredtitle'>INGREDIENTS</div>
+					<hr></hr>
+
 							<div className='alphabet'>
 					{	
 						listPantry ? 
@@ -119,10 +126,11 @@ class Recipes extends Component {
 
 							
 							return (
-								<div  className='a-f'>
-								<div>
-									<input class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
-								</div>
+								
+									
+									<div  className='a-f'>
+						
+									<input className='inputingred' class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
 								</div>
 
 							)
@@ -139,21 +147,38 @@ class Recipes extends Component {
 						})
 					}
 				</div>
-				<ul>
+				</div>
+								
+								
+				<div className='insiderec'> <div className='ingredtitle'>DRINKS</div>
+<hr></hr>
+<div className='alphabet2'>
+				<ul className='listrecipe'>
 					{
 						results ? 
-						results.map( recipe => {
+						pageResults.map( recipe => {
 							return (
 								<li key={ recipe.idDrink }>
+									<div className='insideflex'>
+									<div>
 									 <img
 										style={{
-											borderRadius: "3px",
-											width: "50px",
-											height: "50px"
+											borderRadius: "50%",
+											width: "100px",
+											height: "100px",
+											border: "1px solid",
+											padding: "2px"
 										}}
 										src={ recipe.strDrinkThumb } alt={ `${ recipe.strDrink } Image` }>										
 									</img>
-									<Link to={`/recipe/${ recipe.idDrink }`}>{ recipe.strDrink }</Link>
+									</div>
+									<hr></hr>
+
+									<div className='linkrec'>
+									<Link to={`/recipe/${ recipe.idDrink }`}><div className="linkrec">{ recipe.strDrink }</div></Link>
+									</div>
+
+									</div>
 								</li>
 							)
 						})
@@ -162,15 +187,28 @@ class Recipes extends Component {
 				</ul>
 				<div>
 					{
+						pageResults.length ? pageNumbers.map((pageNum, index) => (
+							<button key={ index } onClick={() => { setPage(pageNum) }}>{ pageNum }</button>
+						)) : search ? 'There are no recipes with these ingredients!' : 'Choose your ingredients'
+					}
+				</div>
+
+				</div>
+				</div>
+				</div>
+				</div>
+				<div>
+					{
 						pageNumbers.map((pageNum, index) => (
 							<button key={ index } onClick={() => { setPage(pageNum) }}>{ pageNum }</button>
 						))
 					}
 				</div>
-			</div>
-			</div>
+				</div>
+
 		)
 	}
+}
 }
 
 const mapStateToProps = ( state ) => {

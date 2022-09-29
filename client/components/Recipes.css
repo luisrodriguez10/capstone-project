@@ -5,27 +5,12 @@
 .recipe-drinkname{
     text-align: center;
 }
-.toggle{
-    text-align: center;
-    padding: 2px;
-    display: flex;
-    justify-content: space-evenly;
+
+.linkrec{
+    color: black
 }
-.toggle1{
-    border: 1px solid;
-    padding: 1rem 1.6rem;
-    background-color: #E4DCCF;
-    font-family: 'DM Serif Display', serif;  
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    text-align: center;
-    letter-spacing: 0.1rem;
-    border-radius: 0.2rem;
-
-
-
-}
-.toggle1:hover{
-    text-shadow: -.25px -.25px 0 blue, 
+.linkrec:hover{
+    text-shadow: -.25px -.25px 0 black, 
     .5px .5px black;
 }
 
@@ -33,3 +18,91 @@
     border: 1px solid
 }
 
+.alphabet{
+    /* overflow: scroll;
+    width: 350px;
+    height: 200px;
+    background-color: #E4DCCF;
+    padding: 5px 35px;
+    border: 2px solid */
+    display: flex;
+    justify-content: space-
+    space-evenly; 
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 30rem;
+padding: 20px;
+font-size: 17px
+} 
+
+/* .a-f{
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid
+} */
+.alphabet2{
+
+text-align: center;
+
+}
+.listrecipe{
+    list-style: none;
+ display: flex;
+    justify-content: space-evenly; 
+    flex-wrap: wrap;
+    padding: 10px
+}
+.recipesflex{
+   
+    margin-top: 20px;
+}
+
+.insiderec{
+    padding: 20px;
+    position: relative;
+    right: 30px
+}
+.ingredtitle{
+    font-size:25px;
+    padding: 10px;
+    text-align: center;
+}
+.insideflex{
+    text-align: center;
+    /* border: 1px solid; */
+    width: 13rem;
+    height:13rem;
+
+}
+
+/* .inputingred{
+    padding:10px
+} */
+#drink-page{
+    --s: 10px; /* control the size */
+padding: var(--s);
+border: calc(2*var(--s)) solid #0000;
+outline: 1px solid #000;
+outline-offset: calc(-1*var(--s));
+background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
+position: relative;
+}
+
+.addtodrinkbutton{
+    background-color: #f1e0d8;
+    height: 40px;
+    font-family: 'DM Serif Display', serif;  
+    float: center
+}
+.addd{
+text-align: center;}
+
+.recipeseverything{
+    --s: 10px; /* control the size */
+padding: var(--s);
+border: calc(2*var(--s)) solid #0000;
+outline: 1px solid #000;
+outline-offset: calc(-1*var(--s));
+background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
+position: relative;
+}

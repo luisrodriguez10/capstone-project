@@ -24,7 +24,6 @@ class MyDrink extends Component {
         
           
         <div>
-
             <h2 className="drink-nameh1">{myDrink.strDrink}</h2>
             <hr></hr>
             <hr></hr>
@@ -43,7 +42,7 @@ class MyDrink extends Component {
           ></img>
         </div>
 
-        <div>
+        <div className="ingredinst">
         
           <div>
             <h3>INGREDIENTS</h3>
@@ -118,11 +117,11 @@ class MyDrink extends Component {
 
           
             <div className="buttons">
-            <button className="edit"><Link to={{ pathname: "/editMyDrink", state: myDrink }}>
-             EDIT
+            <button className="edit"><Link to={{ pathname: "/editMyDrink/:id", state: myDrink }}>
+             <div className="colorblack">EDIT</div>
             </Link></button>
             <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
-            REMOVE
+            <div className="colorblack">REMOVE</div>
             </Link></button>
             </div>
 
