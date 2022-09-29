@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchCoordinates, createCoordinates } from "../store";
 import { RotatingLines } from "react-loader-spinner";
+import { Link } from "react-router-dom";
+
+var map;
 
 class Store extends React.Component {
   constructor() {
@@ -13,10 +16,28 @@ class Store extends React.Component {
       radius: "50",
       places: [],
     };
+    this.showStoreInfo = this.showStoreInfo.bind(this);
+  }
+
+  showStoreInfo(lat, lng, name, vicinity) {
+    const storeIcon = {
+      url: "../public/store.png",
+      scaledSize: new google.maps.Size(80, 80),
+    };
+
+    const marker = new window.google.maps.Marker({
+      position: new window.google.maps.LatLng(lat, lng),
+      map: map,
+      icon: storeIcon,
+    });
+
+    marker.infowindow = new window.google.maps.InfoWindow();
+    marker.infowindow.setContent(`<div class="ui header">${name}</div><p>${vicinity}</p>`);
+    marker.infowindow.open(map, marker);
   }
 
   addStoresToGoogleMaps = (places) => {
-    var map = new window.google.maps.Map(document.querySelector("#map"), {
+    map = new window.google.maps.Map(document.querySelector("#map"), {
       zoom: 15,
       center: new window.google.maps.LatLng(
         this.props.coordinates[0].lat,
@@ -103,6 +124,7 @@ class Store extends React.Component {
 
   render() {
     const { places } = this.state;
+    const { showStoreInfo } = this;
 
     return (
       <div
@@ -126,6 +148,18 @@ class Store extends React.Component {
                 <div key={idx} style={{ padding: "1rem" }}>
                   <div>{place.name}</div>
                   <div>{place.vicinity}</div>
+                  <button
+                    onClick={() =>
+                      showStoreInfo(
+                        place.geometry.location.lat,
+                        place.geometry.location.lng,
+                        place.name,
+                        place.vicinity
+                      )
+                    }
+                  >
+                    See Store Info
+                  </button>
                 </div>
               );
             })}
