@@ -116,7 +116,7 @@ class Recipes extends Component {
 							return (
 								
 									
-									<div  className='a-f'>
+									<div  className='a-f' key={ingredient.id}>
 						
 									<input className='inputingred' class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
 								</div>
@@ -128,7 +128,7 @@ class Recipes extends Component {
 						:
 						ingredients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map( ingredient => {
 							return (
-								<div>
+								<div key={ingredient.id}>
 									<input type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
 								</div>
 							)
@@ -229,7 +229,7 @@ class Recipes extends Component {
                     )
                     .map((ingredient) => {
                       return (
-                        <div className="a-f">
+                        <div className="a-f" key={ingredient.id}>
                           <div>
                             <input
                               class="checkbox"
@@ -249,7 +249,7 @@ class Recipes extends Component {
                     )
                     .map((ingredient) => {
                       return (
-                        <div>
+                        <div key={ingredient.id}>
                           <input
                             type="checkbox"
                             value={ingredient.name}
@@ -300,8 +300,7 @@ class Recipes extends Component {
       );
     }
   }
-}
-}
+
 
 const mapStateToProps = (state) => {
   return {

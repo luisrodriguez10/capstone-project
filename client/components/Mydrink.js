@@ -17,7 +17,6 @@ class MyDrink extends Component {
   render() {
     const { myDrink } = this.props;
     const { deleteMyDrink } = this.props;
-    console.log(myDrink)
 
     return (
       <div className="wholething">
@@ -117,12 +116,12 @@ class MyDrink extends Component {
 
           
             <div className="buttons">
-            <button className="edit"><Link to={{ pathname: "/editMyDrink/:id", state: myDrink }}>
+            <button className="edit"><Link to={{ pathname: `/editMyDrink/${myDrink.id}` }}>
              <div className="colorblack">EDIT</div>
             </Link></button>
-            <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(drink)}>
+            <button className="trash"><Link to="/myDrinks" onClick={() => deleteMyDrink(myDrink)}>
             <div className="colorblack">REMOVE</div>
-            
+            </Link></button>
             </div>
 
             </div>
