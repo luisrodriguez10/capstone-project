@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { createMyDrink } from '../store';
 import Reviews from './Reviews';
-import "./mydrinks.css"
+import "./Mydrinks.css"
 // import function to add to recipe list 
 
 class Recipe extends Component{
