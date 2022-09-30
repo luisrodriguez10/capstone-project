@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { models: { Review }} = require('../db')
-const User = require('../db/models/user')
+const User = require('../db/models/User')
 module.exports = router
 
 /* add new review */
