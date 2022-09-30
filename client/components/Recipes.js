@@ -11,7 +11,7 @@ class Recipes extends Component {
     this.state = {
       currentPage: 1,
       productsPerPage: 50,
-      listPantry: false,
+      listPantry: true,
       search: page ? page : "",
       checked: [],
     };
@@ -120,11 +120,11 @@ class Recipes extends Component {
 
 							
 							return (
-								
-									
-									<div  className='a-f'>
-						
-									<input className='inputingred' class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }
+								<div  className='a-f'>
+								    { ingredient.name === window.location.hash.slice(10) ? 
+									<p><input className='inputingred' class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck } checked={true}/>{ ingredient.name }</p> : 
+									<p><input className='inputingred' class="checkbox" type="checkbox" value={ ingredient.name } key={ ingredient.id } onChange={ handleCheck }/>{ ingredient.name }</p>
+								    }
 								</div>
 
 							)
