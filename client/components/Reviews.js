@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchReviews, createReview } from '../store';
 import ReactStars from 'react-rating-stars-component';
-import "./mydrinks.css"
+import "./Mydrinks.css"
 
 class Reviews extends Component {
   constructor(){
