@@ -43,7 +43,7 @@ class Mypantry extends Component {
   async handleChange(event) {
     this.setState({ ingredient: event.target.value, recipes: [] });
     const response = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${event.target.value}`);
-    if (response.data !== '') {
+    if (response.data.drinks !== 'None Found') {
       const drinksObj = response.data;
       this.setState({ recipes: drinksObj.drinks });
     }
