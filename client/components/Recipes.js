@@ -10,7 +10,7 @@ class Recipes extends Component {
     const page = window.location.hash.slice(10);
     this.state = {
       currentPage: 1,
-      productsPerPage: 9,
+      productsPerPage: 50,
       listPantry: false,
       search: page ? page : "vodka",
       checked: [],
@@ -106,6 +106,11 @@ class Recipes extends Component {
 					<div className='recipesflex'>
 					<div className='insideingred'> <div className='ingredtitle'>INGREDIENTS</div>
 					<hr></hr>
+	            <div className='toggle' >
+            { listPantry ? 
+              <button className='toggle1' onClick={ pantryToggle }>SEE ALL INGREDIENTS</button> :
+              <button className='toggle1' onClick={ pantryToggle }>SEE MY PANTRY</button> }
+					</div>
 
 							<div className='alphabet'>
 					{	
