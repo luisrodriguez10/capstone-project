@@ -34,7 +34,7 @@ export const updateMyDrink = (drink, history) =>{
     return async (dispatch) => {
         const response  = await axios.put(`/api/myDrinks/${drink.id}`, drink);
         dispatch({ type: 'UPDATE_MY_DRINK', myDrink: response.data })
-        history.push('/myDrinks')
+        history.push(`/myDrinks/${drink.id}`)
     }
 }
 
