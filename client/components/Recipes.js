@@ -12,7 +12,7 @@ class Recipes extends Component {
       currentPage: 1,
       productsPerPage: 50,
       listPantry: false,
-      search: page ? page : "vodka",
+      search: page ? page : "",
       checked: [],
     };
     this.pantryToggle = this.pantryToggle.bind(this);
