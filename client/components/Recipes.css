@@ -111,3 +111,9 @@ position: relative;
     height: 40px;
     font-family: 'DM Serif Display', serif;  
 }
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
