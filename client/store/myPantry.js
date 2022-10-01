@@ -80,7 +80,7 @@ export const createItem = (item) => {
     const response = await axios.post('api/pantryItems', item);
     const newItem = response.data;
     const responseDrinks = await axios.get(`https://www.thecocktaildb.com/api/json/v2/${process.env.COCKTAIL_DB_KEY}/filter.php?i=${newItem.name}`);
-    if (responseDrinks.data !== '') {
+    if (responseDrinks.data.drinks !== 'None Found') {
       const drinksObj = responseDrinks.data;
       newItem.drinks = drinksObj.drinks;
     } else {
